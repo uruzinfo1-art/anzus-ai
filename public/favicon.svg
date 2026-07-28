@@ -1,0 +1,24 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ansuzSteelGrad" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="35%" stop-color="#E2E8F0" />
+      <stop offset="65%" stop-color="#BFC5CC" />
+      <stop offset="85%" stop-color="#94A3B8" />
+      <stop offset="100%" stop-color="#64748B" />
+    </linearGradient>
+    <radialGradient id="sphereSteelGrad" cx="32%" cy="32%" r="68%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="35%" stop-color="#E2E8F0" />
+      <stop offset="70%" stop-color="#94A3B8" />
+      <stop offset="95%" stop-color="#334155" />
+    </radialGradient>
+  </defs>
+  <rect width="100" height="100" rx="20" fill="#0B0F14" />
+  <g transform="translate(0, 2)">
+    <path d="M 23.5 83 L 50 14.5 L 58.5 14.5 L 32 83 Z" fill="url(#ansuzSteelGrad)" />
+    <path d="M 50 14.5 L 76.5 50.5 L 68 56.5 L 45 25.5 Z" fill="url(#ansuzSteelGrad)" />
+    <path d="M 37.5 48 L 64 84 L 55.5 89.5 L 31.5 56.5 Z" fill="url(#ansuzSteelGrad)" />
+    <circle cx="45.5" cy="76" r="5.5" fill="url(#sphereSteelGrad)" />
+  </g>
+</svg>
