@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { Container } from '../layout/Container';
 import { Section } from '../layout/Section';
 import { Button } from '@/components/ui/Button';
-import heroMonolithImg from '@/assets/images/monolito.png';
+import heroHumanAiImg from '@/assets/images/hero-human-ai.png';
 
 export const HeroSection: React.FC = () => {
   const scrollToContact = () => {
@@ -44,18 +44,33 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#E6E8EB] font-display tracking-tight leading-[1.12] uppercase">
-              INGENIERÍA<br />
-              DIGITAL<br />
-              PARA<br />
-              EMPRESAS
-            </h1>
+            <h1 className="font-display font-extrabold tracking-tight leading-tight">
+  <span className="block text-3xl sm:text-4xl lg:text-5xl text-[#E6E8EB]">
+    Hay algo que ninguna empresa puede comprar.
+  </span>
+
+  <span className="block mt-4 text-5xl sm:text-6xl lg:text-6xl text-white">
+    Tiempo.
+  </span>
+
+  <span className="block mt-3 text-3xl sm:text-4xl lg:text-5xl text-[#8FA9C8]">
+    Pero sí puede recuperarlo.
+  </span>
+</h1>
 
             {/* Subtitle Body */}
-            <p className="text-base sm:text-lg text-[#6B7280] max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              Impulsamos la transformación digital de las empresas mediante ingeniería de software, inteligencia artificial y automatización, creando soluciones que optimizan procesos, aumentan la productividad y generan crecimiento sostenible.
-            </p>
+            <p className="text-base sm:text-lg text-[#9CA3AF] max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+  Con software, inteligencia artificial y automatización transformamos horas de trabajo repetitivo en tiempo para innovar, liderar, compartir con tu familia y hacer crecer tu negocio.
+</p>
+<div className="rounded-xl border border-[#2A3442] bg-[#11161D]/70 p-4 max-w-xl">
+  <p className="text-sm font-semibold text-[#E6E8EB]">
+    ¿Crees que podrías recuperar más tiempo?
+  </p>
 
+  <p className="mt-1 text-sm text-[#9CA3AF]">
+    Conversemos y descubramos juntos cómo hacerlo.
+  </p>
+</div>
             {/* Action Buttons */}
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Button
@@ -89,16 +104,27 @@ export const HeroSection: React.FC = () => {
               {/* Outer Metallic Silver Glow Frame */}
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#BFC5CC]/25 via-transparent to-[#BFC5CC]/15 blur-xl opacity-70 -z-10" />
 
-              {/* Monolith Container */}
+              {/* Cinematic Monolith Scene */}
               <div className="rounded-2xl border border-[#1A1F27] bg-[#11161D] shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden">
                 {/* Cinematic Monolith Scene */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0A0D11] flex items-center justify-center">
                   {/* High-Impact Dark Monolith Image Background */}
                   <img
-                    src={heroMonolithImg}
-                    alt="ANSUZ Monolito Tecnológico & Arquitectura Enterprise"
+                    src={heroHumanAiImg}
+                    alt="Colaboración entre el ser humano y la inteligencia artificial"
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700 brightness-95 contrast-105"
+                    className="
+w-full
+h-full
+object-cover
+object-center
+hover:scale-105
+transition-transform
+duration-700
+brightness-110
+contrast-110
+saturate-110
+"
                   />
 
                   {/* Dark Vignette Overlay for Depth */}
