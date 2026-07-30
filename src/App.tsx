@@ -14,6 +14,7 @@ import { Footer } from '@/components/layout/Footer';
 import { PersonasPage } from '@/pages/PersonasPage';
 import { NegociosPage } from '@/pages/NegociosPage';
 import { EmpresasPage } from '@/pages/EmpresasPage';
+import WhatsAppButton from "./components/WhatsAppButton";
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(
@@ -39,7 +40,7 @@ export default function App() {
       'Agencia de arquitectura de software enterprise, desarrollo full-stack con Next.js 15, React 19 e Inteligencia Artificial.',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Madrid',
+      addressLocality: 'Bogota',
       addressCountry: 'ES',
     },
     sameAs: [
@@ -48,6 +49,7 @@ export default function App() {
       'https://github.com/ansuz-tech',
     ],
   };
+  
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/10 selection:text-primary">
@@ -79,8 +81,12 @@ export default function App() {
         )}
       </main>
 
-      {/* Global Footer */}
+           {/* Global Footer */}
       <Footer />
+
+      {/* Botón flotante de WhatsApp */}
+      <WhatsAppButton />
+
     </div>
   );
 }
