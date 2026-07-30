@@ -44,16 +44,24 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-display font-extrabold tracking-tight leading-tight">
-  <span className="block text-3xl sm:text-4xl lg:text-5xl text-[#E6E8EB]">
-    Hay algo que ninguna empresa puede comprar.
+            <h1 className="font-sans font-bold leading-[1.05] tracking-tight">
+  <span className="block text-4xl lg:text-5xl text-white uppercase">
+    Hay algo que
   </span>
 
-  <span className="block mt-4 text-5xl sm:text-6xl lg:text-6xl text-white">
+  <span className="block text-4xl lg:text-5xl text-white uppercase">
+    ninguna empresa
+  </span>
+
+  <span className="block text-4xl lg:text-5xl text-white uppercase">
+    puede comprar.
+  </span>
+
+  <span className="block mt-5 text-7xl lg:text-8xl font-black text-white uppercase">
     Tiempo.
   </span>
 
-  <span className="block mt-3 text-3xl sm:text-4xl lg:text-5xl text-[#8FA9C8]">
+  <span className="block mt-3 text-3xl lg:text-4xl font-semibold text-[#8EA8C9] uppercase">
     Pero sí puede recuperarlo.
   </span>
 </h1>
