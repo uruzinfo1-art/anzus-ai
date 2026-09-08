@@ -115,9 +115,8 @@ export const Footer: React.FC = () => {
               DESARROLLOS
             </h4>
             <ul className="space-y-2 text-xs text-[#5B6472]">
-              <li><a href="#proyectos" className="hover:text-[#35507A] transition-colors font-semibold text-[#0F172A]">AMARA</a></li>
-              <li><a href="#proyectos" className="hover:text-[#35507A] transition-colors">Próximamente</a></li>
-              <li><a href="#proyectos" className="hover:text-[#35507A] transition-colors">Soluciones Empresariales</a></li>
+              <li><a href="https://amara-weld.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-[#35507A] transition-colors font-semibold text-[#0F172A]">AMARA</a></li>
+              <li><a href="https://3dsnaptech.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#35507A] transition-colors font-semibold text-[#0F172A]">3DSnapTech</a></li>
             </ul>
           </div>
 
@@ -163,7 +162,7 @@ export const Footer: React.FC = () => {
             <a href="#privacy" className="hover:text-[#0F172A] transition-colors">
               Política de privacidad
             </a>
-            <span className="text-[#E2E5EA]">|</span>
+            <span className="text-[#5B6472]">|</span>
             <a href="#terms" className="hover:text-[#0F172A] transition-colors">
               Términos y condiciones
             </a>

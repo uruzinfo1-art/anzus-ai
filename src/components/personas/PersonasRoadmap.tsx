@@ -76,7 +76,7 @@ export const PersonasRoadmap: React.FC = () => {
       <Container maxWidth="2xl" className="relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-5 mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F8FA] border border-white/[0.08] text-[#35507A] shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F8FA] border border-[#0F172A]/[0.08] text-[#35507A] shadow-sm">
             <Layers className="w-3.5 h-3.5 text-[#35507A]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#35507A]">
               LO QUE ESTAMOS CONSTRUYENDO
@@ -119,7 +119,7 @@ export const PersonasRoadmap: React.FC = () => {
                       className={`relative group rounded-2xl border p-6 sm:p-8 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 ${
                         step.isAvailable
                           ? 'bg-[#F7F8FA]/90 border-emerald-500/40 shadow-[0_15px_40px_rgba(16,185,129,0.1)]'
-                          : 'bg-[#FFFFFF]/80 border-white/[0.08] hover:border-white/[0.2]'
+                          : 'bg-[#FFFFFF]/80 border-[#0F172A]/[0.08] hover:border-white/[0.2]'
                       }`}
                     >
                       <div className="flex items-center justify-between gap-3 mb-3">
@@ -130,7 +130,7 @@ export const PersonasRoadmap: React.FC = () => {
                           className={`text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-full border flex items-center gap-1.5 ${
                             step.isAvailable
                               ? 'border-emerald-500/40 text-emerald-400 bg-emerald-500/10'
-                              : 'border-white/[0.1] text-[#5B6472] bg-white/[0.03]'
+                              : 'border-[#0F172A]/[0.1] text-[#5B6472] bg-[#0F172A]/[0.03]'
                           }`}
                         >
                           {step.isAvailable ? (
@@ -156,11 +156,11 @@ export const PersonasRoadmap: React.FC = () => {
                   </div>
 
                   {/* Node Circle Center */}
-                  <div className="relative z-20 flex items-center justify-center w-10 h-10 rounded-full bg-[#FFFFFF] border-2 border-white/[0.15] text-white shrink-0 shadow-lg">
+                  <div className="relative z-20 flex items-center justify-center w-10 h-10 rounded-full bg-[#FFFFFF] border-2 border-[#0F172A]/[0.15] text-[#0F172A] shrink-0 shadow-lg">
                     {step.isAvailable ? (
                       <div className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse" />
                     ) : (
-                      <div className="w-2 h-2 rounded-full bg-white/30" />
+                      <div className="w-2 h-2 rounded-full bg-[#0F172A]/30" />
                     )}
                   </div>
 
@@ -173,7 +173,7 @@ export const PersonasRoadmap: React.FC = () => {
         </div>
 
         {/* Footer Note */}
-        <div className="mt-16 text-center max-w-xl mx-auto p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
+        <div className="mt-16 text-center max-w-xl mx-auto p-4 rounded-2xl bg-[#0F172A]/[0.02] border border-[#0F172A]/[0.05]">
           <p className="text-xs sm:text-sm text-[#5B6472] leading-relaxed italic">
             "Cada nueva solución hace parte de un ecosistema que crecerá constantemente para ayudarte en diferentes aspectos de tu vida."
           </p>

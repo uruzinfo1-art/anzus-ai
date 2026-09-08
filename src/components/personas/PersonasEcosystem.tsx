@@ -54,8 +54,8 @@ export const PersonasEcosystem: React.FC = () => {
         'Panel unificado para hogar y proyectos personales',
       ],
       previewGraphic: (
-        <div className="w-full h-40 sm:h-48 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-4 flex flex-col justify-between overflow-hidden relative group-hover:border-white/[0.2] transition-all">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+        <div className="w-full h-40 sm:h-48 rounded-xl bg-[#F7F8FA] border border-[#0F172A]/[0.08] p-4 flex flex-col justify-between overflow-hidden relative group-hover:border-white/[0.2] transition-all">
+          <div className="flex items-center justify-between border-b border-[#0F172A]/[0.06] pb-2">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
               <span className="text-xs font-mono text-[#5B6472] font-semibold">AMARA OS v2.4</span>
@@ -65,17 +65,17 @@ export const PersonasEcosystem: React.FC = () => {
             </span>
           </div>
           <div className="grid grid-cols-2 gap-2 my-auto">
-            <div className="bg-white/[0.03] p-2.5 rounded-lg border border-white/[0.05]">
+            <div className="bg-[#0F172A]/[0.03] p-2.5 rounded-lg border border-[#0F172A]/[0.05]">
               <span className="text-[10px] text-[#5B6472] block">Ahorro Mensual</span>
-              <span className="text-sm font-bold text-white font-mono">$1,850.00</span>
+              <span className="text-sm font-bold text-[#0F172A] font-mono">$1,850.00</span>
               <span className="text-[9px] text-emerald-400 flex items-center gap-1 mt-0.5">
                 <TrendingUp className="w-2.5 h-2.5" /> +14.2% este mes
               </span>
             </div>
-            <div className="bg-white/[0.03] p-2.5 rounded-lg border border-white/[0.05]">
+            <div className="bg-[#0F172A]/[0.03] p-2.5 rounded-lg border border-[#0F172A]/[0.05]">
               <span className="text-[10px] text-[#5B6472] block">Meta Casa Propia</span>
-              <span className="text-sm font-bold text-white font-mono">72% completado</span>
-              <div className="w-full h-1 bg-white/10 rounded-full mt-1.5 overflow-hidden">
+              <span className="text-sm font-bold text-[#0F172A] font-mono">72% completado</span>
+              <div className="w-full h-1 bg-[#0F172A]/10 rounded-full mt-1.5 overflow-hidden">
                 <div className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 w-[72%]" />
               </div>
             </div>
@@ -99,20 +99,20 @@ export const PersonasEcosystem: React.FC = () => {
         'Recetas basadas en ingredientes que ya tienes en casa',
       ],
       previewGraphic: (
-        <div className="w-full h-40 sm:h-48 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-4 flex flex-col justify-between overflow-hidden relative group-hover:border-white/[0.2] transition-all">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+        <div className="w-full h-40 sm:h-48 rounded-xl bg-[#F7F8FA] border border-[#0F172A]/[0.08] p-4 flex flex-col justify-between overflow-hidden relative group-hover:border-white/[0.2] transition-all">
+          <div className="flex items-center justify-between border-b border-[#0F172A]/[0.06] pb-2">
             <span className="text-xs font-mono text-[#5B6472] font-semibold">PLAN SEMANAL INTELIGENTE</span>
             <span className="text-[10px] font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full border border-blue-500/20">
               Q3 2026
             </span>
           </div>
           <div className="space-y-2 my-auto">
-            <div className="flex items-center justify-between p-2 rounded-lg bg-white/[0.03] border border-white/[0.05]">
-              <span className="text-xs text-white font-medium">🥗 Almuerzo Proteico & Vegetales</span>
+            <div className="flex items-center justify-between p-2 rounded-lg bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.05]">
+              <span className="text-xs text-[#0F172A] font-medium">🥗 Almuerzo Proteico & Vegetales</span>
               <span className="text-[10px] text-[#5B6472] font-mono">540 kcal</span>
             </div>
-            <div className="flex items-center justify-between p-2 rounded-lg bg-white/[0.03] border border-white/[0.05]">
-              <span className="text-xs text-white font-medium">🛒 Lista de Compras Generada</span>
+            <div className="flex items-center justify-between p-2 rounded-lg bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.05]">
+              <span className="text-xs text-[#0F172A] font-medium">🛒 Lista de Compras Generada</span>
               <span className="text-[10px] text-blue-400 font-mono">12 ítems</span>
             </div>
           </div>
@@ -135,8 +135,8 @@ export const PersonasEcosystem: React.FC = () => {
         'Recordatorios adaptativos basados en tu rutina',
       ],
       previewGraphic: (
-        <div className="w-full h-40 sm:h-48 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-4 flex flex-col justify-between overflow-hidden relative group-hover:border-white/[0.2] transition-all">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+        <div className="w-full h-40 sm:h-48 rounded-xl bg-[#F7F8FA] border border-[#0F172A]/[0.08] p-4 flex flex-col justify-between overflow-hidden relative group-hover:border-white/[0.2] transition-all">
+          <div className="flex items-center justify-between border-b border-[#0F172A]/[0.06] pb-2">
             <span className="text-xs font-mono text-[#5B6472] font-semibold">AGENDA PROACTIVA</span>
             <span className="text-[10px] font-mono text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded-full border border-indigo-500/20">
               En desarrollo
@@ -147,8 +147,8 @@ export const PersonasEcosystem: React.FC = () => {
               <span className="text-xs text-indigo-200 font-medium">✨ Sugerencia: Bloque de enfoque 10:00 AM</span>
               <span className="text-[9px] text-indigo-300 font-mono">Optimizada</span>
             </div>
-            <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.05] flex items-center justify-between">
-              <span className="text-xs text-white font-medium">📌 3 tareas prioritarias hoy</span>
+            <div className="p-2 rounded-lg bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.05] flex items-center justify-between">
+              <span className="text-xs text-[#0F172A] font-medium">📌 3 tareas prioritarias hoy</span>
               <span className="text-[10px] text-[#5B6472] font-mono">En curso</span>
             </div>
           </div>
@@ -171,15 +171,15 @@ export const PersonasEcosystem: React.FC = () => {
         'Preguntas y respuestas con ejemplos del mundo real',
       ],
       previewGraphic: (
-        <div className="w-full h-40 sm:h-48 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-4 flex flex-col justify-between overflow-hidden relative group-hover:border-white/[0.2] transition-all">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+        <div className="w-full h-40 sm:h-48 rounded-xl bg-[#F7F8FA] border border-[#0F172A]/[0.08] p-4 flex flex-col justify-between overflow-hidden relative group-hover:border-white/[0.2] transition-all">
+          <div className="flex items-center justify-between border-b border-[#0F172A]/[0.06] pb-2">
             <span className="text-xs font-mono text-[#5B6472] font-semibold">APRENDIZAJE PERSONALIZADO</span>
             <span className="text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
               Próximo módulo
             </span>
           </div>
           <div className="space-y-2 my-auto">
-            <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.05]">
+            <div className="p-2 rounded-lg bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.05]">
               <span className="text-xs text-amber-300 font-bold block">Lección: Fundamentos de IA</span>
               <span className="text-[11px] text-[#5B6472] block mt-0.5">Explicación conceptual paso a paso</span>
             </div>
@@ -203,15 +203,15 @@ export const PersonasEcosystem: React.FC = () => {
         'Formatos listos para publicar',
       ],
       previewGraphic: (
-        <div className="w-full h-40 sm:h-48 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-4 flex flex-col justify-between overflow-hidden relative group-hover:border-white/[0.2] transition-all">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+        <div className="w-full h-40 sm:h-48 rounded-xl bg-[#F7F8FA] border border-[#0F172A]/[0.08] p-4 flex flex-col justify-between overflow-hidden relative group-hover:border-white/[0.2] transition-all">
+          <div className="flex items-center justify-between border-b border-[#0F172A]/[0.06] pb-2">
             <span className="text-xs font-mono text-[#5B6472] font-semibold">STUDIO MULTICANAL</span>
             <span className="text-[10px] font-mono text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/20">
               En laboratorio
             </span>
           </div>
           <div className="space-y-2 my-auto">
-            <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.05] flex items-center justify-between">
+            <div className="p-2 rounded-lg bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.05] flex items-center justify-between">
               <span className="text-xs text-purple-200 font-medium">✨ Post LinkedIn + Guión Reel</span>
               <span className="text-[10px] text-emerald-400 font-mono">Listo</span>
             </div>
@@ -235,16 +235,16 @@ export const PersonasEcosystem: React.FC = () => {
         'Gestión unificada de servicios y contratos',
       ],
       previewGraphic: (
-        <div className="w-full h-40 sm:h-48 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-4 flex flex-col justify-between overflow-hidden relative group-hover:border-white/[0.2] transition-all">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+        <div className="w-full h-40 sm:h-48 rounded-xl bg-[#F7F8FA] border border-[#0F172A]/[0.08] p-4 flex flex-col justify-between overflow-hidden relative group-hover:border-white/[0.2] transition-all">
+          <div className="flex items-center justify-between border-b border-[#0F172A]/[0.06] pb-2">
             <span className="text-xs font-mono text-[#5B6472] font-semibold">CONTROL DEL HOGAR</span>
             <span className="text-[10px] font-mono text-[#35507A] bg-[#35507A]/10 px-2 py-0.5 rounded-full border border-[#35507A]/20">
               En desarrollo
             </span>
           </div>
           <div className="space-y-2 my-auto">
-            <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.05] flex items-center justify-between">
-              <span className="text-xs text-white font-medium">🏠 Mantenimiento y Servicios</span>
+            <div className="p-2 rounded-lg bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.05] flex items-center justify-between">
+              <span className="text-xs text-[#0F172A] font-medium">🏠 Mantenimiento y Servicios</span>
               <span className="text-[10px] text-[#5B6472] font-mono">Al día</span>
             </div>
           </div>
@@ -267,7 +267,7 @@ export const PersonasEcosystem: React.FC = () => {
       <Container maxWidth="2xl" className="relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-5 mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-white/[0.08] text-[#35507A] shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#0F172A]/[0.08] text-[#35507A] shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#35507A]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#35507A]">
               CATÁLOGO DE PRODUCTOS
@@ -298,7 +298,7 @@ export const PersonasEcosystem: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="h-full flex"
               >
-                <div className="relative group w-full flex flex-col justify-between rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-6 sm:p-8 transition-all duration-350 hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:shadow-[0_25px_60px_rgba(15,23,42,0.6)] hover:-translate-y-1.5">
+                <div className="relative group w-full flex flex-col justify-between rounded-2xl md:rounded-3xl border border-[#0F172A]/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-6 sm:p-8 transition-all duration-350 hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:shadow-[0_25px_60px_rgba(15,23,42,0.6)] hover:-translate-y-1.5">
                   {/* Subtle top inner sheen */}
                   <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none rounded-t-2xl md:rounded-t-3xl" />
 
@@ -331,14 +331,14 @@ export const PersonasEcosystem: React.FC = () => {
                   </div>
 
                   {/* Action Button */}
-                  <div className="relative pt-6 mt-6 border-t border-white/[0.06]">
+                  <div className="relative pt-6 mt-6 border-t border-[#0F172A]/[0.06]">
                     <button
                       type="button"
                       onClick={() => setSelectedProduct(product)}
                       className={`inline-flex items-center justify-between w-full px-5 py-3.5 rounded-xl border text-xs sm:text-sm font-semibold tracking-wide transition-all duration-250 shadow-sm ${
                         isAvailable
-                          ? 'bg-[#FFFFFF] border-emerald-500/30 text-white hover:bg-emerald-600/30 hover:border-emerald-400'
-                          : 'bg-[#FFFFFF] border-white/[0.1] text-[#0F172A] hover:bg-[#FFFFFF] hover:text-white'
+                          ? 'bg-[#FFFFFF] border-emerald-500/30 text-[#0F172A] hover:bg-emerald-600/30 hover:border-emerald-400'
+                          : 'bg-[#FFFFFF] border-[#0F172A]/[0.1] text-[#0F172A] hover:bg-[#FFFFFF] hover:text-white'
                       }`}
                     >
                       <span>{product.ctaText}</span>
@@ -365,13 +365,13 @@ export const PersonasEcosystem: React.FC = () => {
                 initial={{ scale: 0.95, y: 20 }}
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.95, y: 20 }}
-                className="relative w-full max-w-lg rounded-3xl border border-white/[0.15] bg-[#F7F8FA] p-6 sm:p-8 space-y-6 shadow-2xl"
+                className="relative w-full max-w-lg rounded-3xl border border-[#0F172A]/[0.15] bg-[#F7F8FA] p-6 sm:p-8 space-y-6 shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button
                   type="button"
                   onClick={() => setSelectedProduct(null)}
-                  className="absolute top-5 right-5 p-2 rounded-full bg-white/[0.05] text-[#5B6472] hover:text-white hover:bg-white/[0.1] transition-all"
+                  className="absolute top-5 right-5 p-2 rounded-full bg-[#0F172A]/[0.05] text-[#5B6472] hover:text-white hover:bg-white/[0.1] transition-all"
                   aria-label="Cerrar"
                 >
                   <X className="w-5 h-5" />
@@ -380,7 +380,7 @@ export const PersonasEcosystem: React.FC = () => {
                 <div className="flex items-center gap-3">
                   <span className="text-3xl">{selectedProduct.badgeEmoji}</span>
                   <div>
-                    <h3 className="text-2xl font-extrabold text-white font-display">
+                    <h3 className="text-2xl font-extrabold text-[#0F172A] font-display">
                       {selectedProduct.name}
                     </h3>
                     <span className="text-xs text-[#5B6472] font-mono">
@@ -394,13 +394,13 @@ export const PersonasEcosystem: React.FC = () => {
                 </p>
 
                 {selectedProduct.details && (
-                  <div className="space-y-2 pt-2 border-t border-white/[0.08]">
+                  <div className="space-y-2 pt-2 border-t border-[#0F172A]/[0.08]">
                     <h4 className="text-xs font-semibold text-[#5B6472] uppercase tracking-wider font-mono">
                       CARACTERÍSTICAS CLAVE
                     </h4>
                     <ul className="space-y-2">
                       {selectedProduct.details.map((detail, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-xs text-[#E2E5EA]">
+                        <li key={idx} className="flex items-start gap-2 text-xs text-[#5B6472]">
                           <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                           <span>{detail}</span>
                         </li>
@@ -417,7 +417,7 @@ export const PersonasEcosystem: React.FC = () => {
                       const contactEl = document.querySelector('#contacto');
                       if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="w-full py-3 rounded-xl bg-[#35507A] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#35507A] transition-colors"
+                    className="w-full py-3 rounded-xl bg-[#35507A] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#2A4064] transition-colors"
                   >
                     Solicitar más información
                   </button>

@@ -66,7 +66,7 @@ export const Navbar: React.FC = () => {
             <a
               href="#inicio"
               onClick={(e) => handleNavClick(e, '#inicio')}
-              className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F172A] rounded-md transition-transform duration-300 hover:scale-[1.02]"
+              className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8CA9D1] rounded-md transition-transform duration-300 hover:scale-[1.02]"
             >
               <AnsuzLogo variant="wordmark" theme="steel" />
             </a>
@@ -78,7 +78,7 @@ export const Navbar: React.FC = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-[12px] uppercase tracking-widest font-semibold text-[#0F172A] hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#0F172A] hover:after:w-full after:transition-all after:duration-200"
+                  className="text-[12px] uppercase tracking-widest font-semibold text-[#E6E8EB] hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#8CA9D1] hover:after:w-full after:transition-all after:duration-200"
                 >
                   {link.name}
                 </a>
@@ -105,7 +105,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-[#0F172A] hover:bg-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F172A]"
+              className="md:hidden p-2 rounded-lg text-[#E6E8EB] hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8CA9D1]"
               aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
               aria-expanded={mobileMenuOpen}
             >
@@ -121,7 +121,7 @@ export const Navbar: React.FC = () => {
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.25, ease: 'easeInOut' }}
-                className="md:hidden border-t border-[#0F172A]/20 mt-4 pt-4 overflow-hidden"
+                className="md:hidden border-t border-[#0F172A]/10 mt-4 pt-4 overflow-hidden"
               >
                 <div className="flex flex-col gap-4">
                   <nav className="flex flex-col gap-3">
@@ -130,14 +130,14 @@ export const Navbar: React.FC = () => {
                         key={link.name}
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link.href)}
-                        className="px-4 py-2 text-xs uppercase tracking-widest font-semibold text-[#0F172A] hover:text-white hover:bg-black/10 rounded-lg transition-colors"
+                        className="px-4 py-2 text-xs uppercase tracking-widest font-semibold text-[#E6E8EB] hover:text-white hover:bg-white/10 rounded-lg transition-colors"
                       >
                         {link.name}
                       </a>
                     ))}
                   </nav>
 
-                  <div className="pt-3 border-t border-[#0F172A]/20 flex flex-col gap-3">
+                  <div className="pt-3 border-t border-[#0F172A]/10 flex flex-col gap-3">
                     <Button
                       variant="primary"
                       size="lg"

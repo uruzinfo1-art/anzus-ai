@@ -85,7 +85,7 @@ export const NosotrosSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-white/[0.08] text-[#5B6472] shadow-sm"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#0F172A]/[0.08] text-[#5B6472] shadow-sm"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#35507A]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#35507A]">
@@ -121,7 +121,7 @@ export const NosotrosSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative group rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#F7F8FA]/80 backdrop-blur-md p-8 sm:p-10 flex flex-col justify-between hover:border-white/[0.2] transition-all duration-300 shadow-xl"
+            className="relative group rounded-2xl md:rounded-3xl border border-[#0F172A]/[0.08] bg-[#F7F8FA]/80 backdrop-blur-md p-8 sm:p-10 flex flex-col justify-between hover:border-white/[0.2] transition-all duration-300 shadow-xl"
           >
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-400/20 text-blue-400 flex items-center justify-center">
@@ -141,7 +141,7 @@ export const NosotrosSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative group rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#F7F8FA]/80 backdrop-blur-md p-8 sm:p-10 flex flex-col justify-between hover:border-white/[0.2] transition-all duration-300 shadow-xl"
+            className="relative group rounded-2xl md:rounded-3xl border border-[#0F172A]/[0.08] bg-[#F7F8FA]/80 backdrop-blur-md p-8 sm:p-10 flex flex-col justify-between hover:border-white/[0.2] transition-all duration-300 shadow-xl"
           >
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-400/20 text-indigo-400 flex items-center justify-center">
@@ -180,10 +180,10 @@ export const NosotrosSection: React.FC = () => {
                   transition={{ duration: 0.5, delay: index * 0.08 }}
                   className="h-full flex"
                 >
-                  <div className="relative group w-full rounded-2xl border border-white/[0.08] bg-[#F7F8FA] p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:border-white/[0.2] hover:bg-[#FFFFFF] hover:-translate-y-1 shadow-lg">
+                  <div className="relative group w-full rounded-2xl border border-[#0F172A]/[0.08] bg-[#F7F8FA] p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:border-white/[0.2] hover:bg-[#FFFFFF] hover:-translate-y-1 shadow-lg">
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <div className="w-12 h-12 rounded-xl bg-[#FFFFFF] border border-white/[0.1] text-[#0F172A] flex items-center justify-center group-hover:border-white/[0.25] group-hover:scale-105 transition-all">
+                        <div className="w-12 h-12 rounded-xl bg-[#FFFFFF] border border-[#0F172A]/[0.1] text-[#0F172A] flex items-center justify-center group-hover:border-white/[0.25] group-hover:scale-105 transition-all">
                           <IconComponent className="w-5 h-5 text-blue-400" />
                         </div>
                         <span className="text-xl">{item.emoji}</span>
@@ -210,7 +210,7 @@ export const NosotrosSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-2xl md:rounded-3xl border border-white/[0.1] bg-gradient-to-b from-[#FFFFFF] to-[#F7F8FA] p-8 sm:p-12 overflow-hidden shadow-2xl"
+          className="relative rounded-2xl md:rounded-3xl border border-[#0F172A]/[0.1] bg-gradient-to-b from-[#FFFFFF] to-[#F7F8FA] p-8 sm:p-12 overflow-hidden shadow-2xl"
         >
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -232,19 +232,19 @@ export const NosotrosSection: React.FC = () => {
             </p>
 
             <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs sm:text-sm font-medium text-[#5B6472]">
-              <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center gap-2">
+              <div className="p-3 rounded-xl bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.06] flex items-center justify-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>Escuchamos</span>
               </div>
-              <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center gap-2">
+              <div className="p-3 rounded-xl bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.06] flex items-center justify-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>Proponemos</span>
               </div>
-              <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center gap-2">
+              <div className="p-3 rounded-xl bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.06] flex items-center justify-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>Desarrollamos</span>
               </div>
-              <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center gap-2">
+              <div className="p-3 rounded-xl bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.06] flex items-center justify-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>Evolucionamos</span>
               </div>
@@ -258,7 +258,7 @@ export const NosotrosSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-2xl md:rounded-3xl border border-white/[0.12] bg-[#F7F8FA] p-8 sm:p-12 text-center max-w-3xl mx-auto shadow-2xl"
+          className="relative rounded-2xl md:rounded-3xl border border-[#0F172A]/[0.12] bg-[#F7F8FA] p-8 sm:p-12 text-center max-w-3xl mx-auto shadow-2xl"
         >
           <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-400/20 text-emerald-400 flex items-center justify-center mx-auto mb-5 shadow-inner">
             <ShieldCheck className="w-6 h-6" />

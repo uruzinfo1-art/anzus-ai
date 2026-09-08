@@ -101,7 +101,7 @@ export const EmpresasHero: React.FC = () => {
             className="lg:col-span-6 space-y-6 text-center lg:text-left"
           >
             {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-white/[0.08] text-[#35507A] shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#0F172A]/[0.08] text-[#35507A] shadow-sm">
               <span className="text-sm">🏢</span>
               <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#0F172A]">
                 ANSUZ EMPRESAS
@@ -135,7 +135,7 @@ export const EmpresasHero: React.FC = () => {
                 size="lg"
                 leftIcon={<MessageSquare className="w-4 h-4" />}
                 onClick={scrollToCapabilities}
-                className="w-full sm:w-auto text-xs tracking-wider border-white/[0.12] text-[#5B6472] hover:bg-white/[0.05]"
+                className="w-full sm:w-auto text-xs tracking-wider border-[#0F172A]/[0.12] text-[#5B6472] hover:bg-white/[0.05]"
               >
                 CONOCER NUESTRAS CAPACIDADES
               </Button>
@@ -151,16 +151,16 @@ export const EmpresasHero: React.FC = () => {
           >
             {/* Outer Subtle Radial Pulse Grid */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-[290px] h-[290px] sm:w-[380px] sm:h-[380px] rounded-full border border-white/[0.05] bg-white/[0.01] animate-pulse" />
-              <div className="absolute w-[210px] h-[210px] sm:w-[280px] sm:h-[280px] rounded-full border border-white/[0.08]" />
+              <div className="w-[290px] h-[290px] sm:w-[380px] sm:h-[380px] rounded-full border border-[#0F172A]/[0.05] bg-[#0F172A]/[0.01] animate-pulse" />
+              <div className="absolute w-[210px] h-[210px] sm:w-[280px] sm:h-[280px] rounded-full border border-[#0F172A]/[0.08]" />
             </div>
 
             {/* Central Core: ORGANIZACIÓN CONECTADA */}
-            <div className="relative z-20 flex flex-col items-center justify-center w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-to-b from-[#FFFFFF] to-[#F7F8FA] border border-white/[0.22] shadow-[0_0_60px_rgba(72,113,184,0.4)] text-center p-3">
-              <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-[#FFFFFF] border border-white/[0.15] flex items-center justify-center text-white mb-1 shadow-inner">
+            <div className="relative z-20 flex flex-col items-center justify-center w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-to-b from-[#FFFFFF] to-[#F7F8FA] border border-[#0F172A]/[0.22] shadow-[0_0_60px_rgba(72,113,184,0.4)] text-center p-3">
+              <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-[#FFFFFF] border border-[#0F172A]/[0.15] flex items-center justify-center text-[#0F172A] mb-1 shadow-inner">
                 <Network className="w-6 h-6 text-[#35507A]" />
               </div>
-              <span className="text-[10px] sm:text-[11px] font-extrabold text-white uppercase tracking-wider font-display">
+              <span className="text-[10px] sm:text-[11px] font-extrabold text-[#0F172A] uppercase tracking-wider font-display">
                 ORGANIZACIÓN
               </span>
               <span className="text-[8px] sm:text-[9px] text-[#5B6472] font-mono tracking-tight">
@@ -179,9 +179,9 @@ export const EmpresasHero: React.FC = () => {
                   scale: { duration: 0.5, delay: node.delay },
                   y: { duration: 4, repeat: Infinity, ease: 'easeInOut', delay: node.delay },
                 }}
-                className={`absolute ${node.position} z-20 flex items-center gap-2.5 px-3 py-2 sm:px-4 sm:py-2.5 rounded-2xl bg-[#F7F8FA]/90 border border-white/[0.12] backdrop-blur-md shadow-[0_10px_30px_rgba(15,23,42,0.5)] hover:border-white/[0.3] transition-all`}
+                className={`absolute ${node.position} z-20 flex items-center gap-2.5 px-3 py-2 sm:px-4 sm:py-2.5 rounded-2xl bg-[#F7F8FA]/90 border border-[#0F172A]/[0.12] backdrop-blur-md shadow-[0_10px_30px_rgba(15,23,42,0.5)] hover:border-white/[0.3] transition-all`}
               >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#FFFFFF] border border-white/[0.1] flex items-center justify-center text-white shrink-0">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#FFFFFF] border border-[#0F172A]/[0.1] flex items-center justify-center text-[#0F172A] shrink-0">
                   <span className="text-xs">{node.badgeEmoji}</span>
                 </div>
                 <div className="flex flex-col text-left">

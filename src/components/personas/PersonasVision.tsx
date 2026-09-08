@@ -49,7 +49,7 @@ export const PersonasVision: React.FC = () => {
       <Container maxWidth="2xl" className="relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-5 mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-white/[0.08] text-[#35507A] shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#0F172A]/[0.08] text-[#35507A] shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#35507A]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#35507A]">
               NUESTRA FILOSOFÍA
@@ -81,13 +81,13 @@ export const PersonasVision: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="relative group h-full flex flex-col justify-between rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-8 transition-all duration-300 hover:border-white/[0.2] hover:bg-[#FFFFFF]/90 hover:-translate-y-1 shadow-lg"
+                className="relative group h-full flex flex-col justify-between rounded-2xl md:rounded-3xl border border-[#0F172A]/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-8 transition-all duration-300 hover:border-white/[0.2] hover:bg-[#FFFFFF]/90 hover:-translate-y-1 shadow-lg"
               >
                 {/* Subtle top ambient glow */}
                 <div className={`absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b ${pillar.glow} pointer-events-none rounded-t-2xl md:rounded-t-3xl`} />
 
                 <div className="relative space-y-5">
-                  <div className="w-14 h-14 rounded-2xl bg-[#FFFFFF] border border-white/[0.1] text-white flex items-center justify-center group-hover:scale-105 group-hover:border-white/[0.3] transition-all duration-300 shadow-md">
+                  <div className="w-14 h-14 rounded-2xl bg-[#FFFFFF] border border-[#0F172A]/[0.1] text-[#0F172A] flex items-center justify-center group-hover:scale-105 group-hover:border-white/[0.3] transition-all duration-300 shadow-md">
                     <IconComp className="w-7 h-7 text-[#35507A]" />
                   </div>
 

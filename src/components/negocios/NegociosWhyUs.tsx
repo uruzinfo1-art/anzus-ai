@@ -64,10 +64,10 @@ export const NegociosWhyUs: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 className="h-full flex"
               >
-                <div className="relative group w-full flex flex-col justify-between rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-8 transition-all duration-300 hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:-translate-y-1 shadow-lg">
+                <div className="relative group w-full flex flex-col justify-between rounded-2xl md:rounded-3xl border border-[#0F172A]/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-8 transition-all duration-300 hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:-translate-y-1 shadow-lg">
                   <div className="space-y-5">
                     <div className="flex items-center justify-between">
-                      <div className="w-14 h-14 rounded-2xl bg-[#FFFFFF] border border-white/[0.1] text-white flex items-center justify-center group-hover:scale-105 group-hover:border-white/[0.3] transition-all">
+                      <div className="w-14 h-14 rounded-2xl bg-[#FFFFFF] border border-[#0F172A]/[0.1] text-[#0F172A] flex items-center justify-center group-hover:scale-105 group-hover:border-white/[0.3] transition-all">
                         <IconComp className="w-7 h-7 text-[#35507A]" />
                       </div>
                       <span className="text-2xl">{reason.badgeEmoji}</span>

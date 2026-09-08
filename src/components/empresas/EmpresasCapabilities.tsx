@@ -33,8 +33,8 @@ export const EmpresasCapabilities: React.FC = () => {
         'Procesamiento inteligente de información',
       ],
       graphic: (
-        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-[#0F172A]/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
+          <div className="flex items-center justify-between border-b border-[#0F172A]/[0.06] pb-2">
             <span className="text-[11px] font-mono text-[#5B6472] font-semibold flex items-center gap-1.5">
               <Cpu className="w-3.5 h-3.5 text-blue-400" /> IA APLICADA
             </span>
@@ -43,7 +43,7 @@ export const EmpresasCapabilities: React.FC = () => {
             </span>
           </div>
           <div className="space-y-1.5 my-auto">
-            <div className="p-1.5 rounded-lg bg-white/[0.03] border border-white/[0.05] flex justify-between items-center text-[10px] text-white">
+            <div className="p-1.5 rounded-lg bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.05] flex justify-between items-center text-[10px] text-[#0F172A]">
               <span>Asistente Inteligente de Tareas</span>
               <span className="text-emerald-400 font-mono">Respuesta inmediata</span>
             </div>
@@ -68,8 +68,8 @@ export const EmpresasCapabilities: React.FC = () => {
         'Soluciones adaptadas a requerimientos específicos',
       ],
       graphic: (
-        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-[#0F172A]/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
+          <div className="flex items-center justify-between border-b border-[#0F172A]/[0.06] pb-2">
             <span className="text-[11px] font-mono text-[#5B6472] font-semibold flex items-center gap-1.5">
               <Layers className="w-3.5 h-3.5 text-indigo-400" /> SOFTWARE CUSTOM
             </span>
@@ -78,13 +78,13 @@ export const EmpresasCapabilities: React.FC = () => {
             </span>
           </div>
           <div className="grid grid-cols-2 gap-2 my-auto text-center">
-            <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.05]">
+            <div className="p-2 rounded-lg bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.05]">
               <span className="text-[9px] text-[#5B6472] block">Plataformas Web</span>
-              <span className="text-[11px] font-bold text-white">Diseño Exclusivo</span>
+              <span className="text-[11px] font-bold text-[#0F172A]">Diseño Exclusivo</span>
             </div>
-            <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.05]">
+            <div className="p-2 rounded-lg bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.05]">
               <span className="text-[9px] text-[#5B6472] block">Paneles Admin</span>
-              <span className="text-[11px] font-bold text-white">Control Total</span>
+              <span className="text-[11px] font-bold text-[#0F172A]">Control Total</span>
             </div>
           </div>
         </div>
@@ -103,8 +103,8 @@ export const EmpresasCapabilities: React.FC = () => {
         'Ahorro directo de tiempo y reducción de errores',
       ],
       graphic: (
-        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-[#0F172A]/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
+          <div className="flex items-center justify-between border-b border-[#0F172A]/[0.06] pb-2">
             <span className="text-[11px] font-mono text-[#5B6472] font-semibold flex items-center gap-1.5">
               <RefreshCw className="w-3.5 h-3.5 text-emerald-400" /> FLUJOS AUTOMÁTICOS
             </span>
@@ -112,12 +112,12 @@ export const EmpresasCapabilities: React.FC = () => {
               Sin Errores
             </span>
           </div>
-          <div className="flex items-center justify-around my-auto text-[11px] text-white">
-            <div className="px-2 py-1 rounded bg-white/[0.05] border border-white/[0.1]">Formularios</div>
+          <div className="flex items-center justify-around my-auto text-[11px] text-[#0F172A]">
+            <div className="px-2 py-1 rounded bg-[#0F172A]/[0.05] border border-[#0F172A]/[0.1]">Formularios</div>
             <span className="text-emerald-400 font-bold">➔</span>
             <div className="px-2 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-200">Automatización</div>
             <span className="text-emerald-400 font-bold">➔</span>
-            <div className="px-2 py-1 rounded bg-white/[0.05] border border-white/[0.1]">BD / Email</div>
+            <div className="px-2 py-1 rounded bg-[#0F172A]/[0.05] border border-[#0F172A]/[0.1]">BD / Email</div>
           </div>
         </div>
       ),
@@ -135,8 +135,8 @@ export const EmpresasCapabilities: React.FC = () => {
         'Aprovechamiento de las plataformas existentes',
       ],
       graphic: (
-        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-[#0F172A]/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
+          <div className="flex items-center justify-between border-b border-[#0F172A]/[0.06] pb-2">
             <span className="text-[11px] font-mono text-[#5B6472] font-semibold flex items-center gap-1.5">
               <Database className="w-3.5 h-3.5 text-amber-400" /> INTEGRACIÓN DE APIs
             </span>
@@ -144,12 +144,12 @@ export const EmpresasCapabilities: React.FC = () => {
               Conectado
             </span>
           </div>
-          <div className="flex items-center justify-around my-auto text-[11px] text-white">
-            <div className="px-2 py-1 rounded bg-white/[0.05] border border-white/[0.1]">App A</div>
+          <div className="flex items-center justify-around my-auto text-[11px] text-[#0F172A]">
+            <div className="px-2 py-1 rounded bg-[#0F172A]/[0.05] border border-[#0F172A]/[0.1]">App A</div>
             <span className="text-amber-400 font-bold">↔</span>
             <div className="px-2 py-1 rounded bg-amber-500/10 border border-amber-500/30 text-amber-200">API Gateway</div>
             <span className="text-amber-400 font-bold">↔</span>
-            <div className="px-2 py-1 rounded bg-white/[0.05] border border-white/[0.1]">App B</div>
+            <div className="px-2 py-1 rounded bg-[#0F172A]/[0.05] border border-[#0F172A]/[0.1]">App B</div>
           </div>
         </div>
       ),
@@ -167,8 +167,8 @@ export const EmpresasCapabilities: React.FC = () => {
         'Información en tiempo real para decidir mejor',
       ],
       graphic: (
-        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-[#0F172A]/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
+          <div className="flex items-center justify-between border-b border-[#0F172A]/[0.06] pb-2">
             <span className="text-[11px] font-mono text-[#5B6472] font-semibold flex items-center gap-1.5">
               <BarChart3 className="w-3.5 h-3.5 text-purple-400" /> DASHBOARDS
             </span>
@@ -177,11 +177,11 @@ export const EmpresasCapabilities: React.FC = () => {
             </span>
           </div>
           <div className="space-y-1.5 my-auto">
-            <div className="flex items-center justify-between p-1.5 rounded bg-white/[0.03]">
+            <div className="flex items-center justify-between p-1.5 rounded bg-[#0F172A]/[0.03]">
               <span className="text-[10px] text-[#5B6472]">Indicadores Operativos</span>
               <span className="text-[10px] font-bold text-purple-400 font-mono">100% Visibilidad</span>
             </div>
-            <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+            <div className="w-full h-1.5 bg-[#0F172A]/10 rounded-full overflow-hidden">
               <div className="h-full bg-gradient-to-r from-purple-500 via-indigo-400 to-blue-400 w-[90%]" />
             </div>
           </div>
@@ -201,8 +201,8 @@ export const EmpresasCapabilities: React.FC = () => {
         'Arquitecturas preparadas para crecer',
       ],
       graphic: (
-        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-[#0F172A]/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
+          <div className="flex items-center justify-between border-b border-[#0F172A]/[0.06] pb-2">
             <span className="text-[11px] font-mono text-[#5B6472] font-semibold flex items-center gap-1.5">
               <Cloud className="w-3.5 h-3.5 text-sky-400" /> TECH STACK
             </span>
@@ -211,13 +211,13 @@ export const EmpresasCapabilities: React.FC = () => {
             </span>
           </div>
           <div className="grid grid-cols-2 gap-2 my-auto text-center">
-            <div className="p-1.5 rounded bg-white/[0.03] border border-white/[0.05]">
+            <div className="p-1.5 rounded bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.05]">
               <span className="text-[8px] text-[#5B6472] block">Velocidad</span>
               <span className="text-[10px] font-bold text-emerald-400 font-mono">Ultra Rápido</span>
             </div>
-            <div className="p-1.5 rounded bg-white/[0.03] border border-white/[0.05]">
+            <div className="p-1.5 rounded bg-[#0F172A]/[0.03] border border-[#0F172A]/[0.05]">
               <span className="text-[8px] text-[#5B6472] block">Escalabilidad</span>
-              <span className="text-[10px] font-bold text-white font-mono">Modular</span>
+              <span className="text-[10px] font-bold text-[#0F172A] font-mono">Modular</span>
             </div>
           </div>
         </div>
@@ -239,7 +239,7 @@ export const EmpresasCapabilities: React.FC = () => {
       <Container maxWidth="2xl" className="relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-5 mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-white/[0.08] text-[#35507A] shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#0F172A]/[0.08] text-[#35507A] shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#35507A]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#35507A]">
               NUESTRAS SOLUCIONES
@@ -267,7 +267,7 @@ export const EmpresasCapabilities: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="h-full flex"
               >
-                <div className="relative group w-full flex flex-col justify-between rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-6 sm:p-8 transition-all duration-350 hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:shadow-[0_25px_60px_rgba(15,23,42,0.6)] hover:-translate-y-1.5">
+                <div className="relative group w-full flex flex-col justify-between rounded-2xl md:rounded-3xl border border-[#0F172A]/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-6 sm:p-8 transition-all duration-350 hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:shadow-[0_25px_60px_rgba(15,23,42,0.6)] hover:-translate-y-1.5">
                   <div className="relative space-y-5">
                     {/* Header Row */}
                     <div className="flex items-center gap-3">
@@ -286,7 +286,7 @@ export const EmpresasCapabilities: React.FC = () => {
                     </p>
 
                     {/* Bullets */}
-                    <ul className="space-y-2 pt-2 border-t border-white/[0.06]">
+                    <ul className="space-y-2 pt-2 border-t border-[#0F172A]/[0.06]">
                       {item.bullets.map((b, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-xs text-[#5B6472]">
                           <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5" />

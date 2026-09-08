@@ -17,7 +17,7 @@ export const sectionVariants = cva(
         default: 'bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100',
         subtle: 'bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100',
         dark: 'bg-neutral-950 text-neutral-50 dark:bg-neutral-900 dark:text-neutral-50',
-        brand: 'bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900',
+        brand: 'bg-neutral-900 text-[#0F172A] dark:bg-neutral-100 dark:text-neutral-900',
       },
     },
     defaultVariants: {

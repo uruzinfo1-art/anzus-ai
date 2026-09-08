@@ -78,7 +78,7 @@ export const EmpresasWhyUs: React.FC = () => {
       <Container maxWidth="2xl" className="relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-white/[0.08] text-[#35507A] shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#0F172A]/[0.08] text-[#35507A] shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#35507A]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#35507A]">
               Nuestra esencia
@@ -107,10 +107,10 @@ export const EmpresasWhyUs: React.FC = () => {
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 className="h-full flex"
               >
-                <div className="relative group w-full flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-6 transition-all duration-300 hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:-translate-y-1 shadow-md">
+                <div className="relative group w-full flex flex-col justify-between rounded-2xl border border-[#0F172A]/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-6 transition-all duration-300 hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:-translate-y-1 shadow-md">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-xl bg-[#FFFFFF] border border-white/[0.1] text-white flex items-center justify-center group-hover:scale-105 group-hover:border-white/[0.3] transition-all">
+                      <div className="w-12 h-12 rounded-xl bg-[#FFFFFF] border border-[#0F172A]/[0.1] text-[#0F172A] flex items-center justify-center group-hover:scale-105 group-hover:border-white/[0.3] transition-all">
                         <IconComp className="w-6 h-6 text-[#35507A]" />
                       </div>
                       <span className="text-2xl">{item.badgeEmoji}</span>

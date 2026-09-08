@@ -41,16 +41,16 @@ export const EmpresasCta: React.FC = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-3xl border border-white/[0.15] bg-[#F7F8FA]/90 backdrop-blur-xl p-8 sm:p-12 md:p-16 text-center shadow-[0_30px_70px_rgba(15,23,42,0.6)] space-y-8 max-w-4xl mx-auto"
+          className="relative rounded-3xl border border-[#0F172A]/[0.15] bg-[#F7F8FA]/90 backdrop-blur-xl p-8 sm:p-12 md:p-16 text-center shadow-[0_30px_70px_rgba(15,23,42,0.6)] space-y-8 max-w-4xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.1] text-[#5B6472]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0F172A]/[0.05] border border-[#0F172A]/[0.1] text-[#5B6472]">
             <Sparkles className="w-3.5 h-3.5 text-[#35507A]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em]">
               SOLUCIONES TECNOLÓGICAS DE ALTO NIVEL
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white font-display tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F172A] font-display tracking-tight leading-tight">
             Construyamos la solución digital que tu organización necesita.
           </h2>
 
@@ -74,7 +74,7 @@ export const EmpresasCta: React.FC = () => {
               size="lg"
               leftIcon={<MessageSquare className="w-4 h-4" />}
               onClick={scrollToContact}
-              className="w-full sm:w-auto text-xs sm:text-sm tracking-wider border-white/[0.15] text-[#5B6472] hover:bg-white/[0.05] px-8 py-4"
+              className="w-full sm:w-auto text-xs sm:text-sm tracking-wider border-[#0F172A]/[0.15] text-[#5B6472] hover:bg-white/[0.05] px-8 py-4"
             >
               INICIAR UN PROYECTO
             </Button>

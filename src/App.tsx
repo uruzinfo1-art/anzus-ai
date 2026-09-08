@@ -8,6 +8,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { HeroSection } from '@/components/home/HeroSection';
 import { TrustedBySection } from '@/components/home/TrustedBySection';
 import { ServicesSection } from '@/components/home/ServicesSection';
+import { DevelopmentsSection } from '@/components/home/DevelopmentsSection';
 import { NosotrosSection } from '@/components/home/NosotrosSection';
 import { ContactSection } from '@/components/home/ContactSection';
 import { Footer } from '@/components/layout/Footer';
@@ -75,6 +76,7 @@ export default function App() {
             <HeroSection />
             <TrustedBySection />
             <ServicesSection />
+            <DevelopmentsSection />
             <NosotrosSection />
             <ContactSection />
           </>

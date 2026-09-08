@@ -132,7 +132,7 @@ export const TrustedBySection: React.FC = () => {
   return (
     <Section
       spacing="compact"
-      className="relative border-y border-white/[0.06] bg-[#FFFFFF] py-16 md:py-24 overflow-hidden"
+      className="relative border-y border-[#0F172A]/[0.06] bg-[#FFFFFF] py-16 md:py-24 overflow-hidden"
     >
       {/* Top and Bottom Smooth Fade Transitions */}
       <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#F7F8FA] to-transparent pointer-events-none z-10" />
@@ -166,7 +166,7 @@ export const TrustedBySection: React.FC = () => {
             {/* Subtle backlight glow directly behind the band */}
             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-transparent via-[#35507A]/15 to-transparent blur-xl pointer-events-none" />
 
-            <div className="relative rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#FFFFFF]/65 backdrop-blur-[12px] p-6 sm:p-8 md:p-10 shadow-[0_20px_50px_rgba(15,23,42,0.5)]">
+            <div className="relative rounded-2xl md:rounded-3xl border border-[#0F172A]/[0.08] bg-[#FFFFFF]/65 backdrop-blur-[12px] p-6 sm:p-8 md:p-10 shadow-[0_20px_50px_rgba(15,23,42,0.5)]">
               {/* Desktop / Tablet Horizontal Grid Band */}
               <div className="hidden sm:flex flex-wrap items-center justify-center gap-x-8 md:gap-x-12 lg:gap-x-14 gap-y-7 md:gap-y-8">
                 {techPlatforms.map((platform) => {

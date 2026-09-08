@@ -51,7 +51,7 @@ export const NegociosSectors: React.FC = () => {
       <Container maxWidth="2xl" className="relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F8FA] border border-white/[0.08] text-[#35507A] shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F8FA] border border-[#0F172A]/[0.08] text-[#35507A] shadow-sm">
             <span className="text-xs">🏪</span>
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#35507A]">
               NEGOCIOS & EMPRENDIMIENTOS
@@ -79,9 +79,9 @@ export const NegociosSectors: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="group relative rounded-2xl border border-white/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-5 flex items-center gap-3.5 transition-all duration-250 hover:border-white/[0.2] hover:bg-[#FFFFFF]/90 hover:-translate-y-0.5 shadow-sm"
+                className="group relative rounded-2xl border border-[#0F172A]/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-5 flex items-center gap-3.5 transition-all duration-250 hover:border-white/[0.2] hover:bg-[#FFFFFF]/90 hover:-translate-y-0.5 shadow-sm"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#FFFFFF] border border-white/[0.08] text-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <div className="w-10 h-10 rounded-xl bg-[#FFFFFF] border border-[#0F172A]/[0.08] text-[#0F172A] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                   <span className="text-lg">{sector.emoji}</span>
                 </div>
 
@@ -94,8 +94,8 @@ export const NegociosSectors: React.FC = () => {
         </div>
 
         {/* Bottom Banner Phrase */}
-        <div className="mt-12 text-center max-w-2xl mx-auto p-5 rounded-2xl bg-[#F7F8FA] border border-white/[0.08] shadow-md">
-          <p className="text-sm text-[#E2E5EA] font-medium leading-relaxed">
+        <div className="mt-12 text-center max-w-2xl mx-auto p-5 rounded-2xl bg-[#F7F8FA] border border-[#0F172A]/[0.08] shadow-md">
+          <p className="text-sm text-[#5B6472] font-medium leading-relaxed">
             ✨ Si buscas ahorrar tiempo, atender mejor a tus clientes u organizar tus ventas, <span className="text-[#35507A] font-bold">podemos ayudarte.</span>
           </p>
         </div>

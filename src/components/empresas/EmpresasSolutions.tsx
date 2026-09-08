@@ -97,7 +97,7 @@ export const EmpresasSolutions: React.FC = () => {
       <Container maxWidth="2xl" className="relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F8FA] border border-white/[0.08] text-[#35507A] shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F8FA] border border-[#0F172A]/[0.08] text-[#35507A] shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#35507A]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#35507A]">
               PORTAFOLIO DE SOLUCIONES
@@ -128,13 +128,13 @@ export const EmpresasSolutions: React.FC = () => {
                 className={`group relative rounded-2xl border p-6 flex items-start gap-4 transition-all duration-250 shadow-md ${
                   item.isFeatured
                     ? 'border-blue-500/40 bg-[#FFFFFF]/90 hover:border-blue-400/60 hover:bg-[#FFFFFF]/95 hover:-translate-y-1 ring-1 ring-blue-500/20'
-                    : 'border-white/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:-translate-y-1'
+                    : 'border-[#0F172A]/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:-translate-y-1'
                 }`}
               >
                 <div className={`w-12 h-12 rounded-xl border flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform ${
                   item.isFeatured
                     ? 'bg-blue-600/20 border-blue-400/40 text-blue-300'
-                    : 'bg-[#FFFFFF] border-white/[0.1] text-[#35507A]'
+                    : 'bg-[#FFFFFF] border-[#0F172A]/[0.1] text-[#35507A]'
                 }`}>
                   <IconComp className="w-6 h-6" />
                 </div>

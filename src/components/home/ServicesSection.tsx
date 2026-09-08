@@ -70,7 +70,7 @@ export const ServicesSection: React.FC = () => {
       <Container maxWidth="2xl" className="relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-5 mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-white/[0.08] text-[#5B6472] shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#0F172A]/[0.08] text-[#5B6472] shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#35507A]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#35507A]">
               SOLUCIONES A LA MEDIDA
@@ -99,7 +99,7 @@ export const ServicesSection: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
                 className="h-full flex"
               >
-                <div className="relative group w-full flex flex-col justify-between rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-8 sm:p-10 transition-all duration-350 hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:shadow-[0_25px_60px_rgba(15,23,42,0.6)] hover:-translate-y-1.5">
+                <div className="relative group w-full flex flex-col justify-between rounded-2xl md:rounded-3xl border border-[#0F172A]/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-8 sm:p-10 transition-all duration-350 hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:shadow-[0_25px_60px_rgba(15,23,42,0.6)] hover:-translate-y-1.5">
                   {/* Subtle Top Inner Glow Effect */}
                   <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none rounded-t-2xl md:rounded-t-3xl" />
 
@@ -107,12 +107,12 @@ export const ServicesSection: React.FC = () => {
                     {/* Top Row: Icon & Badge */}
                     <div className="flex items-start justify-between gap-4">
                       {/* Large Main Icon Container */}
-                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#FFFFFF] border border-white/[0.1] text-[#0F172A] flex items-center justify-center group-hover:border-white/[0.3] group-hover:scale-105 group-hover:text-white group-hover:shadow-[0_10px_25px_rgba(15,23,42,0.4)] transition-all duration-300">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#FFFFFF] border border-[#0F172A]/[0.1] text-[#0F172A] flex items-center justify-center group-hover:border-white/[0.3] group-hover:scale-105 group-hover:text-white group-hover:shadow-[0_10px_25px_rgba(15,23,42,0.4)] transition-all duration-300">
                         <IconComponent className="w-7 h-7 sm:w-8 sm:h-8" />
                       </div>
 
                       {/* Profile Badge */}
-                      <span className="text-[11px] sm:text-xs font-semibold tracking-wider uppercase text-[#35507A] px-3.5 py-1.5 bg-[#FFFFFF] border border-white/[0.08] rounded-full shadow-sm">
+                      <span className="text-[11px] sm:text-xs font-semibold tracking-wider uppercase text-[#35507A] px-3.5 py-1.5 bg-[#FFFFFF] border border-[#0F172A]/[0.08] rounded-full shadow-sm">
                         {profile.badge}
                       </span>
                     </div>
@@ -129,10 +129,10 @@ export const ServicesSection: React.FC = () => {
                   </div>
 
                   {/* Bottom Section: Highlighted Phrase & Action Button */}
-                  <div className="relative pt-8 mt-8 border-t border-white/[0.06] space-y-6">
+                  <div className="relative pt-8 mt-8 border-t border-[#0F172A]/[0.06] space-y-6">
                     {/* Highlighted Phrase Box */}
-                    <div className="p-4 rounded-xl bg-white/[0.025] border border-white/[0.05] text-xs sm:text-sm font-medium text-[#5B6472] leading-relaxed group-hover:border-white/[0.12] group-hover:bg-white/[0.04] transition-all">
-                      <p className="italic text-[#E2E5EA]">
+                    <div className="p-4 rounded-xl bg-[#0F172A]/[0.025] border border-[#0F172A]/[0.05] text-xs sm:text-sm font-medium text-[#5B6472] leading-relaxed group-hover:border-white/[0.12] group-hover:bg-white/[0.04] transition-all">
+                      <p className="italic text-[#5B6472]">
                         "{profile.highlight}"
                       </p>
                     </div>
@@ -146,7 +146,7 @@ export const ServicesSection: React.FC = () => {
                         window.dispatchEvent(new Event('popstate'));
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
-                      className="inline-flex items-center justify-between w-full px-5 py-3.5 rounded-xl bg-[#FFFFFF] border border-white/[0.1] text-xs sm:text-sm font-semibold tracking-wide text-[#0F172A] group-hover:bg-[#FFFFFF] group-hover:border-white/[0.25] group-hover:text-white transition-all duration-250 shadow-sm"
+                      className="inline-flex items-center justify-between w-full px-5 py-3.5 rounded-xl bg-[#FFFFFF] border border-[#0F172A]/[0.1] text-xs sm:text-sm font-semibold tracking-wide text-[#0F172A] group-hover:bg-[#FFFFFF] group-hover:border-white/[0.25] group-hover:text-white transition-all duration-250 shadow-sm"
                     >
                       <span>{profile.ctaText}</span>
                       <ArrowRight className="w-4 h-4 text-[#35507A] group-hover:text-white group-hover:translate-x-1 transition-all" />

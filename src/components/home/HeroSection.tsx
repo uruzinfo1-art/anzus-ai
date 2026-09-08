@@ -45,19 +45,19 @@ export const HeroSection: React.FC = () => {
 
             {/* Main Headline */}
             <h1 className="font-sans font-bold leading-[1.05] tracking-tight">
-  <span className="block text-4xl lg:text-5xl text-white uppercase">
+  <span className="block text-4xl lg:text-5xl text-[#0F172A] uppercase">
     Hay algo que
   </span>
 
-  <span className="block text-4xl lg:text-5xl text-white uppercase">
+  <span className="block text-4xl lg:text-5xl text-[#0F172A] uppercase">
     ninguna empresa
   </span>
 
-  <span className="block text-4xl lg:text-5xl text-white uppercase">
+  <span className="block text-4xl lg:text-5xl text-[#0F172A] uppercase">
     puede comprar.
   </span>
 
-  <span className="block mt-5 text-7xl lg:text-8xl font-black text-white uppercase">
+  <span className="block mt-5 text-7xl lg:text-8xl font-black text-[#0F172A] uppercase">
     Tiempo.
   </span>
 
@@ -113,7 +113,7 @@ export const HeroSection: React.FC = () => {
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#35507A]/25 via-transparent to-[#35507A]/15 blur-xl opacity-70 -z-10" />
 
               {/* Cinematic Monolith Scene */}
-              <div className="rounded-2xl border border-[#E2E5EA] bg-[#FFFFFF] shadow-[0_20px_50px_rgba(15,23,42,0.9)] overflow-hidden">
+              <div className="rounded-2xl border border-[#E2E5EA] bg-[#FFFFFF] shadow-[0_20px_50px_rgba(15,23,42,0.12)] overflow-hidden">
                 {/* Cinematic Monolith Scene */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F7F8FA] flex items-center justify-center">
                   {/* High-Impact Dark Monolith Image Background */}
@@ -129,14 +129,8 @@ object-center
 hover:scale-105
 transition-transform
 duration-700
-brightness-110
-contrast-110
-saturate-110
 "
                   />
-
-                  {/* Dark Vignette Overlay for Depth */}
-                  <div className="absolute inset-0 bg-radial from-transparent via-[#F7F8FA]/40 to-[#F7F8FA]/90 pointer-events-none" />
                 </div>
               </div>
             </div>
