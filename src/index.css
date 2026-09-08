@@ -6,34 +6,35 @@
     --font-display: 'Syne', 'DM Serif Display', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* ANSUZ Official Design System Palette */
-    --color-carbon: #0B0F14;
-    --color-grafito: #11161D;
-    --color-pizarra: #1A1F27;
-    --color-plata: #E6E8EB;
-    --color-steel: #BFC5CC;
+    /* ANSUZ Official Design System Palette — tema claro, acento azul metalizado */
+    --color-carbon: #F7F8FA;
+    --color-grafito: #FFFFFF;
+    --color-pizarra: #E2E5EA;
+    --color-plata: #0F172A;
+    --color-steel: #35507A;
     --color-slate-main: #0F172A;
+    --color-steel-light: #8CA9D1;
 
-    --color-primary: #0F172A;
-    --color-primary-foreground: #F8FAFC;
+    --color-primary: #35507A;
+    --color-primary-foreground: #FFFFFF;
 
-    --color-secondary: #11161D;
-    --color-secondary-foreground: #E6E8EB;
+    --color-secondary: #FFFFFF;
+    --color-secondary-foreground: #0F172A;
 
-    --color-accent: #BFC5CC;
-    --color-accent-foreground: #0F172A;
+    --color-accent: #35507A;
+    --color-accent-foreground: #FFFFFF;
 
-    --color-background: #0B0F14;
-    --color-surface: #11161D;
-    --color-subtle: #141A23;
+    --color-background: #F7F8FA;
+    --color-surface: #FFFFFF;
+    --color-subtle: #EEF1F4;
 
-    --color-foreground: #E6E8EB;
-    --color-muted: #6B7280;
+    --color-foreground: #0F172A;
+    --color-muted: #5B6472;
 
-    --color-border: #1A1F27;
-    --color-ring: #BFC5CC;
+    --color-border: #E2E5EA;
+    --color-ring: #35507A;
 
-    --color-error: #EF4444;
+    --color-error: #DC2626;
     --color-error-foreground: #FFFFFF;
   }
 
@@ -42,8 +43,8 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     background-image: 
-      radial-gradient(circle at 50% 0%, rgba(191, 197, 204, 0.05) 0%, transparent 60%),
-      linear-gradient(180deg, #0B0F14 0%, #11161D 100%);
+      radial-gradient(circle at 50% 0%, rgba(53, 80, 122, 0.04) 0%, transparent 60%),
+      linear-gradient(180deg, #F7F8FA 0%, #FFFFFF 100%);
     background-attachment: fixed;
     min-height: 100vh;
   }
@@ -62,66 +63,67 @@
   --font-display: 'Syne', 'DM Serif Display', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --color-carbon: #0B0F14;
-  --color-grafito: #11161D;
-  --color-pizarra: #1A1F27;
-  --color-plata: #E6E8EB;
-  --color-steel: #BFC5CC;
+  --color-carbon: #F7F8FA;
+  --color-grafito: #FFFFFF;
+  --color-pizarra: #E2E5EA;
+  --color-plata: #0F172A;
+  --color-steel: #35507A;
   --color-slate-main: #0F172A;
+  --color-steel-light: #8CA9D1;
 
-  --color-primary: #0F172A;
-  --color-primary-foreground: #F8FAFC;
+  --color-primary: #35507A;
+  --color-primary-foreground: #FFFFFF;
 
-  --color-secondary: #11161D;
-  --color-secondary-foreground: #E6E8EB;
+  --color-secondary: #FFFFFF;
+  --color-secondary-foreground: #0F172A;
 
-  --color-accent: #BFC5CC;
-  --color-accent-foreground: #0F172A;
+  --color-accent: #35507A;
+  --color-accent-foreground: #FFFFFF;
 
-  --color-background: #0B0F14;
-  --color-surface: #11161D;
-  --color-subtle: #141A23;
+  --color-background: #F7F8FA;
+  --color-surface: #FFFFFF;
+  --color-subtle: #EEF1F4;
 
-  --color-foreground: #E6E8EB;
-  --color-muted: #6B7280;
+  --color-foreground: #0F172A;
+  --color-muted: #5B6472;
 
-  --color-border: #1A1F27;
-  --color-ring: #BFC5CC;
+  --color-border: #E2E5EA;
+  --color-ring: #35507A;
 
-  --color-error: #EF4444;
+  --color-error: #DC2626;
   --color-error-foreground: #FFFFFF;
 }
 
 /* Custom Design System Utility Classes */
 .silver-gradient-text,
 .gold-gradient-text {
-  background: linear-gradient(135deg, #FFFFFF 0%, #BFC5CC 50%, #6B7280 100%);
+  background: linear-gradient(135deg, #0F172A 0%, #35507A 50%, #6E8FBD 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .steel-border-glow,
 .gold-border-glow {
-  border: 1px solid rgba(191, 197, 204, 0.3);
-  box-shadow: 0 0 20px -5px rgba(191, 197, 204, 0.15);
+  border: 1px solid rgba(53, 80, 122, 0.3);
+  box-shadow: 0 0 20px -5px rgba(53, 80, 122, 0.15);
 }
 
 .steel-border-glow:hover,
 .gold-border-glow:hover {
-  border-color: rgba(191, 197, 204, 0.7);
-  box-shadow: 0 0 25px -2px rgba(191, 197, 204, 0.25);
+  border-color: rgba(53, 80, 122, 0.7);
+  box-shadow: 0 0 25px -2px rgba(53, 80, 122, 0.25);
 }
 
 .ansuz-card {
-  background-color: #11161D;
-  border: 1px solid #1A1F27;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E5EA;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .ansuz-card:hover {
-  border-color: rgba(191, 197, 204, 0.4);
+  border-color: rgba(53, 80, 122, 0.4);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.8), 0 0 15px -3px rgba(191, 197, 204, 0.12);
+  box-shadow: 0 12px 30px -10px rgba(15, 23, 42, 0.12), 0 0 15px -3px rgba(53, 80, 122, 0.15);
 }
 
 /* High-End Brushed Titanium Slab Navbar Finish */

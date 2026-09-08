@@ -18,13 +18,13 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <Section id="inicio" spacing="hero" className="relative overflow-hidden bg-[#090C11] pt-32 pb-24">
+    <Section id="inicio" spacing="hero" className="relative overflow-hidden bg-[#F7F8FA] pt-32 pb-24">
       {/* Directional Silver / Slate Ambient Glows */}
-      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#BFC5CC]/10 blur-[140px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#35507A]/10 blur-[140px] rounded-full pointer-events-none -z-10" />
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#0F172A]/30 blur-[120px] rounded-full pointer-events-none -z-10" />
 
       {/* Smooth Bottom Gradient Transition to Tecnologías */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-[#121B28] pointer-events-none z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-[#FFFFFF] pointer-events-none z-10" />
 
       <Container maxWidth="2xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -36,8 +36,8 @@ export const HeroSection: React.FC = () => {
             className="lg:col-span-6 space-y-7 text-center lg:text-left"
           >
             {/* Eyebrow Label */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#11161D] border border-[#BFC5CC]/30 text-[#BFC5CC]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#BFC5CC] animate-ping" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#35507A]/30 text-[#35507A]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#35507A] animate-ping" />
               <span className="text-[11px] font-semibold uppercase tracking-[0.2em] font-sans">
                 TECNOLOGÍA CON PROPÓSITO
               </span>
@@ -61,21 +61,21 @@ export const HeroSection: React.FC = () => {
     Tiempo.
   </span>
 
-  <span className="block mt-3 text-3xl lg:text-4xl font-semibold text-[#8EA8C9] uppercase">
+  <span className="block mt-3 text-3xl lg:text-4xl font-semibold text-[#5B6472] uppercase">
     Pero sí puede recuperarlo.
   </span>
 </h1>
 
             {/* Subtitle Body */}
-            <p className="text-base sm:text-lg text-[#9CA3AF] max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            <p className="text-base sm:text-lg text-[#5B6472] max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
   Con software, inteligencia artificial y automatización transformamos horas de trabajo repetitivo en tiempo para innovar, liderar, compartir con tu familia y hacer crecer tu negocio.
 </p>
-<div className="rounded-xl border border-[#2A3442] bg-[#11161D]/70 p-4 max-w-xl">
-  <p className="text-sm font-semibold text-[#E6E8EB]">
+<div className="rounded-xl border border-[#FFFFFF] bg-[#FFFFFF]/70 p-4 max-w-xl">
+  <p className="text-sm font-semibold text-[#0F172A]">
     ¿Crees que podrías recuperar más tiempo?
   </p>
 
-  <p className="mt-1 text-sm text-[#9CA3AF]">
+  <p className="mt-1 text-sm text-[#5B6472]">
     Conversemos y descubramos juntos cómo hacerlo.
   </p>
 </div>
@@ -110,12 +110,12 @@ export const HeroSection: React.FC = () => {
           >
             <div className="relative mx-auto max-w-lg lg:max-w-none">
               {/* Outer Metallic Silver Glow Frame */}
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#BFC5CC]/25 via-transparent to-[#BFC5CC]/15 blur-xl opacity-70 -z-10" />
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#35507A]/25 via-transparent to-[#35507A]/15 blur-xl opacity-70 -z-10" />
 
               {/* Cinematic Monolith Scene */}
-              <div className="rounded-2xl border border-[#1A1F27] bg-[#11161D] shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden">
+              <div className="rounded-2xl border border-[#E2E5EA] bg-[#FFFFFF] shadow-[0_20px_50px_rgba(15,23,42,0.9)] overflow-hidden">
                 {/* Cinematic Monolith Scene */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0A0D11] flex items-center justify-center">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F7F8FA] flex items-center justify-center">
                   {/* High-Impact Dark Monolith Image Background */}
                   <img
                     src={heroHumanAiImg}
@@ -136,7 +136,7 @@ saturate-110
                   />
 
                   {/* Dark Vignette Overlay for Depth */}
-                  <div className="absolute inset-0 bg-radial from-transparent via-[#0B0F14]/40 to-[#0B0F14]/90 pointer-events-none" />
+                  <div className="absolute inset-0 bg-radial from-transparent via-[#F7F8FA]/40 to-[#F7F8FA]/90 pointer-events-none" />
                 </div>
               </div>
             </div>

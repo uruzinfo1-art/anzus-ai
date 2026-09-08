@@ -12,10 +12,10 @@ export const PersonasCta: React.FC = () => {
   };
 
   return (
-    <Section spacing="comfortable" className="relative overflow-hidden bg-[#1B2940] py-24 md:py-32">
+    <Section spacing="comfortable" className="relative overflow-hidden bg-[#FFFFFF] py-24 md:py-32">
       {/* Top and Bottom Smooth Fade Transitions */}
-      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#101722] to-transparent pointer-events-none z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#090C11] to-transparent pointer-events-none z-10" />
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#F7F8FA] to-transparent pointer-events-none z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#F7F8FA] to-transparent pointer-events-none z-10" />
 
       {/* Soft Radial Blue Glow */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
@@ -28,10 +28,10 @@ export const PersonasCta: React.FC = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-3xl border border-white/[0.15] bg-[#0E1522]/90 backdrop-blur-xl p-8 sm:p-12 md:p-16 text-center shadow-[0_30px_70px_rgba(0,0,0,0.6)] space-y-8 max-w-4xl mx-auto"
+          className="relative rounded-3xl border border-white/[0.15] bg-[#F7F8FA]/90 backdrop-blur-xl p-8 sm:p-12 md:p-16 text-center shadow-[0_30px_70px_rgba(15,23,42,0.6)] space-y-8 max-w-4xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.1] text-[#CBD5E1]">
-            <Sparkles className="w-3.5 h-3.5 text-[#93C5FD]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.1] text-[#5B6472]">
+            <Sparkles className="w-3.5 h-3.5 text-[#35507A]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em]">
               ÚNETE AL FUTURO
             </span>
@@ -41,7 +41,7 @@ export const PersonasCta: React.FC = () => {
             Este es solo el comienzo.
           </h2>
 
-          <p className="text-base sm:text-lg text-[#94A3B8] leading-relaxed max-w-2xl mx-auto font-normal">
+          <p className="text-base sm:text-lg text-[#5B6472] leading-relaxed max-w-2xl mx-auto font-normal">
             Estamos construyendo una nueva generación de soluciones inteligentes para personas. Cada producto nace para resolver un problema real y formar parte de un ecosistema que crecerá contigo.
           </p>
 

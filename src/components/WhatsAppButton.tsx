@@ -20,11 +20,11 @@ export default function WhatsAppButton() {
           items-center
           gap-3
           rounded-full
-          bg-[#25D366]
+          bg-[#35507A]
           px-5
           py-4
           shadow-2xl
-          hover:shadow-[0_0_35px_rgba(37,211,102,.55)]
+          hover:shadow-[0_0_35px_rgba(53,80,122,.55)]
           transition-all
           duration-300
           animate-bounce

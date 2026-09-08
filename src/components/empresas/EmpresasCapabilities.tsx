@@ -33,9 +33,9 @@ export const EmpresasCapabilities: React.FC = () => {
         'Procesamiento inteligente de información',
       ],
       graphic: (
-        <div className="w-full h-36 rounded-xl bg-[#090E17] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
+        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
           <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
-            <span className="text-[11px] font-mono text-[#CBD5E1] font-semibold flex items-center gap-1.5">
+            <span className="text-[11px] font-mono text-[#5B6472] font-semibold flex items-center gap-1.5">
               <Cpu className="w-3.5 h-3.5 text-blue-400" /> IA APLICADA
             </span>
             <span className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
@@ -68,9 +68,9 @@ export const EmpresasCapabilities: React.FC = () => {
         'Soluciones adaptadas a requerimientos específicos',
       ],
       graphic: (
-        <div className="w-full h-36 rounded-xl bg-[#090E17] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
+        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
           <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
-            <span className="text-[11px] font-mono text-[#CBD5E1] font-semibold flex items-center gap-1.5">
+            <span className="text-[11px] font-mono text-[#5B6472] font-semibold flex items-center gap-1.5">
               <Layers className="w-3.5 h-3.5 text-indigo-400" /> SOFTWARE CUSTOM
             </span>
             <span className="text-[9px] font-mono text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded-full border border-indigo-500/20">
@@ -79,11 +79,11 @@ export const EmpresasCapabilities: React.FC = () => {
           </div>
           <div className="grid grid-cols-2 gap-2 my-auto text-center">
             <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.05]">
-              <span className="text-[9px] text-[#8892B0] block">Plataformas Web</span>
+              <span className="text-[9px] text-[#5B6472] block">Plataformas Web</span>
               <span className="text-[11px] font-bold text-white">Diseño Exclusivo</span>
             </div>
             <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.05]">
-              <span className="text-[9px] text-[#8892B0] block">Paneles Admin</span>
+              <span className="text-[9px] text-[#5B6472] block">Paneles Admin</span>
               <span className="text-[11px] font-bold text-white">Control Total</span>
             </div>
           </div>
@@ -103,9 +103,9 @@ export const EmpresasCapabilities: React.FC = () => {
         'Ahorro directo de tiempo y reducción de errores',
       ],
       graphic: (
-        <div className="w-full h-36 rounded-xl bg-[#090E17] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
+        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
           <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
-            <span className="text-[11px] font-mono text-[#CBD5E1] font-semibold flex items-center gap-1.5">
+            <span className="text-[11px] font-mono text-[#5B6472] font-semibold flex items-center gap-1.5">
               <RefreshCw className="w-3.5 h-3.5 text-emerald-400" /> FLUJOS AUTOMÁTICOS
             </span>
             <span className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
@@ -135,9 +135,9 @@ export const EmpresasCapabilities: React.FC = () => {
         'Aprovechamiento de las plataformas existentes',
       ],
       graphic: (
-        <div className="w-full h-36 rounded-xl bg-[#090E17] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
+        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
           <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
-            <span className="text-[11px] font-mono text-[#CBD5E1] font-semibold flex items-center gap-1.5">
+            <span className="text-[11px] font-mono text-[#5B6472] font-semibold flex items-center gap-1.5">
               <Database className="w-3.5 h-3.5 text-amber-400" /> INTEGRACIÓN DE APIs
             </span>
             <span className="text-[9px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
@@ -167,9 +167,9 @@ export const EmpresasCapabilities: React.FC = () => {
         'Información en tiempo real para decidir mejor',
       ],
       graphic: (
-        <div className="w-full h-36 rounded-xl bg-[#090E17] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
+        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
           <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
-            <span className="text-[11px] font-mono text-[#CBD5E1] font-semibold flex items-center gap-1.5">
+            <span className="text-[11px] font-mono text-[#5B6472] font-semibold flex items-center gap-1.5">
               <BarChart3 className="w-3.5 h-3.5 text-purple-400" /> DASHBOARDS
             </span>
             <span className="text-[9px] font-mono text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/20">
@@ -178,7 +178,7 @@ export const EmpresasCapabilities: React.FC = () => {
           </div>
           <div className="space-y-1.5 my-auto">
             <div className="flex items-center justify-between p-1.5 rounded bg-white/[0.03]">
-              <span className="text-[10px] text-[#CBD5E1]">Indicadores Operativos</span>
+              <span className="text-[10px] text-[#5B6472]">Indicadores Operativos</span>
               <span className="text-[10px] font-bold text-purple-400 font-mono">100% Visibilidad</span>
             </div>
             <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
@@ -201,9 +201,9 @@ export const EmpresasCapabilities: React.FC = () => {
         'Arquitecturas preparadas para crecer',
       ],
       graphic: (
-        <div className="w-full h-36 rounded-xl bg-[#090E17] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
+        <div className="w-full h-36 rounded-xl bg-[#F7F8FA] border border-white/[0.08] p-3.5 flex flex-col justify-between relative overflow-hidden group-hover:border-white/[0.2] transition-all">
           <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
-            <span className="text-[11px] font-mono text-[#CBD5E1] font-semibold flex items-center gap-1.5">
+            <span className="text-[11px] font-mono text-[#5B6472] font-semibold flex items-center gap-1.5">
               <Cloud className="w-3.5 h-3.5 text-sky-400" /> TECH STACK
             </span>
             <span className="text-[9px] font-mono text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded-full border border-sky-500/20">
@@ -212,11 +212,11 @@ export const EmpresasCapabilities: React.FC = () => {
           </div>
           <div className="grid grid-cols-2 gap-2 my-auto text-center">
             <div className="p-1.5 rounded bg-white/[0.03] border border-white/[0.05]">
-              <span className="text-[8px] text-[#8892B0] block">Velocidad</span>
+              <span className="text-[8px] text-[#5B6472] block">Velocidad</span>
               <span className="text-[10px] font-bold text-emerald-400 font-mono">Ultra Rápido</span>
             </div>
             <div className="p-1.5 rounded bg-white/[0.03] border border-white/[0.05]">
-              <span className="text-[8px] text-[#8892B0] block">Escalabilidad</span>
+              <span className="text-[8px] text-[#5B6472] block">Escalabilidad</span>
               <span className="text-[10px] font-bold text-white font-mono">Modular</span>
             </div>
           </div>
@@ -226,10 +226,10 @@ export const EmpresasCapabilities: React.FC = () => {
   ];
 
   return (
-    <Section id="capacidades" spacing="comfortable" className="relative bg-[#0E141D] py-24 md:py-32 overflow-hidden">
+    <Section id="capacidades" spacing="comfortable" className="relative bg-[#F7F8FA] py-24 md:py-32 overflow-hidden">
       {/* Top and Bottom Transitions */}
-      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#121B28] to-transparent pointer-events-none z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#182231] to-transparent pointer-events-none z-10" />
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#FFFFFF] to-transparent pointer-events-none z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#FFFFFF] to-transparent pointer-events-none z-10" />
 
       {/* Radial Glow */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
@@ -239,18 +239,18 @@ export const EmpresasCapabilities: React.FC = () => {
       <Container maxWidth="2xl" className="relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-5 mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#121824] border border-white/[0.08] text-[#BFC5CC] shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#BFC5CC]" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#BFC5CC]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-white/[0.08] text-[#35507A] shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#35507A]" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#35507A]">
               NUESTRAS SOLUCIONES
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#E6E8EB] font-display tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] font-display tracking-tight leading-tight">
             Nuestras Soluciones
           </h2>
 
-          <p className="text-sm sm:text-base md:text-lg text-[#8892B0] leading-relaxed max-w-2xl mx-auto font-normal">
+          <p className="text-sm sm:text-base md:text-lg text-[#5B6472] leading-relaxed max-w-2xl mx-auto font-normal">
             Desarrollamos soluciones digitales personalizadas y adaptadas a las necesidades reales de tu organización.
           </p>
         </div>
@@ -267,12 +267,12 @@ export const EmpresasCapabilities: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="h-full flex"
               >
-                <div className="relative group w-full flex flex-col justify-between rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#0C121C]/80 backdrop-blur-md p-6 sm:p-8 transition-all duration-350 hover:border-white/[0.22] hover:bg-[#111826]/90 hover:shadow-[0_25px_60px_rgba(0,0,0,0.6)] hover:-translate-y-1.5">
+                <div className="relative group w-full flex flex-col justify-between rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-6 sm:p-8 transition-all duration-350 hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:shadow-[0_25px_60px_rgba(15,23,42,0.6)] hover:-translate-y-1.5">
                   <div className="relative space-y-5">
                     {/* Header Row */}
                     <div className="flex items-center gap-3">
                       <span className="text-2xl">{item.badgeEmoji}</span>
-                      <h3 className="text-xl sm:text-2xl font-bold text-[#E6E8EB] font-display tracking-tight group-hover:text-white transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-bold text-[#0F172A] font-display tracking-tight group-hover:text-white transition-colors">
                         {item.title}
                       </h3>
                     </div>
@@ -281,14 +281,14 @@ export const EmpresasCapabilities: React.FC = () => {
                     {item.graphic}
 
                     {/* Description */}
-                    <p className="text-xs sm:text-sm text-[#8892B0] leading-relaxed font-normal min-h-[64px]">
+                    <p className="text-xs sm:text-sm text-[#5B6472] leading-relaxed font-normal min-h-[64px]">
                       {item.description}
                     </p>
 
                     {/* Bullets */}
                     <ul className="space-y-2 pt-2 border-t border-white/[0.06]">
                       {item.bullets.map((b, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-xs text-[#CBD5E1]">
+                        <li key={idx} className="flex items-start gap-2 text-xs text-[#5B6472]">
                           <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5" />
                           <span>{b}</span>
                         </li>

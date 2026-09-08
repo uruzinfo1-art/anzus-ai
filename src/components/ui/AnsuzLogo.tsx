@@ -7,6 +7,7 @@ interface AnsuzLogoProps {
   variant?: LogoVariant;
   className?: string;
   iconOnlySize?: number | string;
+  theme?: "steel" | "metallic";
 }
 
 export const AnsuzLogo: React.FC<AnsuzLogoProps> = ({

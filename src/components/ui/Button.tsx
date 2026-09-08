@@ -4,25 +4,25 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../lib/cn';
 
 export const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-semibold tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#BFC5CC] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0F14] disabled:pointer-events-none disabled:opacity-40 select-none relative cursor-pointer font-sans uppercase text-xs',
+  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-semibold tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#35507A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F8FA] disabled:pointer-events-none disabled:opacity-40 select-none relative cursor-pointer font-sans uppercase text-xs',
   {
     variants: {
       variant: {
         primary:
-          'bg-[#0F172A] text-[#E6E8EB] border border-[#BFC5CC]/50 hover:bg-[#BFC5CC] hover:text-[#0F172A] hover:border-[#BFC5CC] shadow-[0_0_15px_rgba(191,197,204,0.12)] active:bg-[#0F172A] active:text-[#E6E8EB] active:scale-[0.98]',
+          'bg-[#35507A] text-white border border-[#35507A] hover:bg-[#2A4064] hover:border-[#2A4064] shadow-[0_0_15px_rgba(53,80,122,0.18)] active:bg-[#243A59] active:scale-[0.98]',
         secondary:
-          'bg-[#11161D] text-[#E6E8EB] border border-[#1A1F27] hover:border-[#BFC5CC]/60 hover:text-[#BFC5CC] hover:bg-[#1A1F27] active:scale-[0.98]',
+          'bg-white text-[#0F172A] border border-[#E2E5EA] hover:border-[#35507A]/60 hover:text-[#35507A] hover:bg-[#F7F8FA] active:scale-[0.98]',
         outline:
-          'border border-[#BFC5CC] text-[#BFC5CC] bg-transparent hover:bg-[#BFC5CC] hover:text-[#0F172A] active:bg-[#0F172A] active:text-[#E6E8EB] active:scale-[0.98]',
+          'border border-[#35507A] text-[#35507A] bg-transparent hover:bg-[#35507A] hover:text-white active:bg-[#2A4064] active:scale-[0.98]',
         ghost:
-          'text-[#E6E8EB] hover:text-[#BFC5CC] hover:bg-[#11161D] active:scale-[0.98]',
+          'text-[#0F172A] hover:text-[#35507A] hover:bg-[#F7F8FA] active:scale-[0.98]',
         goldGlow:
-          'bg-[#0F172A] border border-[#BFC5CC] text-[#BFC5CC] hover:bg-[#BFC5CC] hover:text-[#0F172A] shadow-[0_0_20px_rgba(191,197,204,0.2)] active:scale-[0.98]',
+          'bg-[#35507A] border border-[#35507A] text-white hover:bg-[#2A4064] shadow-[0_0_20px_rgba(53,80,122,0.25)] active:scale-[0.98]',
         goldOutline:
-          'border border-[#BFC5CC]/60 text-[#BFC5CC] hover:bg-[#BFC5CC]/10 active:scale-[0.98]',
+          'border border-[#35507A]/60 text-[#35507A] hover:bg-[#35507A]/10 active:scale-[0.98]',
         danger:
           'bg-error text-error-foreground hover:bg-error/90 shadow-xs active:scale-[0.98]',
-        link: 'text-[#BFC5CC] underline-offset-4 hover:underline p-0 h-auto font-normal active:opacity-80 normal-case',
+        link: 'text-[#35507A] underline-offset-4 hover:underline p-0 h-auto font-normal active:opacity-80 normal-case',
       },
       size: {
         sm: 'h-8 px-3 text-[11px] gap-1.5 rounded-md',

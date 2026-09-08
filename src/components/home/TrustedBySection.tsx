@@ -132,11 +132,11 @@ export const TrustedBySection: React.FC = () => {
   return (
     <Section
       spacing="compact"
-      className="relative border-y border-white/[0.06] bg-[#121B28] py-16 md:py-24 overflow-hidden"
+      className="relative border-y border-white/[0.06] bg-[#FFFFFF] py-16 md:py-24 overflow-hidden"
     >
       {/* Top and Bottom Smooth Fade Transitions */}
-      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#090C11] to-transparent pointer-events-none z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0E141D] to-transparent pointer-events-none z-10" />
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#F7F8FA] to-transparent pointer-events-none z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#F7F8FA] to-transparent pointer-events-none z-10" />
 
       {/* Background Radial Ambient Glow */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
@@ -153,10 +153,10 @@ export const TrustedBySection: React.FC = () => {
         >
           {/* Header */}
           <div className="space-y-4 sm:space-y-5 max-w-3xl mx-auto mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#E6E8EB] font-display tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F172A] font-display tracking-tight leading-tight">
               Impulsamos empresas con las tecnologías que están transformando el mundo.
             </h2>
-            <p className="text-xs sm:text-sm md:text-base text-[#8892B0] max-w-2xl mx-auto leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm md:text-base text-[#5B6472] max-w-2xl mx-auto leading-relaxed font-normal">
               Construimos soluciones sobre plataformas líderes en inteligencia artificial, automatización y computación en la nube.
             </p>
           </div>
@@ -164,9 +164,9 @@ export const TrustedBySection: React.FC = () => {
           {/* Premium Horizontal Logo Band Container */}
           <div className="relative">
             {/* Subtle backlight glow directly behind the band */}
-            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-transparent via-[#4871B8]/15 to-transparent blur-xl pointer-events-none" />
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-transparent via-[#35507A]/15 to-transparent blur-xl pointer-events-none" />
 
-            <div className="relative rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#0C121C]/65 backdrop-blur-[12px] p-6 sm:p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div className="relative rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#FFFFFF]/65 backdrop-blur-[12px] p-6 sm:p-8 md:p-10 shadow-[0_20px_50px_rgba(15,23,42,0.5)]">
               {/* Desktop / Tablet Horizontal Grid Band */}
               <div className="hidden sm:flex flex-wrap items-center justify-center gap-x-8 md:gap-x-12 lg:gap-x-14 gap-y-7 md:gap-y-8">
                 {techPlatforms.map((platform) => {
@@ -175,9 +175,9 @@ export const TrustedBySection: React.FC = () => {
                     <motion.div
                       key={platform.name}
                       variants={itemVariants}
-                      className="flex items-center gap-3 text-[#A0AEC0] hover:text-white hover:scale-105 hover:brightness-125 transition-all duration-250 ease-out cursor-default select-none group py-1"
+                      className="flex items-center gap-3 text-[#5B6472] hover:text-white hover:scale-105 hover:brightness-125 transition-all duration-250 ease-out cursor-default select-none group py-1"
                     >
-                      <IconComponent className="w-6 h-6 shrink-0 text-[#A0AEC0] group-hover:text-white transition-colors duration-250" />
+                      <IconComponent className="w-6 h-6 shrink-0 text-[#5B6472] group-hover:text-white transition-colors duration-250" />
                       <span className="font-sans font-semibold text-sm sm:text-base tracking-wide whitespace-nowrap">
                         {platform.name}
                       </span>
@@ -194,9 +194,9 @@ export const TrustedBySection: React.FC = () => {
                     <motion.div
                       key={platform.name}
                       variants={itemVariants}
-                      className="flex items-center gap-2.5 text-[#A0AEC0] active:text-white hover:scale-105 transition-all duration-250 ease-out shrink-0 snap-center py-1"
+                      className="flex items-center gap-2.5 text-[#5B6472] active:text-white hover:scale-105 transition-all duration-250 ease-out shrink-0 snap-center py-1"
                     >
-                      <IconComponent className="w-5 h-5 shrink-0 text-[#A0AEC0]" />
+                      <IconComponent className="w-5 h-5 shrink-0 text-[#5B6472]" />
                       <span className="font-sans font-semibold text-xs sm:text-sm tracking-wide whitespace-nowrap">
                         {platform.name}
                       </span>

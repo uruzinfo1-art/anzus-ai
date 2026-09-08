@@ -34,14 +34,14 @@ export default function App() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'ANSUZ Technology',
-    url: 'https://ansuz.tech',
-    logo: 'https://ansuz.tech/logo.png',
+    url: 'https://ansuzstudio.com',
+    logo: 'https://ansuzstudio.com/logo.png',
     description:
       'Agencia de arquitectura de software enterprise, desarrollo full-stack con Next.js 15, React 19 e Inteligencia Artificial.',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Bogota',
-      addressCountry: 'ES',
+      addressCountry: 'CO',
     },
     sameAs: [
       'https://linkedin.com/company/ansuz-tech',

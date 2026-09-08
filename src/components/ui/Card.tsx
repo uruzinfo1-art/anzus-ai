@@ -3,15 +3,15 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/cn';
 
 export const cardVariants = cva(
-  'rounded-xl border border-[#1A1F27] bg-[#11161D] text-[#E6E8EB] transition-all duration-300 relative overflow-hidden group',
+  'rounded-xl border border-[#E2E5EA] bg-white text-[#0F172A] transition-all duration-300 relative overflow-hidden group',
   {
     variants: {
       variant: {
-        default: 'shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:border-[#BFC5CC]/40 hover:shadow-[0_10px_30px_rgba(0,0,0,0.7),0_0_15px_rgba(191,197,204,0.12)]',
-        interactive: 'shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:border-[#BFC5CC]/60 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(0,0,0,0.8),0_0_20px_rgba(191,197,204,0.2)] cursor-pointer',
-        glass: 'backdrop-blur-md bg-[#11161D]/80 border-[#1A1F27] shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:border-[#BFC5CC]/40',
-        outline: 'border border-[#1A1F27] bg-transparent hover:border-[#BFC5CC]/50 hover:bg-[#11161D]',
-        flat: 'bg-[#0B0F14] border border-[#1A1F27]',
+        default: 'shadow-[0_4px_20px_rgba(15,23,42,0.06)] hover:border-[#35507A]/40 hover:shadow-[0_10px_30px_rgba(15,23,42,0.10),0_0_15px_rgba(53,80,122,0.12)]',
+        interactive: 'shadow-[0_4px_20px_rgba(15,23,42,0.06)] hover:border-[#35507A]/60 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(15,23,42,0.12),0_0_20px_rgba(53,80,122,0.18)] cursor-pointer',
+        glass: 'backdrop-blur-md bg-white/80 border-[#E2E5EA] shadow-[0_4px_20px_rgba(15,23,42,0.06)] hover:border-[#35507A]/40',
+        outline: 'border border-[#E2E5EA] bg-transparent hover:border-[#35507A]/50 hover:bg-white',
+        flat: 'bg-[#F7F8FA] border border-[#E2E5EA]',
       },
       padding: {
         none: 'p-0',

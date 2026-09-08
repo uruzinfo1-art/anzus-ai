@@ -84,10 +84,10 @@ export const EmpresasSolutions: React.FC = () => {
   ];
 
   return (
-    <Section spacing="comfortable" className="relative bg-[#101722] py-24 overflow-hidden">
+    <Section spacing="comfortable" className="relative bg-[#F7F8FA] py-24 overflow-hidden">
       {/* Top and Bottom Fade Transitions */}
-      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#182231] to-transparent pointer-events-none z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#1B2940] to-transparent pointer-events-none z-10" />
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#FFFFFF] to-transparent pointer-events-none z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#FFFFFF] to-transparent pointer-events-none z-10" />
 
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
@@ -97,18 +97,18 @@ export const EmpresasSolutions: React.FC = () => {
       <Container maxWidth="2xl" className="relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D131E] border border-white/[0.08] text-[#BFC5CC] shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#BFC5CC]" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#BFC5CC]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F8FA] border border-white/[0.08] text-[#35507A] shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#35507A]" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#35507A]">
               PORTAFOLIO DE SOLUCIONES
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#E6E8EB] font-display tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] font-display tracking-tight leading-tight">
             Soluciones que Desarrollamos
           </h2>
 
-          <p className="text-sm sm:text-base md:text-lg text-[#8892B0] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-[#5B6472] max-w-2xl mx-auto leading-relaxed">
             Diseñamos soluciones tecnológicas personalizadas y adaptadas a las necesidades específicas de cada cliente.
           </p>
         </div>
@@ -127,25 +127,25 @@ export const EmpresasSolutions: React.FC = () => {
                 transition={{ duration: 0.3, delay: index * 0.04 }}
                 className={`group relative rounded-2xl border p-6 flex items-start gap-4 transition-all duration-250 shadow-md ${
                   item.isFeatured
-                    ? 'border-blue-500/40 bg-[#121D2E]/90 hover:border-blue-400/60 hover:bg-[#162338]/95 hover:-translate-y-1 ring-1 ring-blue-500/20'
-                    : 'border-white/[0.08] bg-[#0C121C]/80 backdrop-blur-md hover:border-white/[0.22] hover:bg-[#111826]/90 hover:-translate-y-1'
+                    ? 'border-blue-500/40 bg-[#FFFFFF]/90 hover:border-blue-400/60 hover:bg-[#FFFFFF]/95 hover:-translate-y-1 ring-1 ring-blue-500/20'
+                    : 'border-white/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:-translate-y-1'
                 }`}
               >
                 <div className={`w-12 h-12 rounded-xl border flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform ${
                   item.isFeatured
                     ? 'bg-blue-600/20 border-blue-400/40 text-blue-300'
-                    : 'bg-[#141C2B] border-white/[0.1] text-[#93C5FD]'
+                    : 'bg-[#FFFFFF] border-white/[0.1] text-[#35507A]'
                 }`}>
                   <IconComp className="w-6 h-6" />
                 </div>
 
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <h3 className="text-base font-bold text-[#E6E8EB] group-hover:text-white transition-colors leading-snug font-display">
+                    <h3 className="text-base font-bold text-[#0F172A] group-hover:text-white transition-colors leading-snug font-display">
                       {item.name}
                     </h3>
                   </div>
-                  <p className="text-xs text-[#8892B0] leading-relaxed">
+                  <p className="text-xs text-[#5B6472] leading-relaxed">
                     {item.desc}
                   </p>
                 </div>

@@ -65,10 +65,10 @@ export const EmpresasWhyUs: React.FC = () => {
   ];
 
   return (
-    <Section spacing="comfortable" className="relative bg-[#182231] py-24 overflow-hidden">
+    <Section spacing="comfortable" className="relative bg-[#FFFFFF] py-24 overflow-hidden">
       {/* Top and Bottom Transitions */}
-      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#1B2940] to-transparent pointer-events-none z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#1B2940] to-transparent pointer-events-none z-10" />
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#FFFFFF] to-transparent pointer-events-none z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#FFFFFF] to-transparent pointer-events-none z-10" />
 
       {/* Radial Glow */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
@@ -78,18 +78,18 @@ export const EmpresasWhyUs: React.FC = () => {
       <Container maxWidth="2xl" className="relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#121824] border border-white/[0.08] text-[#BFC5CC] shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#BFC5CC]" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#BFC5CC]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-white/[0.08] text-[#35507A] shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#35507A]" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#35507A]">
               Nuestra esencia
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#E6E8EB] font-display tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] font-display tracking-tight leading-tight">
             Creemos que la mejor tecnología nace de escuchar.
           </h2>
 
-          <p className="text-sm sm:text-base md:text-lg text-[#8892B0] max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="text-sm sm:text-base md:text-lg text-[#5B6472] max-w-2xl mx-auto leading-relaxed font-normal">
             En ANSUZ no comenzamos escribiendo código. Comenzamos entendiendo a las personas, sus procesos, sus objetivos y los desafíos que quieren resolver. Creemos que las mejores soluciones tecnológicas se construyen en conjunto con nuestros clientes.
           </p>
         </div>
@@ -107,20 +107,20 @@ export const EmpresasWhyUs: React.FC = () => {
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 className="h-full flex"
               >
-                <div className="relative group w-full flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#0C121C]/80 backdrop-blur-md p-6 transition-all duration-300 hover:border-white/[0.22] hover:bg-[#111826]/90 hover:-translate-y-1 shadow-md">
+                <div className="relative group w-full flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#FFFFFF]/80 backdrop-blur-md p-6 transition-all duration-300 hover:border-white/[0.22] hover:bg-[#FFFFFF]/90 hover:-translate-y-1 shadow-md">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-xl bg-[#141B28] border border-white/[0.1] text-white flex items-center justify-center group-hover:scale-105 group-hover:border-white/[0.3] transition-all">
-                        <IconComp className="w-6 h-6 text-[#93C5FD]" />
+                      <div className="w-12 h-12 rounded-xl bg-[#FFFFFF] border border-white/[0.1] text-white flex items-center justify-center group-hover:scale-105 group-hover:border-white/[0.3] transition-all">
+                        <IconComp className="w-6 h-6 text-[#35507A]" />
                       </div>
                       <span className="text-2xl">{item.badgeEmoji}</span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-[#E6E8EB] font-display tracking-tight group-hover:text-white transition-colors">
+                    <h3 className="text-lg font-bold text-[#0F172A] font-display tracking-tight group-hover:text-white transition-colors">
                       {item.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-[#8892B0] leading-relaxed font-normal">
+                    <p className="text-xs sm:text-sm text-[#5B6472] leading-relaxed font-normal">
                       {item.description}
                     </p>
                   </div>
