@@ -6,11 +6,11 @@ import { Button } from '@/components/ui/Button';
 import { AnsuzLogo } from '@/components/ui/AnsuzLogo';
 
 export const navLinks = [
-  { name: 'INICIO', href: '#inicio' },
-  { name: 'SERVICIOS', href: '#servicios' },
-  { name: 'DESARROLLOS', href: '#proyectos' },
-  { name: 'NOSOTROS', href: '#nosotros' },
-  { name: 'CONTACTO', href: '#contacto' },
+  { name: 'Inicio', href: '#inicio' },
+  { name: 'Servicios', href: '#servicios' },
+  { name: 'Desarrollos', href: '#proyectos' },
+  { name: 'Nosotros', href: '#nosotros' },
+  { name: 'Contacto', href: '#contacto' },
 ];
 
 export const Navbar: React.FC = () => {
@@ -59,9 +59,9 @@ export const Navbar: React.FC = () => {
     <header className="fixed top-3 sm:top-4 left-0 right-0 z-50 px-3 sm:px-6 transition-all duration-300 pointer-events-none">
       <div className="max-w-7xl mx-auto pointer-events-auto">
         <div
-          className="brushed-titanium-slab rounded-[18px] h-[74px] px-5 sm:px-7 transition-all duration-300"
+          className="navbar-bar rounded-2xl px-4 sm:px-6 transition-all duration-300"
         >
-          <div className="h-full flex items-center justify-between">
+          <div className="h-16 flex items-center justify-between overflow-hidden">
             {/* Official ANSUZ Logo */}
             <a
               href="#inicio"
@@ -78,7 +78,7 @@ export const Navbar: React.FC = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-[12px] uppercase tracking-widest font-semibold text-[#E6E8EB] hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#8CA9D1] hover:after:w-full after:transition-all after:duration-200"
+                  className="text-sm font-medium text-[#CBD5E1] hover:text-white transition-colors"
                 >
                   {link.name}
                 </a>
@@ -95,9 +95,9 @@ export const Navbar: React.FC = () => {
                   const contactEl = document.querySelector('#contacto');
                   if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="text-[11px] tracking-wider"
+                className="text-sm normal-case tracking-normal rounded-lg"
               >
-                AGENDAR UNA REUNIÓN
+                Agendar una reunión
               </Button>
             </div>
 
@@ -121,27 +121,27 @@ export const Navbar: React.FC = () => {
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.25, ease: 'easeInOut' }}
-                className="md:hidden border-t border-[#0F172A]/10 mt-4 pt-4 overflow-hidden"
+                className="md:hidden border-t border-white/10 overflow-hidden"
               >
-                <div className="flex flex-col gap-4">
-                  <nav className="flex flex-col gap-3">
+                <div className="flex flex-col gap-4 py-4">
+                  <nav className="flex flex-col gap-1">
                     {navLinks.map((link) => (
                       <a
                         key={link.name}
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link.href)}
-                        className="px-4 py-2 text-xs uppercase tracking-widest font-semibold text-[#E6E8EB] hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                        className="px-3 py-2.5 text-base font-medium text-[#CBD5E1] hover:text-white hover:bg-white/10 rounded-lg transition-colors"
                       >
                         {link.name}
                       </a>
                     ))}
                   </nav>
 
-                  <div className="pt-3 border-t border-[#0F172A]/10 flex flex-col gap-3">
+                  <div className="pt-3 border-t border-white/10 flex flex-col gap-3">
                     <Button
                       variant="primary"
                       size="lg"
-                      className="w-full justify-center text-xs tracking-wider"
+                      className="w-full justify-center text-sm normal-case tracking-normal"
                       rightIcon={<ArrowRight className="w-4 h-4" />}
                       onClick={() => {
                         setMobileMenuOpen(false);
@@ -149,7 +149,7 @@ export const Navbar: React.FC = () => {
                         if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
                       }}
                     >
-                      AGENDAR UNA REUNIÓN
+                      Agendar una reunión
                     </Button>
                   </div>
                 </div>

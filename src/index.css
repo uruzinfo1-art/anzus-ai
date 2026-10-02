@@ -2,8 +2,8 @@
 
 @layer base {
   :root {
-    --font-sans: 'Poppins', 'Plus Jakarta Sans', sans-serif;
-    --font-display: 'Syne', 'DM Serif Display', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
     /* ANSUZ Official Design System Palette — tema claro, acento azul metalizado */
@@ -59,8 +59,8 @@
 }
 
 @theme {
-  --font-sans: 'Poppins', 'Plus Jakarta Sans', sans-serif;
-  --font-display: 'Syne', 'DM Serif Display', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --color-carbon: #F7F8FA;
@@ -126,29 +126,13 @@
   box-shadow: 0 12px 30px -10px rgba(15, 23, 42, 0.12), 0 0 15px -3px rgba(53, 80, 122, 0.15);
 }
 
-/* High-End Brushed Titanium Slab Navbar Finish */
-.brushed-titanium-slab,
-.volcanic-stone-slab {
-  background-color: #1C2530;
-  background-image: 
-    /* Top edge sheen / light highlight */
-    linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.04) 14%, rgba(255, 255, 255, 0) 45%, rgba(0, 0, 0, 0.25) 100%),
-    /* Subtle brushed titanium grain texture */
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 1px, transparent 1px, transparent 3px),
-    repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0px, rgba(0, 0, 0, 0.04) 1px, transparent 1px, transparent 2px),
-    /* Vertical dark gunmetal gradient: Top #2A3644, Center #1C2530, Bottom #10161F */
-    linear-gradient(180deg, #2A3644 0%, #1C2530 50%, #10161F 100%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-  border-radius: 18px;
-  box-shadow: 
-    0 16px 36px -8px rgba(15, 23, 42, 0.25),
-    0 4px 12px -2px rgba(15, 23, 42, 0.15),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
-    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.25);
+/* Navbar: barra oscura plana */
+.navbar-bar {
+  background-color: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px -12px rgba(15, 23, 42, 0.35);
 }
 
 
