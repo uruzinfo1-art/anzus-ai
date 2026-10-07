@@ -16,6 +16,7 @@ import { PersonasPage } from '@/pages/PersonasPage';
 import { NegociosPage } from '@/pages/NegociosPage';
 import { EmpresasPage } from '@/pages/EmpresasPage';
 import { AppPage } from '@/pages/apps/AppPage';
+import { MesterPage } from '@/pages/apps/mester/MesterPage';
 import { findApp } from '@/pages/apps/appsData';
 import WhatsAppButton from "./components/WhatsAppButton";
 
@@ -70,7 +71,9 @@ export default function App() {
 
       {/* Main Page Content */}
       <main className="flex-1">
-        {currentApp ? (
+        {currentApp?.slug === 'mester' ? (
+          <MesterPage app={currentApp} />
+        ) : currentApp ? (
           <AppPage key={currentApp.slug} app={currentApp} />
         ) : currentPath === '/personas' ? (
           <PersonasPage />

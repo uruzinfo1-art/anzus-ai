@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { ArrowLeft, Download, ShieldCheck, Smartphone, Monitor, Clock, MessageCircle } from 'lucide-react';
 import { Container } from '@/components/layout/Container';
 import { Section } from '@/components/layout/Section';
-import type { AppInfo } from './appsData';
+import type { AppInfo, AppTheme } from './appsData';
 
 const WHATSAPP_NUMBER = '573207283295';
 
@@ -36,8 +36,9 @@ const installNote: Record<AppInfo['platform'], string> = {
     'Estos avisos aparecen con las apps independientes que todavía no tienen firma digital de Microsoft. No significan que el archivo tenga un problema.',
 };
 
-// Carga la letra de la app solo cuando se abre su página.
-const useAppFont = (url?: string) => {
+// Carga la letra de la app (solo cuando se abre su página) y pone el título de la pestaña.
+export const useAppPageSetup = (app: AppInfo) => {
+  const url = app.theme.fontUrl;
   useEffect(() => {
     if (!url || document.querySelector(`link[href="${url}"]`)) return;
     const link = document.createElement('link');
@@ -45,9 +46,33 @@ const useAppFont = (url?: string) => {
     link.href = url;
     document.head.appendChild(link);
   }, [url]);
+
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = `${app.name} | ${app.tagline} — ANSUZ`;
+    return () => {
+      document.title = previousTitle;
+    };
+  }, [app]);
 };
 
-const DownloadButton: React.FC<{ app: AppInfo; className?: string }> = ({ app, className = '' }) => {
+export const themeVarsFor = (theme: AppTheme) =>
+  ({
+    '--app-bg': theme.bg,
+    '--app-surface': theme.surface,
+    '--app-surface-alt': theme.surfaceAlt,
+    '--app-border': theme.border,
+    '--app-text': theme.text,
+    '--app-text-muted': theme.textMuted,
+    '--app-accent': theme.accent,
+    '--app-accent-text': theme.accentText,
+    '--app-highlight': theme.highlight,
+    '--font-display': theme.font,
+    '--font-sans': theme.font,
+    fontFamily: theme.font,
+  }) as React.CSSProperties;
+
+export const DownloadButton: React.FC<{ app: AppInfo; className?: string }> = ({ app, className = '' }) => {
   if (!app.downloadUrl) {
     return (
       <span
@@ -73,7 +98,7 @@ const DownloadButton: React.FC<{ app: AppInfo; className?: string }> = ({ app, c
   );
 };
 
-const PhoneFrame: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className = '' }) => (
+export const PhoneFrame: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className = '' }) => (
   <div
     className={`rounded-[2rem] border-[6px] border-[var(--app-surface-alt)] bg-black shadow-[0_30px_80px_-30px_var(--app-accent)] overflow-hidden ${className}`}
   >
@@ -81,42 +106,121 @@ const PhoneFrame: React.FC<{ src: string; alt: string; className?: string }> = (
   </div>
 );
 
-export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
+export const BackToAppsLink: React.FC = () => (
+  <a
+    href="/#proyectos"
+    onClick={(e) => {
+      e.preventDefault();
+      window.history.pushState({}, '', '/');
+      window.dispatchEvent(new Event('popstate'));
+      setTimeout(() => document.querySelector('#proyectos')?.scrollIntoView({ block: 'start' }), 50);
+    }}
+    className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--app-text-muted)] hover:text-[var(--app-text)] transition-colors"
+  >
+    <ArrowLeft className="w-4 h-4" aria-hidden="true" />
+    Todas las apps
+  </a>
+);
+
+// Guía de instalación, privacidad, preguntas frecuentes y llamado final: comunes a todas las apps.
+export const AppBottomSections: React.FC<{ app: AppInfo }> = ({ app }) => {
   const { theme } = app;
-  useAppFont(theme.fontUrl);
-
-  useEffect(() => {
-    const previousTitle = document.title;
-    document.title = `${app.name} | ${app.tagline} — ANSUZ`;
-    return () => {
-      document.title = previousTitle;
-    };
-  }, [app]);
-
-  const PlatformIcon = app.platform === 'android' ? Smartphone : Monitor;
   const platformName = app.platform === 'android' ? 'Android' : 'Windows';
   const installSteps = buildInstallSteps(app);
   const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     `Hola ANSUZ, tengo una pregunta sobre ${app.name}.`
   )}`;
 
-  const themeVars = {
-    '--app-bg': theme.bg,
-    '--app-surface': theme.surface,
-    '--app-surface-alt': theme.surfaceAlt,
-    '--app-border': theme.border,
-    '--app-text': theme.text,
-    '--app-text-muted': theme.textMuted,
-    '--app-accent': theme.accent,
-    '--app-accent-text': theme.accentText,
-    '--app-highlight': theme.highlight,
-    '--font-display': theme.font,
-    '--font-sans': theme.font,
-    fontFamily: theme.font,
-  } as React.CSSProperties;
+  return (
+    <>
+      {/* Install guide + Privacy */}
+      <Section id="instalar" className="bg-[var(--app-surface-alt)] py-20 md:py-24">
+        <Container maxWidth="xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="rounded-2xl border border-[var(--app-border)] bg-[var(--app-surface)] p-7 sm:p-8">
+              <h2 className="text-2xl font-bold tracking-tight mb-1">Cómo instalarla</h2>
+              <p className="text-sm text-[var(--app-text-muted)] mb-6">En {platformName}, toma pocos minutos.</p>
+              <ol className="space-y-4 list-decimal pl-5 marker:font-bold marker:text-[var(--app-accent)]">
+                {installSteps.map((step) => (
+                  <li key={step} className="text-sm leading-relaxed pl-1">
+                    {step}
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-6 text-xs text-[var(--app-text-muted)] leading-relaxed">{installNote[app.platform]}</p>
+            </div>
+
+            <div className="rounded-2xl border border-[var(--app-border)] bg-[var(--app-surface)] p-7 sm:p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <ShieldCheck className="w-6 h-6 text-[var(--app-highlight)] shrink-0" aria-hidden="true" />
+                <h2 className="text-2xl font-bold tracking-tight">{app.privacy.title}</h2>
+              </div>
+              <ul className="space-y-3">
+                {app.privacy.points.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-sm leading-relaxed">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[var(--app-highlight)] shrink-0" aria-hidden="true" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* FAQ + CTA */}
+      <Section className="bg-[var(--app-bg)] py-20 md:py-24">
+        <Container maxWidth="md">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-8 text-center">Preguntas frecuentes</h2>
+          <div className="space-y-3 mb-16">
+            {app.faq.map((item) => (
+              <details key={item.q} className="group rounded-xl border border-[var(--app-border)] bg-[var(--app-surface)] px-5 py-4">
+                <summary className="cursor-pointer list-none flex items-center justify-between gap-4 font-semibold">
+                  {item.q}
+                  <span
+                    className="text-[var(--app-accent)] transition-transform group-open:rotate-45 text-xl leading-none"
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm text-[var(--app-text-muted)] leading-relaxed">{item.a}</p>
+              </details>
+            ))}
+          </div>
+
+          <div
+            className="rounded-3xl border border-[var(--app-border)] px-6 py-12 sm:px-12 text-center"
+            style={{ background: `radial-gradient(ellipse at top, ${theme.accent}33, transparent 70%), ${theme.surface}` }}
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3">Prueba {app.name} hoy</h2>
+            <p className="text-[var(--app-text-muted)] mb-8">Es gratis. Si tienes dudas, escríbenos.</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <DownloadButton app={app} className="w-full sm:w-auto" />
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-xl border border-[var(--app-border)] text-sm font-semibold hover:bg-white/5 transition-colors w-full sm:w-auto"
+              >
+                <MessageCircle className="w-4 h-4" aria-hidden="true" />
+                Preguntar por WhatsApp
+              </a>
+            </div>
+          </div>
+        </Container>
+      </Section>
+    </>
+  );
+};
+
+export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
+  const { theme } = app;
+  useAppPageSetup(app);
+  const PlatformIcon = app.platform === 'android' ? Smartphone : Monitor;
 
   return (
-    <div style={themeVars} className="bg-[var(--app-bg)] text-[var(--app-text)]">
+    <div style={themeVarsFor(theme)} className="bg-[var(--app-bg)] text-[var(--app-text)]">
       {/* Hero */}
       <Section className="relative overflow-hidden bg-[var(--app-bg)] pt-28 pb-16 md:pt-36 md:pb-24">
         <div
@@ -124,19 +228,9 @@ export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
           style={{ background: `radial-gradient(ellipse 55% 65% at 80% 25%, ${theme.accent}33, transparent 70%)` }}
         />
         <Container maxWidth="xl" className="relative">
-          <a
-            href="/#proyectos"
-            onClick={(e) => {
-              e.preventDefault();
-              window.history.pushState({}, '', '/');
-              window.dispatchEvent(new Event('popstate'));
-              setTimeout(() => document.querySelector('#proyectos')?.scrollIntoView({ block: 'start' }), 50);
-            }}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--app-text-muted)] hover:text-[var(--app-text)] transition-colors mb-10"
-          >
-            <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-            Todas las apps
-          </a>
+          <div className="mb-10">
+            <BackToAppsLink />
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
             <motion.div
@@ -270,83 +364,7 @@ export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
         </Container>
       </Section>
 
-      {/* Install guide + Privacy */}
-      <Section className="bg-[var(--app-surface-alt)] py-20 md:py-24">
-        <Container maxWidth="xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-[var(--app-border)] bg-[var(--app-surface)] p-7 sm:p-8">
-              <h2 className="text-2xl font-bold tracking-tight mb-1">Cómo instalarla</h2>
-              <p className="text-sm text-[var(--app-text-muted)] mb-6">En {platformName}, toma pocos minutos.</p>
-              <ol className="space-y-4 list-decimal pl-5 marker:font-bold marker:text-[var(--app-accent)]">
-                {installSteps.map((step) => (
-                  <li key={step} className="text-sm leading-relaxed pl-1">
-                    {step}
-                  </li>
-                ))}
-              </ol>
-              <p className="mt-6 text-xs text-[var(--app-text-muted)] leading-relaxed">{installNote[app.platform]}</p>
-            </div>
-
-            <div className="rounded-2xl border border-[var(--app-border)] bg-[var(--app-surface)] p-7 sm:p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <ShieldCheck className="w-6 h-6 text-[var(--app-highlight)] shrink-0" aria-hidden="true" />
-                <h2 className="text-2xl font-bold tracking-tight">{app.privacy.title}</h2>
-              </div>
-              <ul className="space-y-3">
-                {app.privacy.points.map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-sm leading-relaxed">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[var(--app-highlight)] shrink-0" aria-hidden="true" />
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* FAQ + CTA */}
-      <Section className="bg-[var(--app-bg)] py-20 md:py-24">
-        <Container maxWidth="md">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-8 text-center">Preguntas frecuentes</h2>
-          <div className="space-y-3 mb-16">
-            {app.faq.map((item) => (
-              <details key={item.q} className="group rounded-xl border border-[var(--app-border)] bg-[var(--app-surface)] px-5 py-4">
-                <summary className="cursor-pointer list-none flex items-center justify-between gap-4 font-semibold">
-                  {item.q}
-                  <span
-                    className="text-[var(--app-accent)] transition-transform group-open:rotate-45 text-xl leading-none"
-                    aria-hidden="true"
-                  >
-                    +
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm text-[var(--app-text-muted)] leading-relaxed">{item.a}</p>
-              </details>
-            ))}
-          </div>
-
-          <div
-            className="rounded-3xl border border-[var(--app-border)] px-6 py-12 sm:px-12 text-center"
-            style={{ background: `radial-gradient(ellipse at top, ${theme.accent}33, transparent 70%), ${theme.surface}` }}
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3">Prueba {app.name} hoy</h2>
-            <p className="text-[var(--app-text-muted)] mb-8">Es gratis. Si tienes dudas, escríbenos.</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <DownloadButton app={app} className="w-full sm:w-auto" />
-              <a
-                href={whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-xl border border-[var(--app-border)] text-sm font-semibold hover:bg-white/5 transition-colors w-full sm:w-auto"
-              >
-                <MessageCircle className="w-4 h-4" aria-hidden="true" />
-                Preguntar por WhatsApp
-              </a>
-            </div>
-          </div>
-        </Container>
-      </Section>
+      <AppBottomSections app={app} />
     </div>
   );
 };
