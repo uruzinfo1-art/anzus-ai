@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import {
   ArrowDownRight,
+  ArrowRight,
   ArrowUpRight,
   CheckCheck,
   FileText,
@@ -28,6 +29,22 @@ const PURPLE = '#B05BD8';
 const RED = '#FF4D6D';
 const greenText = 'bg-gradient-to-r from-[#00E676] via-[#5CFFA8] to-[#00C853] bg-clip-text text-transparent';
 const heading = 'font-extrabold tracking-tight leading-[1.02]';
+
+// Etiqueta para lo que todavía no está activo (el asistente por WhatsApp).
+const SoonBadge: React.FC<{ large?: boolean }> = ({ large = false }) => (
+  <span
+    className={`inline-flex items-center gap-1.5 rounded-full bg-[#B05BD8] font-extrabold uppercase tracking-widest text-white ${
+      large ? 'px-4 py-1.5 text-xs' : 'px-2 py-0.5 text-[10px]'
+    }`}
+  >
+    <motion.span
+      className="w-1.5 h-1.5 rounded-full bg-white"
+      animate={{ opacity: [1, 0.3, 1] }}
+      transition={{ duration: 1.4, repeat: Infinity }}
+    />
+    Próximamente
+  </span>
+);
 
 /* ---------- Chat de WhatsApp que se reproduce solo (datos inventados) ---------- */
 
@@ -192,7 +209,7 @@ const WhatsAppDemo: React.FC = () => {
 /* ---------- Secciones ---------- */
 
 const RotatingWord: React.FC = () => {
-  const words = ['escribir.', 'hablar.', 'una foto.'];
+  const words = ['en orden.', 'claras.', 'bajo control.'];
   const [i, setI] = useState(0);
   useEffect(() => {
     const t = setInterval(() => setI((n) => (n + 1) % words.length), 2200);
@@ -233,19 +250,19 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
           <div className="inline-flex items-center gap-3 mb-6">
             <img src={amaraLogo} alt="Logo de AMARA" className="w-12 h-12 rounded-xl bg-white object-contain p-0.5" />
             <span className="px-3 py-1 rounded-full border border-[#00E676]/50 bg-[#00E676]/10 text-[#5CFFA8] text-xs font-bold uppercase tracking-widest">
-              Android + WhatsApp · Gratis
+              Android · Gratis
             </span>
           </div>
 
           <h1 className={`${heading} text-5xl sm:text-6xl xl:text-7xl text-white`}>
             Tus finanzas,
             <br />
-            con solo <RotatingWord />
+            <RotatingWord />
           </h1>
 
           <p className="mt-6 text-lg text-[#A1A1AA] leading-relaxed max-w-xl mx-auto lg:mx-0">
-            AMARA es tu asistente financiero personal y de negocios. Le hablas por WhatsApp o desde su app, como a una persona, y ella registra, organiza y te responde.{' '}
-            <span className="text-white font-semibold">Sin formularios ni menús.</span>
+            AMARA lleva las cuentas de tu casa y de tu negocio desde el celular: registras gastos e ingresos, apartas plata en bolsillos y ves en qué se va tu dinero.{' '}
+            <span className="text-white font-semibold">Gratis.</span>
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
@@ -257,19 +274,31 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
               className="w-full sm:w-auto"
             />
             <a
-              href="#como-le-hablas"
+              href="#gratis"
               onClick={(e) => {
                 e.preventDefault();
-                document.querySelector('#como-le-hablas')?.scrollIntoView({ behavior: 'smooth' });
+                document.querySelector('#gratis')?.scrollIntoView({ behavior: 'smooth' });
               }}
               className="inline-flex items-center justify-center h-14 px-7 rounded-2xl border border-[#00E676]/40 text-white font-semibold hover:bg-[#00E676]/10 transition-colors w-full sm:w-auto"
             >
-              Mira cómo funciona
+              Mira qué incluye
             </a>
           </div>
           <p className="mt-5 text-sm text-[#A1A1AA]">
             APK para Android · Versión {app.version} · {app.fileSize} · <span className="text-[#00E676] font-semibold">Gratis</span>
           </p>
+          <a
+            href="#proximamente"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('#proximamente')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#B05BD8]/50 bg-[#B05BD8]/10 px-4 py-2 text-sm text-[#E9D5FF] hover:bg-[#B05BD8]/20 transition-colors"
+          >
+            <SoonBadge />
+            Asistente por WhatsApp
+            <ArrowRight className="w-4 h-4" aria-hidden="true" />
+          </a>
         </motion.div>
 
         <div className="lg:col-span-6 relative flex justify-center lg:justify-end min-h-[600px]">
@@ -277,17 +306,17 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
             initial={{ opacity: 0, x: 40, rotate: 10 }}
             animate={{ opacity: 1, x: 0, rotate: 8 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:block absolute right-0 top-10 w-[230px] rounded-[2.2rem] border-[6px] border-[#1C2128] overflow-hidden opacity-80"
+            className="hidden sm:block absolute right-0 top-10 w-[230px] rounded-[2.2rem] border-[6px] border-[#1C2128] overflow-hidden opacity-85"
           >
-            <img src={amaraPerfiles} alt="Panel principal de la app AMARA" className="w-full h-auto block" />
+            <img src={amaraBolsillos} alt="Bolsillos de ahorro en la app AMARA" className="w-full h-auto block" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0, rotate: -3 }}
             transition={{ duration: 0.8, delay: 0.15, type: 'spring', bounce: 0.3 }}
-            className="relative z-20 lg:mr-[170px]"
+            className="relative z-20 sm:mr-[170px] w-[270px] rounded-[2.4rem] border-[7px] border-[#1C2128] overflow-hidden shadow-[0_30px_90px_-20px_rgba(0,230,118,0.6)]"
           >
-            <WhatsAppDemo />
+            <img src={amaraPerfiles} alt="Panel principal de la app AMARA con sus perfiles" className="w-full h-auto block" />
           </motion.div>
 
           <FloatingChip color={GREEN} className="left-0 sm:left-6 lg:left-0 top-16" delay={0.2}>
@@ -308,47 +337,126 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
   </Section>
 );
 
-const WaysToTalk: React.FC = () => {
-  const ways = [
-    { icon: Keyboard, color: GREEN, title: 'Escríbele', text: '"gasté 20 mil en almuerzo" o "me pagaron 500 mil". Con una frase basta.' },
-    { icon: Mic, color: '#34D3EE', title: 'Mándale un audio', text: 'Cuéntale tus gastos en una nota de voz y ella los entiende.' },
-    { icon: Receipt, color: '#FBBF24', title: 'Tómale foto al recibo', text: 'Lee fotos de recibos y saca el total por ti.' },
-    { icon: FileText, color: PURPLE, title: 'Envíale la factura', text: 'También lee facturas en PDF. No tienes que escribirlo todo.' },
-  ];
+// Lo que la app gratis ya hace hoy (sin el asistente).
+const FreeToday: React.FC<{ app: AppInfo }> = ({ app }) => {
+  const colors = [GREEN, '#34D3EE', PURPLE, '#FBBF24', '#F472B6'];
+  const features = app.features.filter((f) => !f.title.startsWith('Próximamente'));
   return (
-    <Section id="como-le-hablas" className="bg-[#05070A] py-20 md:py-28 border-t border-[#00E676]/15">
+    <Section id="gratis" className="bg-[#05070A] py-20 md:py-28 border-t border-[#00E676]/15">
       <Container maxWidth="xl">
         <h2 className={`${heading} text-4xl sm:text-5xl text-center text-white`}>
-          Háblale <span className={greenText}>como quieras</span>
+          Gratis hoy <span className={greenText}>en tu celular</span>
         </h2>
-        <p className="mt-3 text-center text-[#A1A1AA]">Escribe, habla o manda una foto. AMARA se encarga del resto.</p>
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {ways.map((way, i) => {
-            const Icon = way.icon;
+        <p className="mt-3 text-center text-[#A1A1AA]">Todo esto ya viene en la app.</p>
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-5">
+          {features.map((feature, i) => {
+            const Icon = feature.icon;
+            const color = colors[i % colors.length];
             return (
               <motion.div
-                key={way.title}
+                key={feature.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -8, rotate: i % 2 ? 1 : -1 }}
-                className="rounded-3xl border bg-[#0B0F14] p-6"
-                style={{ borderColor: `${way.color}55`, boxShadow: `0 0 50px -25px ${way.color}` }}
+                className={`rounded-3xl border bg-[#0B0F14] p-6 ${i < 3 ? 'lg:col-span-4' : 'lg:col-span-6'}`}
+                style={{ borderColor: `${color}55`, boxShadow: `0 0 50px -25px ${color}` }}
               >
                 <motion.div
                   className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
-                  style={{ backgroundColor: `${way.color}1F`, color: way.color }}
+                  style={{ backgroundColor: `${color}1F`, color }}
                   animate={{ scale: [1, 1.08, 1] }}
                   transition={{ duration: 2.4, repeat: Infinity, delay: i * 0.3 }}
                 >
                   <Icon className="w-7 h-7" aria-hidden="true" />
                 </motion.div>
-                <h3 className="text-xl font-bold text-white mb-2">{way.title}</h3>
-                <p className="text-sm text-[#A1A1AA] leading-relaxed">{way.text}</p>
+                <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
+                <p className="text-sm text-[#A1A1AA] leading-relaxed">{feature.text}</p>
               </motion.div>
             );
           })}
+        </div>
+      </Container>
+    </Section>
+  );
+};
+
+// El asistente por WhatsApp todavía no está activo: se muestra como adelanto.
+const ComingSoon: React.FC = () => {
+  const ways = [
+    { icon: Keyboard, color: GREEN, title: 'Escribirle', text: '"gasté 20 mil en almuerzo" o "me pagaron 500 mil".' },
+    { icon: Mic, color: '#34D3EE', title: 'Mandarle un audio', text: 'Contarle tus gastos en una nota de voz.' },
+    { icon: Receipt, color: '#FBBF24', title: 'Tomarle foto al recibo', text: 'Ella leerá el total por ti.' },
+    { icon: FileText, color: PURPLE, title: 'Enviarle la factura', text: 'También en PDF.' },
+  ];
+  return (
+    <Section id="proximamente" className="relative overflow-hidden bg-[#05070A] py-20 md:py-28 border-t border-[#B05BD8]/25">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_25%_50%,rgba(176,91,216,0.20),transparent_70%)] pointer-events-none" />
+      <Container maxWidth="xl" className="relative">
+        <div className="text-center">
+          <SoonBadge large />
+          <h2 className={`${heading} mt-5 text-4xl sm:text-5xl text-white`}>
+            AMARA <span className={greenText}>por WhatsApp</span>
+          </h2>
+          <p className="mt-3 text-[#A1A1AA] max-w-2xl mx-auto">
+            Estamos preparando un asistente al que le hablarás como a una persona, y que registrará tus cuentas por ti. Así se verá:
+          </p>
+        </div>
+
+        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative">
+              <WhatsAppDemo />
+              <span className="absolute -top-3 -right-3 rotate-6 rounded-lg bg-[#B05BD8] px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-white shadow-[0_0_30px_-4px_#B05BD8]">
+                Próximamente
+              </span>
+            </div>
+          </div>
+
+          <div className="lg:col-span-7">
+            <p className="text-sm uppercase tracking-widest text-[#E9D5FF] mb-4 text-center lg:text-left">Podrás</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {ways.map((way, i) => {
+                const Icon = way.icon;
+                return (
+                  <motion.div
+                    key={way.title}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: i * 0.1 }}
+                    className="flex items-start gap-4 rounded-2xl border bg-[#0B0F14] p-5"
+                    style={{ borderColor: `${way.color}40` }}
+                  >
+                    <div
+                      className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center"
+                      style={{ backgroundColor: `${way.color}1F`, color: way.color }}
+                    >
+                      <Icon className="w-5 h-5" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-white">{way.title}</h3>
+                      <p className="text-sm text-[#A1A1AA]">{way.text}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="mt-4 rounded-2xl border border-[#00E676]/30 bg-[#0B141A] p-5"
+            >
+              <p className="text-xs uppercase tracking-widest text-[#00E676] mb-2">Y al cerrar el mes</p>
+              <p className="rounded-xl rounded-tl-sm bg-[#202C33] px-4 py-3 text-white inline-block">
+                Te sobraron $350.000 este mes. ¿Qué quieres hacer con ellos?
+              </p>
+            </motion.div>
+          </div>
         </div>
       </Container>
     </Section>
@@ -369,10 +477,13 @@ const AskAnything: React.FC = () => {
       <Container maxWidth="xl" className="relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
-            <h2 className={`${heading} text-4xl sm:text-5xl text-white`}>
+            <SoonBadge large />
+            <h2 className={`${heading} mt-5 text-4xl sm:text-5xl text-white`}>
               Pregúntale <span className={greenText}>lo que quieras</span>
             </h2>
-            <p className="mt-4 text-lg text-[#A1A1AA]">Toca una pregunta y mira cómo responde (ejemplo con datos inventados).</p>
+            <p className="mt-4 text-lg text-[#A1A1AA]">
+              Con el asistente también podrás preguntarle por tu plata. Toca una pregunta y mira cómo responderá (ejemplo con datos inventados).
+            </p>
             <div className="mt-8 flex flex-col gap-3 max-w-md mx-auto lg:mx-0">
               {questions.map((item, i) => (
                 <button
@@ -438,7 +549,7 @@ const Pockets: React.FC = () => {
               Bolsillos que <span className={greenText}>se llenan</span>
             </h2>
             <p className="mt-4 text-lg text-[#A1A1AA] text-center lg:text-left">
-              Guarda y saca plata para tus metas. Y al terminar el mes, AMARA te pregunta sola qué hacer con lo que sobró.
+              Separa plata para tus metas: deposita, retira y mira cuánto llevas en cada bolsillo (ejemplo con datos inventados).
             </p>
 
             <div className="mt-10 space-y-5">
@@ -466,19 +577,6 @@ const Pockets: React.FC = () => {
                 </div>
               ))}
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="mt-6 rounded-2xl border border-[#00E676]/30 bg-[#0B141A] p-5"
-            >
-              <p className="text-xs uppercase tracking-widest text-[#00E676] mb-2">Cierre de mes</p>
-              <p className="rounded-xl rounded-tl-sm bg-[#202C33] px-4 py-3 text-white inline-block">
-                Te sobraron $350.000 este mes. ¿Qué quieres hacer con ellos?
-              </p>
-            </motion.div>
           </div>
 
           <div className="lg:col-span-5 flex justify-center">
@@ -565,10 +663,11 @@ export const AmaraPage: React.FC<{ app: AppInfo }> = ({ app }) => {
   return (
     <div style={themeVarsFor(app.theme)} className="bg-[#05070A] text-[var(--app-text)] overflow-x-clip">
       <Hero app={app} />
-      <WaysToTalk />
-      <AskAnything />
+      <FreeToday app={app} />
       <Pockets />
       <Profiles />
+      <ComingSoon />
+      <AskAnything />
       <AppBottomSections app={app} />
     </div>
   );

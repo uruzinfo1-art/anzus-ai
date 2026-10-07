@@ -13,9 +13,7 @@ import {
   ListChecks,
   MessageCircle,
   PiggyBank,
-  Receipt,
   Salad,
-  Search,
   Timer,
   Trophy,
   Users,
@@ -174,9 +172,9 @@ export const apps: AppInfo[] = [
   {
     slug: 'amara',
     name: 'AMARA',
-    tagline: 'Tus finanzas, con solo escribir.',
+    tagline: 'Tus finanzas, en orden.',
     description:
-      'Un asistente financiero personal y de negocios al que le hablas por WhatsApp o desde su app, como si fuera una persona. Sin formularios ni menús.',
+      'Lleva las cuentas de tu casa y de tu negocio desde el celular: registra gastos e ingresos, ahorra en bolsillos y mira en qué se va tu plata. Pronto, también por WhatsApp.',
     platform: 'android',
     version: '1.1',
     fileLabel: 'APK para Android',
@@ -199,29 +197,24 @@ export const apps: AppInfo[] = [
     hero: { type: 'phone', src: amaraPerfiles, alt: 'Panel principal de AMARA con sus perfiles' },
     features: [
       {
-        icon: MessageCircle,
-        title: 'Registra con una frase',
-        text: '"Gasté 20 mil en almuerzo" o "me pagaron 500 mil" y queda anotado.',
+        icon: Wallet,
+        title: 'Registra gastos e ingresos',
+        text: 'Cada movimiento con su monto, su categoría y una descripción, en segundos.',
       },
       {
-        icon: Search,
-        title: 'Pregúntale lo que quieras',
-        text: 'Cuánto gastaste, cuánto tienes disponible o el resumen del mes.',
+        icon: CalendarCheck,
+        title: 'Gastos fijos y categorías',
+        text: 'Carga tus gastos fijos y organiza todo con tus propias categorías.',
       },
       {
         icon: PiggyBank,
         title: 'Bolsillos de ahorro',
-        text: 'Guarda y saca plata para tus metas.',
+        text: 'Separa plata para tus metas: deposita, retira y mira el historial de cada bolsillo.',
       },
       {
-        icon: CalendarCheck,
-        title: 'Cierre de mes',
-        text: 'Al terminar el mes, AMARA te pregunta qué hacer con el dinero que sobró.',
-      },
-      {
-        icon: Receipt,
-        title: 'Fotos, facturas y notas de voz',
-        text: 'Lee fotos de recibos, PDF de facturas y audios: no tienes que escribirlo todo.',
+        icon: BarChart3,
+        title: 'Panel y estadísticas',
+        text: 'Tu disponible del mes, tus ingresos y gastos, y la evolución de los últimos meses.',
       },
       {
         icon: Layers,
@@ -229,15 +222,15 @@ export const apps: AppInfo[] = [
         text: 'Perfiles para el hogar, para negocios de flujo continuo (tiendas, servicios) y de ciclo productivo (agro, con socios e inversión).',
       },
       {
-        icon: BarChart3,
-        title: 'Panel y estadísticas',
-        text: 'En la app ves tu disponible, tus movimientos, estadísticas y ajustes.',
+        icon: MessageCircle,
+        title: 'Próximamente: asistente por WhatsApp',
+        text: 'Registrarás tus cuentas con una frase, un audio o la foto de un recibo.',
       },
     ],
     steps: [
       'Descarga e instala la app.',
       'Crea tu perfil: hogar o negocio.',
-      'Escríbele a AMARA lo que gastas y lo que recibes.',
+      'Registra tus gastos e ingresos y aparta plata en tus bolsillos.',
     ],
     screenshots: [
       { src: amaraBolsillos, alt: 'Bolsillos de ahorro en AMARA' },
@@ -246,13 +239,16 @@ export const apps: AppInfo[] = [
     privacy: {
       title: 'Cómo se manejan tus datos',
       points: [
-        'Tus datos financieros se guardan en la nube (Supabase) para que AMARA pueda responderte desde WhatsApp y desde la app.',
-        'Los mensajes por WhatsApp llegan a través de la API oficial de WhatsApp Business (Meta).',
-        'Para entender tus mensajes, fotos y audios, AMARA usa un modelo de inteligencia artificial de OpenAI.',
+        'Tus datos financieros se guardan en la nube (Supabase) para que puedas verlos desde la app.',
+        'El asistente por WhatsApp todavía no está activo. Cuando llegue, sus mensajes pasarán por la API oficial de WhatsApp Business (Meta) y se procesarán con inteligencia artificial de OpenAI.',
       ],
     },
     faq: [
       { q: '¿Es gratis?', a: 'Sí, esta versión de AMARA es gratuita.' },
+      {
+        q: '¿Cuándo llega el asistente por WhatsApp?',
+        a: 'Estamos trabajando en él. Mientras tanto, la app ya te deja registrar tus finanzas, ahorrar en bolsillos y ver tus estadísticas, gratis.',
+      },
       { q: '¿Funciona en iPhone?', a: 'La app es para Android. En iPhone, por ahora, no se puede instalar.' },
       {
         q: '¿Sirve para mi negocio?',

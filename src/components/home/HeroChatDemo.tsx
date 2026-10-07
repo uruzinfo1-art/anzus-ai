@@ -27,10 +27,13 @@ export const HeroChatDemo: React.FC = () => {
           <div className="w-10 h-10 rounded-full overflow-hidden border border-[#E2E5EA] bg-[#F7F8FA] shrink-0">
             <img src={amaraLogo} alt="" className="w-full h-full object-cover" />
           </div>
-          <div className="text-left">
+          <div className="text-left flex-1">
             <div className="text-sm font-semibold text-[#0F172A]">AMARA</div>
             <div className="text-xs text-[#5B6472]">Asistente de finanzas por WhatsApp</div>
           </div>
+          <span className="rounded-full bg-[#35507A]/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#35507A]">
+            Próximamente
+          </span>
         </div>
 
         {/* Chat Messages */}
@@ -63,7 +66,7 @@ export const HeroChatDemo: React.FC = () => {
       </div>
 
       <figcaption className="mt-4 text-center text-sm text-[#5B6472]">
-        AMARA, uno de nuestros desarrollos: registra tus cuentas sin abrir la app.
+        Próximamente: el asistente de AMARA por WhatsApp, para registrar tus cuentas con un mensaje.
       </figcaption>
     </figure>
   );
