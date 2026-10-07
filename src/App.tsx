@@ -15,6 +15,8 @@ import { Footer } from '@/components/layout/Footer';
 import { PersonasPage } from '@/pages/PersonasPage';
 import { NegociosPage } from '@/pages/NegociosPage';
 import { EmpresasPage } from '@/pages/EmpresasPage';
+import { AppPage } from '@/pages/apps/AppPage';
+import { findApp } from '@/pages/apps/appsData';
 import WhatsAppButton from "./components/WhatsAppButton";
 
 export default function App() {
@@ -30,6 +32,9 @@ export default function App() {
     window.addEventListener('popstate', handleLocationChange);
     return () => window.removeEventListener('popstate', handleLocationChange);
   }, []);
+
+  const appMatch = currentPath.match(/^\/apps\/([^/]+)\/?$/);
+  const currentApp = appMatch ? findApp(appMatch[1]) : undefined;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -65,7 +70,9 @@ export default function App() {
 
       {/* Main Page Content */}
       <main className="flex-1">
-        {currentPath === '/personas' ? (
+        {currentApp ? (
+          <AppPage key={currentApp.slug} app={currentApp} />
+        ) : currentPath === '/personas' ? (
           <PersonasPage />
         ) : currentPath === '/negocios' ? (
           <NegociosPage />

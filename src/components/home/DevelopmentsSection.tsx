@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Container } from '../layout/Container';
 import { Section } from '../layout/Section';
 import { Card } from '@/components/ui/Card';
-import amaraLogo from '@/assets/images/logo-amara.png';
 import snaptechLogo from '@/assets/images/logo-3dsnaptech.png';
+import { apps } from '@/pages/apps/appsData';
+import { navigateTo } from '@/lib/navigate';
 
 type Project = {
   id: string;
@@ -14,6 +15,8 @@ type Project = {
   tag: string;
   description: string;
   url: string;
+  // true: abre la página de la app dentro del sitio; false: abre un sitio externo.
+  internal?: boolean;
 };
 
 type Category = {
@@ -26,17 +29,15 @@ const categories: Category[] = [
   {
     id: 'aplicaciones',
     label: 'Aplicaciones',
-    projects: [
-      {
-        id: 'amara',
-        logo: amaraLogo,
-        name: 'AMARA',
-        tag: 'App de finanzas personales y de negocio',
-        description:
-          'AMARA te ayuda a llevar tus finanzas, desde el gasto del hogar hasta las cuentas de un negocio pequeño. Incluye un asistente por WhatsApp: le escribes lo que gastaste o lo que te pagaron y ella lo registra y organiza sola, sin que tengas que abrir la app.',
-        url: 'https://amara-weld.vercel.app/',
-      },
-    ],
+    projects: apps.map((app) => ({
+      id: app.slug,
+      logo: app.logo,
+      name: app.name,
+      tag: `${app.platform === 'android' ? 'Android' : 'Windows'} · Gratis`,
+      description: app.description,
+      url: `/apps/${app.slug}`,
+      internal: true,
+    })),
   },
   {
     id: 'paginas-web',
@@ -59,8 +60,9 @@ const categories: Category[] = [
 const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => (
   <motion.a
     href={project.url}
-    target="_blank"
-    rel="noopener noreferrer"
+    {...(project.internal
+      ? { onClick: (e: React.MouseEvent<HTMLAnchorElement>) => navigateTo(e, project.url) }
+      : { target: '_blank', rel: 'noopener noreferrer' })}
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
@@ -69,10 +71,14 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
   >
     <Card variant="interactive" className="p-7 h-full flex flex-col bg-[#FFFFFF] border-[#E2E5EA]">
       <div className="flex items-start justify-between mb-5">
-        <div className="w-14 h-14 rounded-xl bg-[#F7F8FA] border border-[#E2E5EA] overflow-hidden flex items-center justify-center">
-          <img src={project.logo} alt={`Logo de ${project.name}`} className="w-full h-full object-cover" />
+        <div className={`w-14 h-14 rounded-xl border border-[#E2E5EA] overflow-hidden flex items-center justify-center ${project.internal ? 'bg-[#0F172A] p-1' : 'bg-[#F7F8FA]'}`}>
+          <img src={project.logo} alt={`Logo de ${project.name}`} className={`w-full h-full ${project.internal ? 'object-contain' : 'object-cover'}`} />
         </div>
-        <ArrowUpRight className="w-4 h-4 text-[#5B6472] group-hover:text-[#35507A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+        {project.internal ? (
+          <ArrowRight className="w-4 h-4 text-[#5B6472] group-hover:text-[#35507A] group-hover:translate-x-0.5 transition-all" />
+        ) : (
+          <ArrowUpRight className="w-4 h-4 text-[#5B6472] group-hover:text-[#35507A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+        )}
       </div>
 
       <h3 className="text-xl font-bold text-[#0F172A] font-display mb-1">
@@ -86,7 +92,11 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
       </p>
 
       <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#35507A] mt-5">
-        Ver proyecto <ArrowUpRight className="w-3.5 h-3.5" />
+        {project.internal ? (
+          <>Ver y descargar <ArrowRight className="w-3.5 h-3.5" /></>
+        ) : (
+          <>Ver proyecto <ArrowUpRight className="w-3.5 h-3.5" /></>
+        )}
       </span>
     </Card>
   </motion.a>
@@ -108,13 +118,13 @@ export const DevelopmentsSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-14">
+        <div className="max-w-6xl mx-auto space-y-14">
           {categories.map((category) => (
             <div key={category.id}>
               <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#5B6472] mb-5 pb-2 border-b border-[#E2E5EA]">
                 {category.label}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {category.projects.map((project, i) => (
                   <ProjectCard key={project.id} project={project} index={i} />
                 ))}

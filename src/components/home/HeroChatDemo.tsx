@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { CheckCheck } from 'lucide-react';
-import amaraLogo from '@/assets/images/logo-amara.png';
+import amaraLogo from '@/assets/images/apps/amara-logo.png';
 
 type ChatMessage = {
   id: string;
