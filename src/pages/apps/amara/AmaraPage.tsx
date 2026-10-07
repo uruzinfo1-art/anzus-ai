@@ -46,6 +46,12 @@ const SoonBadge: React.FC<{ large?: boolean }> = ({ large = false }) => (
   </span>
 );
 
+const NotIncludedNote: React.FC = () => (
+  <span className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-semibold text-[#E4E4E7]">
+    No incluido en la versión gratis · llegará en la versión paga
+  </span>
+);
+
 /* ---------- Chat de WhatsApp que se reproduce solo (datos inventados) ---------- */
 
 type ChatItem =
@@ -296,7 +302,7 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
             className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#B05BD8]/50 bg-[#B05BD8]/10 px-4 py-2 text-sm text-[#E9D5FF] hover:bg-[#B05BD8]/20 transition-colors"
           >
             <SoonBadge />
-            Asistente por WhatsApp
+            Asistente por WhatsApp · versión paga
             <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </a>
         </motion.div>
@@ -395,12 +401,15 @@ const ComingSoon: React.FC = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_25%_50%,rgba(176,91,216,0.20),transparent_70%)] pointer-events-none" />
       <Container maxWidth="xl" className="relative">
         <div className="text-center">
-          <SoonBadge large />
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <SoonBadge large />
+            <NotIncludedNote />
+          </div>
           <h2 className={`${heading} mt-5 text-4xl sm:text-5xl text-white`}>
             AMARA <span className={greenText}>por WhatsApp</span>
           </h2>
           <p className="mt-3 text-[#A1A1AA] max-w-2xl mx-auto">
-            Estamos preparando un asistente al que le hablarás como a una persona, y que registrará tus cuentas por ti. Así se verá:
+            Estamos preparando la versión paga de AMARA, con un asistente al que le hablarás como a una persona y que registrará tus cuentas por ti. Así se verá:
           </p>
         </div>
 
@@ -409,7 +418,7 @@ const ComingSoon: React.FC = () => {
             <div className="relative">
               <WhatsAppDemo />
               <span className="absolute -top-3 -right-3 rotate-6 rounded-lg bg-[#B05BD8] px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-white shadow-[0_0_30px_-4px_#B05BD8]">
-                Próximamente
+                Próximamente · versión paga
               </span>
             </div>
           </div>
@@ -477,12 +486,15 @@ const AskAnything: React.FC = () => {
       <Container maxWidth="xl" className="relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
-            <SoonBadge large />
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+              <SoonBadge large />
+              <NotIncludedNote />
+            </div>
             <h2 className={`${heading} mt-5 text-4xl sm:text-5xl text-white`}>
               Pregúntale <span className={greenText}>lo que quieras</span>
             </h2>
             <p className="mt-4 text-lg text-[#A1A1AA]">
-              Con el asistente también podrás preguntarle por tu plata. Toca una pregunta y mira cómo responderá (ejemplo con datos inventados).
+              Con el asistente de la versión paga también podrás preguntarle por tu plata. Toca una pregunta y mira cómo responderá (ejemplo con datos inventados).
             </p>
             <div className="mt-8 flex flex-col gap-3 max-w-md mx-auto lg:mx-0">
               {questions.map((item, i) => (

@@ -174,7 +174,7 @@ export const apps: AppInfo[] = [
     name: 'AMARA',
     tagline: 'Tus finanzas, en orden.',
     description:
-      'Lleva las cuentas de tu casa y de tu negocio desde el celular: registra gastos e ingresos, ahorra en bolsillos y mira en qué se va tu plata. Pronto, también por WhatsApp.',
+      'Lleva las cuentas de tu casa y de tu negocio desde el celular: registra gastos e ingresos, ahorra en bolsillos y mira en qué se va tu plata. Próximamente, una versión paga con asistente por WhatsApp.',
     platform: 'android',
     version: '1.1',
     fileLabel: 'APK para Android',
@@ -223,8 +223,8 @@ export const apps: AppInfo[] = [
       },
       {
         icon: MessageCircle,
-        title: 'Próximamente: asistente por WhatsApp',
-        text: 'Registrarás tus cuentas con una frase, un audio o la foto de un recibo.',
+        title: 'Próximamente en la versión paga: asistente por WhatsApp',
+        text: 'No incluido en la versión gratis. Registrarás tus cuentas con una frase, un audio o la foto de un recibo.',
       },
     ],
     steps: [
@@ -240,14 +240,14 @@ export const apps: AppInfo[] = [
       title: 'Cómo se manejan tus datos',
       points: [
         'Tus datos financieros se guardan en la nube (Supabase) para que puedas verlos desde la app.',
-        'El asistente por WhatsApp todavía no está activo. Cuando llegue, sus mensajes pasarán por la API oficial de WhatsApp Business (Meta) y se procesarán con inteligencia artificial de OpenAI.',
+        'El asistente por WhatsApp (versión paga) todavía no está disponible. Cuando llegue, sus mensajes pasarán por la API oficial de WhatsApp Business (Meta) y se procesarán con inteligencia artificial de OpenAI.',
       ],
     },
     faq: [
-      { q: '¿Es gratis?', a: 'Sí, esta versión de AMARA es gratuita.' },
+      { q: '¿Es gratis?', a: 'Sí, esta versión de AMARA es gratuita. El asistente por WhatsApp llegará más adelante en una versión paga.' },
       {
-        q: '¿Cuándo llega el asistente por WhatsApp?',
-        a: 'Estamos trabajando en él. Mientras tanto, la app ya te deja registrar tus finanzas, ahorrar en bolsillos y ver tus estadísticas, gratis.',
+        q: '¿La versión gratis incluye el asistente por WhatsApp?',
+        a: 'No. El asistente llegará próximamente en una versión paga. La versión gratis ya te deja registrar tus finanzas, ahorrar en bolsillos y ver tus estadísticas.',
       },
       { q: '¿Funciona en iPhone?', a: 'La app es para Android. En iPhone, por ahora, no se puede instalar.' },
       {

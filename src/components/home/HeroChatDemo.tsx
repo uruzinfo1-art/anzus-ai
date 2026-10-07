@@ -66,7 +66,7 @@ export const HeroChatDemo: React.FC = () => {
       </div>
 
       <figcaption className="mt-4 text-center text-sm text-[#5B6472]">
-        Próximamente: el asistente de AMARA por WhatsApp, para registrar tus cuentas con un mensaje.
+        Próximamente, en la versión paga de AMARA: un asistente por WhatsApp para registrar tus cuentas con un mensaje.
       </figcaption>
     </figure>
   );
