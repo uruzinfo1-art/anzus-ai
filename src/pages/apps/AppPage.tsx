@@ -7,33 +7,51 @@ import type { AppInfo } from './appsData';
 
 const WHATSAPP_NUMBER = '573207283295';
 
-const installSteps: Record<AppInfo['platform'], string[]> = {
-  android: [
-    'Desde tu celular, toca "Descargar" y guarda el archivo APK.',
+// Drive muestra un aviso antes de descargar cualquier instalador (APK o .exe).
+const DRIVE_WARNING_STEP =
+  'Google Drive mostrará un aviso antes de descargar, porque es un instalador. Toca "Descargar de todas formas".';
+
+const buildInstallSteps = (app: AppInfo): string[] => {
+  if (app.platform === 'windows') {
+    return [
+      'Toca "Descargar" desde tu computador.',
+      DRIVE_WARNING_STEP,
+      'Abre el instalador. Si Windows muestra "Windows protegió su PC", toca "Más información" y luego "Ejecutar de todas formas".',
+      'Sigue los pasos del instalador y abre la app.',
+    ];
+  }
+  return [
+    'Desde tu celular, toca "Descargar".',
+    DRIVE_WARNING_STEP,
     'Ábrelo. Android te pedirá permitir la instalación de apps de origen desconocido para tu navegador o para Drive: actívala.',
     'Si Google Play Protect muestra un aviso, elige "Instalar de todas formas".',
     'Listo: la app queda junto a las demás en tu celular.',
-  ],
-  windows: [
-    'Toca "Descargar" desde tu computador.',
-    'Por el tamaño del archivo, Drive avisa que no puede analizarlo en busca de virus: elige "Descargar de todas formas".',
-    'Abre el instalador. Si Windows muestra "Windows protegió su PC", toca "Más información" y luego "Ejecutar de todas formas".',
-    'Sigue los pasos del instalador y abre la app.',
-  ],
+  ];
 };
 
 const installNote: Record<AppInfo['platform'], string> = {
   android:
-    'Estos avisos aparecen con cualquier app que se instala por fuera de Play Store. No significan que el archivo tenga un problema.',
+    'Estos avisos aparecen con cualquier app que se descarga e instala por fuera de Play Store. No significan que el archivo tenga un problema.',
   windows:
-    'El aviso de Windows aparece con las apps independientes que todavía no tienen firma digital de Microsoft. No significa que el archivo tenga un problema.',
+    'Estos avisos aparecen con las apps independientes que todavía no tienen firma digital de Microsoft. No significan que el archivo tenga un problema.',
+};
+
+// Carga la letra de la app solo cuando se abre su página.
+const useAppFont = (url?: string) => {
+  useEffect(() => {
+    if (!url || document.querySelector(`link[href="${url}"]`)) return;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = url;
+    document.head.appendChild(link);
+  }, [url]);
 };
 
 const DownloadButton: React.FC<{ app: AppInfo; className?: string }> = ({ app, className = '' }) => {
   if (!app.downloadUrl) {
     return (
       <span
-        className={`inline-flex items-center justify-center gap-2 h-12 px-7 rounded-lg bg-[#E2E5EA] text-[#5B6472] text-sm font-semibold cursor-not-allowed ${className}`}
+        className={`inline-flex items-center justify-center gap-2 h-12 px-7 rounded-xl bg-[var(--app-surface-alt)] text-[var(--app-text-muted)] text-sm font-semibold cursor-not-allowed ${className}`}
         aria-disabled="true"
       >
         <Clock className="w-4 h-4" aria-hidden="true" />
@@ -47,8 +65,7 @@ const DownloadButton: React.FC<{ app: AppInfo; className?: string }> = ({ app, c
       href={app.downloadUrl}
       target="_blank"
       rel="noopener noreferrer"
-      style={{ backgroundColor: app.accent, color: app.accentText }}
-      className={`inline-flex items-center justify-center gap-2 h-12 px-7 rounded-lg text-sm font-semibold shadow-sm transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0F172A] ${className}`}
+      className={`inline-flex items-center justify-center gap-2 h-12 px-7 rounded-xl bg-[var(--app-accent)] text-[var(--app-accent-text)] text-sm font-bold shadow-[0_10px_30px_-10px_var(--app-accent)] transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--app-bg)] focus-visible:ring-[var(--app-accent)] ${className}`}
     >
       <Download className="w-4 h-4" aria-hidden="true" />
       Descargar gratis
@@ -57,12 +74,17 @@ const DownloadButton: React.FC<{ app: AppInfo; className?: string }> = ({ app, c
 };
 
 const PhoneFrame: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className = '' }) => (
-  <div className={`rounded-[2rem] border-[6px] border-[#0F172A] bg-[#0F172A] shadow-[0_24px_60px_-20px_rgba(15,23,42,0.45)] overflow-hidden ${className}`}>
+  <div
+    className={`rounded-[2rem] border-[6px] border-[var(--app-surface-alt)] bg-black shadow-[0_30px_80px_-30px_var(--app-accent)] overflow-hidden ${className}`}
+  >
     <img src={src} alt={alt} loading="lazy" className="w-full h-auto block" />
   </div>
 );
 
 export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
+  const { theme } = app;
+  useAppFont(theme.fontUrl);
+
   useEffect(() => {
     const previousTitle = document.title;
     document.title = `${app.name} | ${app.tagline} — ANSUZ`;
@@ -73,17 +95,33 @@ export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
 
   const PlatformIcon = app.platform === 'android' ? Smartphone : Monitor;
   const platformName = app.platform === 'android' ? 'Android' : 'Windows';
+  const installSteps = buildInstallSteps(app);
   const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     `Hola ANSUZ, tengo una pregunta sobre ${app.name}.`
   )}`;
 
+  const themeVars = {
+    '--app-bg': theme.bg,
+    '--app-surface': theme.surface,
+    '--app-surface-alt': theme.surfaceAlt,
+    '--app-border': theme.border,
+    '--app-text': theme.text,
+    '--app-text-muted': theme.textMuted,
+    '--app-accent': theme.accent,
+    '--app-accent-text': theme.accentText,
+    '--app-highlight': theme.highlight,
+    '--font-display': theme.font,
+    '--font-sans': theme.font,
+    fontFamily: theme.font,
+  } as React.CSSProperties;
+
   return (
-    <>
+    <div style={themeVars} className="bg-[var(--app-bg)] text-[var(--app-text)]">
       {/* Hero */}
-      <Section className="relative overflow-hidden bg-[#F7F8FA] pt-28 pb-16 md:pt-36 md:pb-24">
+      <Section className="relative overflow-hidden bg-[var(--app-bg)] pt-28 pb-16 md:pt-36 md:pb-24">
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: `radial-gradient(ellipse 60% 70% at 85% 20%, ${app.accent}14, transparent 70%)` }}
+          style={{ background: `radial-gradient(ellipse 55% 65% at 80% 25%, ${theme.accent}33, transparent 70%)` }}
         />
         <Container maxWidth="xl" className="relative">
           <a
@@ -94,7 +132,7 @@ export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
               window.dispatchEvent(new Event('popstate'));
               setTimeout(() => document.querySelector('#proyectos')?.scrollIntoView({ block: 'start' }), 50);
             }}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-[#5B6472] hover:text-[#0F172A] transition-colors mb-10"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--app-text-muted)] hover:text-[var(--app-text)] transition-colors mb-10"
           >
             <ArrowLeft className="w-4 h-4" aria-hidden="true" />
             Todas las apps
@@ -111,19 +149,19 @@ export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
                 <img
                   src={app.logo}
                   alt={`Logo de ${app.name}`}
-                  className="w-16 h-16 rounded-2xl object-contain bg-[#0F172A] p-1.5 shadow-sm"
+                  className="w-16 h-16 rounded-2xl object-contain bg-black border border-[var(--app-border)] p-1.5"
                 />
                 <div className="text-left">
-                  <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0F172A]">{app.name}</h1>
-                  <p className="text-sm text-[#5B6472]">por ANSUZ</p>
+                  <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">{app.name}</h1>
+                  <p className="text-sm text-[var(--app-text-muted)]">por ANSUZ</p>
                 </div>
               </div>
 
-              <p className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] text-[#0F172A]">
+              <p className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1]">
                 {app.tagline}
               </p>
 
-              <p className="text-base sm:text-lg text-[#5B6472] leading-relaxed max-w-xl mx-auto lg:mx-0">
+              <p className="text-base sm:text-lg text-[var(--app-text-muted)] leading-relaxed max-w-xl mx-auto lg:mx-0">
                 {app.description}
               </p>
 
@@ -131,24 +169,23 @@ export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
                 <DownloadButton app={app} className="w-full sm:w-auto" />
               </div>
 
-              <p className="flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-1 text-sm text-[#5B6472]">
+              <p className="flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-1 text-sm text-[var(--app-text-muted)]">
                 <span className="inline-flex items-center gap-1.5">
                   <PlatformIcon className="w-4 h-4" aria-hidden="true" />
                   {app.fileLabel}
                 </span>
                 <span aria-hidden="true">·</span>
                 <span>Versión {app.version}</span>
-                {app.fileSize && (
-                  <>
-                    <span aria-hidden="true">·</span>
-                    <span>{app.fileSize}</span>
-                  </>
-                )}
                 <span aria-hidden="true">·</span>
-                <span>Gratis</span>
+                <span>{app.fileSize}</span>
+                <span aria-hidden="true">·</span>
+                <span className="font-semibold text-[var(--app-highlight)]">Gratis</span>
               </p>
-              {app.requirements && (
-                <p className="text-xs text-[#5B6472]">Requisitos: {app.requirements}.</p>
+              {(app.requirements || app.downloadNote) && (
+                <p className="text-xs text-[var(--app-text-muted)]">
+                  {app.requirements && <>Requisitos: {app.requirements}. </>}
+                  {app.downloadNote}
+                </p>
               )}
             </motion.div>
 
@@ -162,12 +199,12 @@ export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
                 <img
                   src={app.hero.src}
                   alt={app.hero.alt}
-                  className="w-full max-w-sm rounded-3xl shadow-[0_24px_60px_-20px_rgba(15,23,42,0.45)] object-cover aspect-[4/5]"
+                  className="w-full max-w-sm rounded-3xl border border-[var(--app-border)] shadow-[0_30px_80px_-30px_var(--app-accent)] object-cover aspect-[4/5]"
                 />
               )}
               {app.hero.type === 'phone' && <PhoneFrame src={app.hero.src} alt={app.hero.alt} className="w-full max-w-[280px]" />}
               {app.hero.type === 'logo' && (
-                <div className="w-full max-w-sm aspect-square rounded-3xl bg-black shadow-[0_24px_60px_-20px_rgba(15,23,42,0.45)] overflow-hidden">
+                <div className="w-full max-w-sm aspect-square rounded-3xl bg-black border border-[var(--app-border)] shadow-[0_30px_80px_-30px_var(--app-accent)] overflow-hidden">
                   <img src={app.hero.src} alt={app.hero.alt} className="w-full h-full object-contain" />
                 </div>
               )}
@@ -177,24 +214,27 @@ export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
       </Section>
 
       {/* Features */}
-      <Section className="bg-white py-20 md:py-24">
+      <Section className="bg-[var(--app-surface-alt)] py-20 md:py-24">
         <Container maxWidth="xl">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0F172A] mb-12 text-center lg:text-left">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-12 text-center lg:text-left">
             Qué puedes hacer
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {app.features.map((feature) => {
               const Icon = feature.icon;
               return (
-                <div key={feature.title} className="rounded-2xl border border-[#E2E5EA] bg-[#F7F8FA] p-6">
+                <div
+                  key={feature.title}
+                  className="rounded-2xl border border-[var(--app-border)] bg-[var(--app-surface)] p-6 transition-colors hover:border-[var(--app-accent)]"
+                >
                   <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
-                    style={{ backgroundColor: `${app.accent}1A`, color: app.accent }}
+                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 text-[var(--app-accent)]"
+                    style={{ backgroundColor: `${theme.accent}26` }}
                   >
                     <Icon className="w-5 h-5" aria-hidden="true" />
                   </div>
-                  <h3 className="text-lg font-semibold text-[#0F172A] mb-1.5">{feature.title}</h3>
-                  <p className="text-sm text-[#5B6472] leading-relaxed">{feature.text}</p>
+                  <h3 className="text-lg font-semibold mb-1.5">{feature.title}</h3>
+                  <p className="text-sm text-[var(--app-text-muted)] leading-relaxed">{feature.text}</p>
                 </div>
               );
             })}
@@ -203,21 +243,18 @@ export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
       </Section>
 
       {/* How it works + Screenshots */}
-      <Section className="bg-[#F7F8FA] py-20 md:py-24">
+      <Section className="bg-[var(--app-bg)] py-20 md:py-24">
         <Container maxWidth="xl">
           <div className={`grid grid-cols-1 gap-12 ${app.screenshots.length > 0 ? 'lg:grid-cols-12 items-center' : ''}`}>
             <div className={app.screenshots.length > 0 ? 'lg:col-span-5' : 'max-w-2xl'}>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0F172A] mb-8">Cómo funciona</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-8">Cómo funciona</h2>
               <ol className="space-y-5">
                 {app.steps.map((step, i) => (
                   <li key={step} className="flex items-start gap-4">
-                    <span
-                      className="w-9 h-9 shrink-0 rounded-full flex items-center justify-center text-sm font-bold"
-                      style={{ backgroundColor: app.accent, color: app.accentText }}
-                    >
+                    <span className="w-9 h-9 shrink-0 rounded-full flex items-center justify-center text-sm font-bold bg-[var(--app-accent)] text-[var(--app-accent-text)]">
                       {i + 1}
                     </span>
-                    <span className="pt-1.5 text-base text-[#0F172A]">{step}</span>
+                    <span className="pt-1.5 text-base">{step}</span>
                   </li>
                 ))}
               </ol>
@@ -234,31 +271,31 @@ export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
       </Section>
 
       {/* Install guide + Privacy */}
-      <Section className="bg-white py-20 md:py-24">
+      <Section className="bg-[var(--app-surface-alt)] py-20 md:py-24">
         <Container maxWidth="xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-[#E2E5EA] p-7 sm:p-8">
-              <h2 className="text-2xl font-bold tracking-tight text-[#0F172A] mb-1">Cómo instalarla</h2>
-              <p className="text-sm text-[#5B6472] mb-6">En {platformName}, toma menos de un minuto.</p>
-              <ol className="space-y-4 list-decimal pl-5 marker:font-semibold marker:text-[#0F172A]">
-                {installSteps[app.platform].map((step) => (
-                  <li key={step} className="text-sm text-[#0F172A] leading-relaxed pl-1">
+            <div className="rounded-2xl border border-[var(--app-border)] bg-[var(--app-surface)] p-7 sm:p-8">
+              <h2 className="text-2xl font-bold tracking-tight mb-1">Cómo instalarla</h2>
+              <p className="text-sm text-[var(--app-text-muted)] mb-6">En {platformName}, toma pocos minutos.</p>
+              <ol className="space-y-4 list-decimal pl-5 marker:font-bold marker:text-[var(--app-accent)]">
+                {installSteps.map((step) => (
+                  <li key={step} className="text-sm leading-relaxed pl-1">
                     {step}
                   </li>
                 ))}
               </ol>
-              <p className="mt-6 text-xs text-[#5B6472] leading-relaxed">{installNote[app.platform]}</p>
+              <p className="mt-6 text-xs text-[var(--app-text-muted)] leading-relaxed">{installNote[app.platform]}</p>
             </div>
 
-            <div className="rounded-2xl border border-[#E2E5EA] bg-[#F7F8FA] p-7 sm:p-8">
+            <div className="rounded-2xl border border-[var(--app-border)] bg-[var(--app-surface)] p-7 sm:p-8">
               <div className="flex items-center gap-3 mb-6">
-                <ShieldCheck className="w-6 h-6 text-[#35507A]" aria-hidden="true" />
-                <h2 className="text-2xl font-bold tracking-tight text-[#0F172A]">{app.privacy.title}</h2>
+                <ShieldCheck className="w-6 h-6 text-[var(--app-highlight)] shrink-0" aria-hidden="true" />
+                <h2 className="text-2xl font-bold tracking-tight">{app.privacy.title}</h2>
               </div>
               <ul className="space-y-3">
                 {app.privacy.points.map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-sm text-[#0F172A] leading-relaxed">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#35507A] shrink-0" aria-hidden="true" />
+                  <li key={point} className="flex items-start gap-3 text-sm leading-relaxed">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[var(--app-highlight)] shrink-0" aria-hidden="true" />
                     {point}
                   </li>
                 ))}
@@ -269,35 +306,39 @@ export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
       </Section>
 
       {/* FAQ + CTA */}
-      <Section className="bg-[#F7F8FA] py-20 md:py-24">
+      <Section className="bg-[var(--app-bg)] py-20 md:py-24">
         <Container maxWidth="md">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0F172A] mb-8 text-center">
-            Preguntas frecuentes
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-8 text-center">Preguntas frecuentes</h2>
           <div className="space-y-3 mb-16">
             {app.faq.map((item) => (
-              <details key={item.q} className="group rounded-xl border border-[#E2E5EA] bg-white px-5 py-4">
-                <summary className="cursor-pointer list-none flex items-center justify-between gap-4 font-semibold text-[#0F172A]">
+              <details key={item.q} className="group rounded-xl border border-[var(--app-border)] bg-[var(--app-surface)] px-5 py-4">
+                <summary className="cursor-pointer list-none flex items-center justify-between gap-4 font-semibold">
                   {item.q}
-                  <span className="text-[#5B6472] transition-transform group-open:rotate-45 text-xl leading-none" aria-hidden="true">
+                  <span
+                    className="text-[var(--app-accent)] transition-transform group-open:rotate-45 text-xl leading-none"
+                    aria-hidden="true"
+                  >
                     +
                   </span>
                 </summary>
-                <p className="mt-3 text-sm text-[#5B6472] leading-relaxed">{item.a}</p>
+                <p className="mt-3 text-sm text-[var(--app-text-muted)] leading-relaxed">{item.a}</p>
               </details>
             ))}
           </div>
 
-          <div className="rounded-3xl bg-[#0F172A] px-6 py-12 sm:px-12 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-3">Prueba {app.name} hoy</h2>
-            <p className="text-[#CBD5E1] mb-8">Es gratis. Si tienes dudas, escríbenos.</p>
+          <div
+            className="rounded-3xl border border-[var(--app-border)] px-6 py-12 sm:px-12 text-center"
+            style={{ background: `radial-gradient(ellipse at top, ${theme.accent}33, transparent 70%), ${theme.surface}` }}
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3">Prueba {app.name} hoy</h2>
+            <p className="text-[var(--app-text-muted)] mb-8">Es gratis. Si tienes dudas, escríbenos.</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <DownloadButton app={app} className="w-full sm:w-auto" />
               <a
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-lg border border-white/20 text-sm font-semibold text-white hover:bg-white/10 transition-colors w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 h-12 px-7 rounded-xl border border-[var(--app-border)] text-sm font-semibold hover:bg-white/5 transition-colors w-full sm:w-auto"
               >
                 <MessageCircle className="w-4 h-4" aria-hidden="true" />
                 Preguntar por WhatsApp
@@ -306,6 +347,6 @@ export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
           </div>
         </Container>
       </Section>
-    </>
+    </div>
   );
 };

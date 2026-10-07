@@ -44,6 +44,21 @@ export type AppScreenshot = {
   alt: string;
 };
 
+// Colores y letra tomados del diseño de cada app.
+export type AppTheme = {
+  bg: string;
+  surface: string;
+  surfaceAlt: string;
+  border: string;
+  text: string;
+  textMuted: string;
+  accent: string;
+  accentText: string;
+  highlight: string;
+  font: string;
+  fontUrl?: string;
+};
+
 export type AppInfo = {
   slug: string;
   name: string;
@@ -52,13 +67,13 @@ export type AppInfo = {
   platform: Platform;
   version: string;
   fileLabel: string;
-  fileSize?: string;
+  fileSize: string;
+  downloadNote?: string;
   requirements?: string;
   // Enlace público de descarga (Drive). Sin enlace, el botón muestra "Disponible muy pronto".
   downloadUrl?: string;
   logo: string;
-  accent: string;
-  accentText: string;
+  theme: AppTheme;
   hero: { type: 'photo' | 'phone' | 'logo'; src: string; alt: string };
   features: AppFeature[];
   steps: string[];
@@ -66,6 +81,8 @@ export type AppInfo = {
   privacy: { title: string; points: string[] };
   faq: { q: string; a: string }[];
 };
+
+const driveDownload = (id: string) => `https://drive.google.com/uc?export=download&id=${id}`;
 
 export const apps: AppInfo[] = [
   {
@@ -77,9 +94,23 @@ export const apps: AppInfo[] = [
     platform: 'android',
     version: '1.0.0',
     fileLabel: 'APK para Android',
+    fileSize: '285 MB',
+    downloadNote: 'Pesa 285 MB: te recomendamos descargarla con wifi.',
+    downloadUrl: driveDownload('1L-ZGz6mejvUZz4Y28eqH_BBCa8AoSQsj'),
     logo: mesterLogo,
-    accent: '#8B1CF6',
-    accentText: '#FFFFFF',
+    theme: {
+      bg: '#0A0A0A',
+      surface: '#1B1B1D',
+      surfaceAlt: '#131315',
+      border: '#2A2A2C',
+      text: '#E4E2E4',
+      textMuted: '#CFC2D7',
+      accent: '#9333EA',
+      accentText: '#FFFFFF',
+      highlight: '#4AE176',
+      font: "'Space Grotesk', system-ui, sans-serif",
+      fontUrl: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap',
+    },
     hero: { type: 'photo', src: mesterTeam, alt: 'Los entrenadores de MESTER en su gimnasio' },
     features: [
       {
@@ -149,9 +180,22 @@ export const apps: AppInfo[] = [
     platform: 'android',
     version: '1.1',
     fileLabel: 'APK para Android',
+    fileSize: '21 MB',
+    downloadUrl: driveDownload('1A9Okdy1UYnNgCuF_VxkBo0-SCE1BOhib'),
     logo: amaraLogo,
-    accent: '#00C853',
-    accentText: '#04130A',
+    theme: {
+      bg: '#05070A',
+      surface: '#0B0F14',
+      surfaceAlt: '#0D121B',
+      border: 'rgba(0, 255, 150, 0.12)',
+      text: '#FFFFFF',
+      textMuted: '#A1A1AA',
+      accent: '#00E676',
+      accentText: '#000000',
+      highlight: '#00E676',
+      font: "'Inter', system-ui, sans-serif",
+      fontUrl: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
+    },
     hero: { type: 'phone', src: amaraPerfiles, alt: 'Panel principal de AMARA con sus perfiles' },
     features: [
       {
@@ -225,11 +269,22 @@ export const apps: AppInfo[] = [
     platform: 'windows',
     version: '2.3.0',
     fileLabel: 'Instalador para Windows',
-    fileSize: '109 MB',
+    fileSize: '112 MB',
     requirements: 'Windows 10 u 11 de 64 bits',
+    downloadUrl: driveDownload('1114yEU05fOagUqZVLyqx19AgyXBznHVM'),
     logo: kenazLogo,
-    accent: '#16A34A',
-    accentText: '#FFFFFF',
+    theme: {
+      bg: '#0B0F0E',
+      surface: '#121A17',
+      surfaceAlt: '#1A2521',
+      border: '#1F2D28',
+      text: '#ECF5F1',
+      textMuted: '#8FA89E',
+      accent: '#34D399',
+      accentText: '#04130E',
+      highlight: '#F5C451',
+      font: "'Segoe UI', system-ui, sans-serif",
+    },
     hero: { type: 'logo', src: kenazLogo, alt: 'Logo de KENAZ' },
     features: [
       {
