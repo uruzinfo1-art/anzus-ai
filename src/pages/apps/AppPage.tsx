@@ -220,7 +220,7 @@ export const AppPage: React.FC<{ app: AppInfo }> = ({ app }) => {
   const PlatformIcon = app.platform === 'android' ? Smartphone : Monitor;
 
   return (
-    <div style={themeVarsFor(theme)} className="bg-[var(--app-bg)] text-[var(--app-text)]">
+    <div style={themeVarsFor(theme)} className="bg-[var(--app-bg)] text-[var(--app-text)] overflow-x-clip">
       {/* Hero */}
       <Section className="relative overflow-hidden bg-[var(--app-bg)] pt-28 pb-16 md:pt-36 md:pb-24">
         <div

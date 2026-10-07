@@ -1,9 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, animate, motion, useInView } from 'motion/react';
+import React, { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import {
-  ArrowRight,
   ChevronDown,
-  Download,
   Dumbbell,
   Flame,
   ListChecks,
@@ -18,6 +16,7 @@ import { Container } from '@/components/layout/Container';
 import { Section } from '@/components/layout/Section';
 import type { AppInfo } from '../appsData';
 import { AppBottomSections, BackToAppsLink, themeVarsFor, useAppPageSetup } from '../AppPage';
+import { BigDownloadButton, Counter, FloatingChip } from '../shared';
 import { coaches, type Coach } from './coaches';
 import heroNala from '@/assets/images/apps/mester/hero-nala.webp';
 import fondoGym from '@/assets/images/apps/mester/fondo-gym.webp';
@@ -41,56 +40,13 @@ const headingClass = 'font-bold italic uppercase tracking-tight leading-[0.95]';
 /* ---------- Pequeñas piezas ---------- */
 
 const MesterDownloadButton: React.FC<{ app: AppInfo; className?: string }> = ({ app, className = '' }) => (
-  <a
+  <BigDownloadButton
     href={app.downloadUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={`group inline-flex items-center justify-center gap-3 h-14 px-8 rounded-2xl text-base font-bold text-white bg-gradient-to-r from-[#7E22CE] via-[#9333EA] to-[#C026D3] shadow-[0_0_40px_-6px_rgba(147,51,234,0.9)] border border-white/20 transition-all hover:-translate-y-0.5 hover:shadow-[0_0_60px_-4px_rgba(192,38,211,0.9)] ${className}`}
-  >
-    <Download className="w-5 h-5" aria-hidden="true" />
-    Descargar gratis
-    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-  </a>
+    gradient="linear-gradient(90deg, #7E22CE, #9333EA, #C026D3)"
+    glow="rgba(147,51,234,0.9)"
+    className={className}
+  />
 );
-
-const FloatingChip: React.FC<{ children: React.ReactNode; className?: string; delay?: number; color: string }> = ({
-  children,
-  className = '',
-  delay = 0,
-  color,
-}) => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.6 }}
-    animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
-    transition={{
-      opacity: { delay: 0.6 + delay, duration: 0.4 },
-      scale: { delay: 0.6 + delay, duration: 0.4, type: 'spring' },
-      y: { delay: 0.6 + delay, duration: 3.2, repeat: Infinity, ease: 'easeInOut' },
-    }}
-    className={`absolute z-30 inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold backdrop-blur-md border ${className}`}
-    style={{ backgroundColor: `${color}26`, borderColor: `${color}80`, color, boxShadow: `0 0 24px -6px ${color}` }}
-  >
-    {children}
-  </motion.div>
-);
-
-const Counter: React.FC<{ value: number; className?: string }> = ({ value, className = '' }) => {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
-  const [display, setDisplay] = useState(0);
-
-  useEffect(() => {
-    if (!inView) return;
-    const controls = animate(0, value, { duration: 1.6, ease: 'easeOut', onUpdate: (v) => setDisplay(Math.round(v)) });
-    return () => controls.stop();
-  }, [inView, value]);
-
-  return (
-    <span ref={ref} className={className}>
-      {display}
-    </span>
-  );
-};
 
 // Celular dibujado con código: pantalla de ejemplo de "Arma tu plato" (datos inventados).
 const NutritionPhone: React.FC<{ className?: string }> = ({ className = '' }) => {
@@ -630,7 +586,7 @@ const Nutrition: React.FC = () => (
 export const MesterPage: React.FC<{ app: AppInfo }> = ({ app }) => {
   useAppPageSetup(app);
   return (
-    <div style={themeVarsFor(app.theme)} className="bg-[#0A0A0A] text-[var(--app-text)]">
+    <div style={themeVarsFor(app.theme)} className="bg-[#0A0A0A] text-[var(--app-text)] overflow-x-clip">
       <Hero app={app} />
       <StatsStrip />
       <HowItWorks />
