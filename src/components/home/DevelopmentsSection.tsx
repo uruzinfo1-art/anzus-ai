@@ -17,6 +17,7 @@ type Project = {
   url: string;
   // true: abre la página de la app dentro del sitio; false: abre un sitio externo.
   internal?: boolean;
+  comingSoon?: boolean;
 };
 
 type Category = {
@@ -33,10 +34,11 @@ const categories: Category[] = [
       id: app.slug,
       logo: app.logo,
       name: app.name,
-      tag: `${app.platform === 'android' ? 'Android' : 'Windows'} · Gratis`,
+      tag: `${app.platform === 'android' ? 'Android' : 'Windows'} · ${app.comingSoon ? 'Próximamente' : 'Gratis'}`,
       description: app.description,
       url: `/apps/${app.slug}`,
       internal: true,
+      comingSoon: app.comingSoon,
     })),
   },
   {
@@ -93,7 +95,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
 
       <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#35507A] mt-5">
         {project.internal ? (
-          <>Ver y descargar <ArrowRight className="w-3.5 h-3.5" /></>
+          <>{project.comingSoon ? 'Ver más' : 'Ver y descargar'} <ArrowRight className="w-3.5 h-3.5" /></>
         ) : (
           <>Ver proyecto <ArrowUpRight className="w-3.5 h-3.5" /></>
         )}
@@ -124,7 +126,7 @@ export const DevelopmentsSection: React.FC = () => {
               <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#5B6472] mb-5 pb-2 border-b border-[#E2E5EA]">
                 {category.label}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {category.projects.map((project, i) => (
                   <ProjectCard key={project.id} project={project} index={i} />
                 ))}

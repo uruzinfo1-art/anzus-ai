@@ -3,6 +3,7 @@ import {
   BarChart3,
   Bell,
   CalendarCheck,
+  Clapperboard,
   ClipboardCheck,
   FolderKanban,
   Gift,
@@ -12,8 +13,13 @@ import {
   Layers,
   ListChecks,
   MessageCircle,
+  MessageSquareText,
+  Music,
   PiggyBank,
   Salad,
+  ScanEye,
+  Smartphone,
+  Store,
   Timer,
   Trophy,
   Users,
@@ -28,6 +34,7 @@ import amaraPerfiles from '@/assets/images/apps/amara-perfiles.jpg';
 import amaraBolsillos from '@/assets/images/apps/amara-bolsillos.jpg';
 import amaraNuevoGasto from '@/assets/images/apps/amara-nuevo-gasto.jpg';
 import kenazLogo from '@/assets/images/apps/kenaz-logo.jpg';
+import markSimbolo from '@/assets/images/apps/mark/simbolo.webp';
 
 export type Platform = 'android' | 'windows';
 
@@ -66,6 +73,8 @@ export type AppInfo = {
   version: string;
   fileLabel: string;
   fileSize: string;
+  // Apps que todavía no se pueden descargar: se muestran como "Próximamente".
+  comingSoon?: boolean;
   downloadNote?: string;
   requirements?: string;
   // Enlace público de descarga (Drive). Sin enlace, el botón muestra "Disponible muy pronto".
@@ -344,6 +353,88 @@ export const apps: AppInfo[] = [
       {
         q: '¿Necesito internet?',
         a: 'No. KENAZ funciona sin conexión y guarda todo en tu computador.',
+      },
+    ],
+  },
+  {
+    slug: 'mark',
+    name: 'MARK',
+    tagline: 'Videos para redes, editados por IA.',
+    description:
+      'Sube tus videos y fotos, cuéntale con tus palabras qué necesitas y MARK arma un video vertical con tu marca, listo para Instagram, TikTok o WhatsApp.',
+    platform: 'windows',
+    version: '0.3.0',
+    fileLabel: 'Programa para Windows',
+    fileSize: '104 MB',
+    comingSoon: true,
+    logo: markSimbolo,
+    theme: {
+      bg: '#0E0E11',
+      surface: '#16161A',
+      surfaceAlt: '#1E1E23',
+      border: '#33333B',
+      text: '#E9E9EC',
+      textMuted: '#8B8B95',
+      accent: '#D71920',
+      accentText: '#FFFFFF',
+      highlight: '#FF4D4D',
+      font: "'Segoe UI', system-ui, sans-serif",
+    },
+    hero: { type: 'logo', src: markSimbolo, alt: 'Símbolo de MARK' },
+    features: [
+      {
+        icon: ScanEye,
+        title: 'Analiza tus videos',
+        text: 'Revisa tus clips con inteligencia artificial para entender qué muestra cada uno.',
+      },
+      {
+        icon: Clapperboard,
+        title: 'Arma el plan y edita',
+        text: 'Decide escenas, cortes, textos y transiciones, y produce el video por ti.',
+      },
+      {
+        icon: Smartphone,
+        title: 'Vertical 9:16',
+        text: 'Listo para Reels, TikTok y estados de WhatsApp.',
+      },
+      {
+        icon: Store,
+        title: 'Tu marca guardada',
+        text: 'Cada negocio con su logo, redes, estilo y llamado a la acción, para no repetirlos en cada video.',
+      },
+      {
+        icon: Music,
+        title: 'Música y sonidos',
+        text: 'Elige un estilo (tecnológica, energética, elegante o corporativa) o sube tu propia pista.',
+      },
+      {
+        icon: MessageSquareText,
+        title: 'Descripciones para publicar',
+        text: 'Además del video, te propone textos para acompañarlo en tus redes.',
+      },
+    ],
+    steps: [
+      'Sube tus videos, fotos y, si quieres, tu logo.',
+      'Escribe con tus palabras el video que necesitas.',
+      'MARK lo planea, lo edita y te lo entrega listo para publicar.',
+    ],
+    screenshots: [],
+    privacy: {
+      title: 'Tus videos y tu marca',
+      points: [
+        'Tus proyectos y archivos se guardan en tu computador.',
+        'Para entender tus videos, MARK envía algunas imágenes de ellos a un servicio de inteligencia artificial (Anthropic).',
+      ],
+    },
+    faq: [
+      {
+        q: '¿Cuándo sale MARK?',
+        a: 'Estamos terminando de prepararla. Escríbenos por WhatsApp y te avisamos cuando esté lista.',
+      },
+      { q: '¿En qué computadores funciona?', a: 'MARK es un programa para Windows.' },
+      {
+        q: '¿Mis videos se suben a internet?',
+        a: 'Tus proyectos se guardan en tu computador. Para entender tus videos, MARK envía algunas imágenes de ellos a un servicio de inteligencia artificial.',
       },
     ],
   },

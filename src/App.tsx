@@ -19,6 +19,7 @@ import { AppPage } from '@/pages/apps/AppPage';
 import { MesterPage } from '@/pages/apps/mester/MesterPage';
 import { AmaraPage } from '@/pages/apps/amara/AmaraPage';
 import { KenazPage } from '@/pages/apps/kenaz/KenazPage';
+import { MarkPage } from '@/pages/apps/mark/MarkPage';
 import { findApp } from '@/pages/apps/appsData';
 import WhatsAppButton from "./components/WhatsAppButton";
 
@@ -79,6 +80,8 @@ export default function App() {
           <AmaraPage app={currentApp} />
         ) : currentApp?.slug === 'kenaz' ? (
           <KenazPage app={currentApp} />
+        ) : currentApp?.slug === 'mark' ? (
+          <MarkPage app={currentApp} />
         ) : currentApp ? (
           <AppPage key={currentApp.slug} app={currentApp} />
         ) : currentPath === '/personas' ? (
