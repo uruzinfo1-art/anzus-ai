@@ -21,6 +21,9 @@ import { AmaraPage } from '@/pages/apps/amara/AmaraPage';
 import { KenazPage } from '@/pages/apps/kenaz/KenazPage';
 import { MarkPage } from '@/pages/apps/mark/MarkPage';
 import { findApp } from '@/pages/apps/appsData';
+import { DownloadGateProvider } from '@/pages/apps/DownloadGate';
+import { TerminosPage } from '@/pages/legal/TerminosPage';
+import { PrivacidadPage } from '@/pages/legal/PrivacidadPage';
 import WhatsAppButton from "./components/WhatsAppButton";
 
 export default function App() {
@@ -74,7 +77,12 @@ export default function App() {
 
       {/* Main Page Content */}
       <main className="flex-1">
-        {currentApp?.slug === 'mester' ? (
+        <DownloadGateProvider>
+        {currentPath === '/terminos' ? (
+          <TerminosPage />
+        ) : currentPath === '/privacidad' ? (
+          <PrivacidadPage />
+        ) : currentApp?.slug === 'mester' ? (
           <MesterPage app={currentApp} />
         ) : currentApp?.slug === 'amara' ? (
           <AmaraPage app={currentApp} />
@@ -100,6 +108,7 @@ export default function App() {
             <ContactSection />
           </>
         )}
+        </DownloadGateProvider>
       </main>
 
            {/* Global Footer */}

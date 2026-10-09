@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from './Container';
 import { Linkedin, Instagram, Youtube, Github, Mail, Phone, MapPin } from 'lucide-react';
 import { AnsuzLogo } from '@/components/ui/AnsuzLogo';
+import { navigateTo } from '@/lib/navigate';
 
 export const Footer: React.FC = () => {
   return (
@@ -159,11 +160,11 @@ export const Footer: React.FC = () => {
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#5B6472]">
           <p>© 2024 ANSUZ. Todos los derechos reservados.</p>
           <div className="flex items-center gap-6">
-            <a href="#privacy" className="hover:text-[#0F172A] transition-colors">
-              Política de privacidad
+            <a href="/privacidad" onClick={(e) => navigateTo(e, '/privacidad')} className="hover:text-[#0F172A] transition-colors">
+              Política de tratamiento de datos
             </a>
             <span className="text-[#5B6472]">|</span>
-            <a href="#terms" className="hover:text-[#0F172A] transition-colors">
+            <a href="/terminos" onClick={(e) => navigateTo(e, '/terminos')} className="hover:text-[#0F172A] transition-colors">
               Términos y condiciones
             </a>
           </div>

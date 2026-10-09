@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
-import { ArrowLeft, Download, ShieldCheck, Smartphone, Monitor, Clock, MessageCircle } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, Download, ShieldCheck, Smartphone, Monitor, Clock, MessageCircle } from 'lucide-react';
+import { navigateTo } from '@/lib/navigate';
 import { Container } from '@/components/layout/Container';
 import { Section } from '@/components/layout/Section';
 import type { AppInfo, AppTheme } from './appsData';
+import { useDownloadGate } from './DownloadGate';
 
 const WHATSAPP_NUMBER = '573207283295';
 
@@ -73,6 +75,7 @@ export const themeVarsFor = (theme: AppTheme) =>
   }) as React.CSSProperties;
 
 export const DownloadButton: React.FC<{ app: AppInfo; className?: string }> = ({ app, className = '' }) => {
+  const { open } = useDownloadGate();
   if (!app.downloadUrl) {
     return (
       <span
@@ -86,15 +89,14 @@ export const DownloadButton: React.FC<{ app: AppInfo; className?: string }> = ({
   }
 
   return (
-    <a
-      href={app.downloadUrl}
-      target="_blank"
-      rel="noopener noreferrer"
+    <button
+      type="button"
+      onClick={() => open(app)}
       className={`inline-flex items-center justify-center gap-2 h-12 px-7 rounded-xl bg-[var(--app-accent)] text-[var(--app-accent-text)] text-sm font-bold shadow-[0_10px_30px_-10px_var(--app-accent)] transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--app-bg)] focus-visible:ring-[var(--app-accent)] ${className}`}
     >
       <Download className="w-4 h-4" aria-hidden="true" />
       Descargar gratis
-    </a>
+    </button>
   );
 };
 
@@ -163,6 +165,25 @@ export const AppBottomSections: React.FC<{ app: AppInfo }> = ({ app }) => {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+
+          <div className="mt-6 flex gap-4 rounded-2xl border border-[var(--app-border)] bg-[var(--app-surface)] p-6 sm:p-7">
+            <AlertTriangle className="w-6 h-6 shrink-0 text-[var(--app-highlight)]" aria-hidden="true" />
+            <div>
+              <h2 className="text-lg font-bold">Uso bajo tu responsabilidad</h2>
+              <p className="mt-1 text-sm leading-relaxed text-[var(--app-text-muted)]">{app.disclaimer}</p>
+              <p className="mt-3 text-sm">
+                Al descargar aceptas los{' '}
+                <a href="/terminos" onClick={(e) => navigateTo(e, '/terminos')} className="font-semibold underline underline-offset-2 text-[var(--app-accent)]">
+                  Términos y condiciones
+                </a>{' '}
+                y la{' '}
+                <a href="/privacidad" onClick={(e) => navigateTo(e, '/privacidad')} className="font-semibold underline underline-offset-2 text-[var(--app-accent)]">
+                  Política de tratamiento de datos
+                </a>
+                .
+              </p>
             </div>
           </div>
         </Container>

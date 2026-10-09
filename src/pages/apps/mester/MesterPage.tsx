@@ -41,7 +41,7 @@ const headingClass = 'font-bold italic uppercase tracking-tight leading-[0.95]';
 
 const MesterDownloadButton: React.FC<{ app: AppInfo; className?: string }> = ({ app, className = '' }) => (
   <BigDownloadButton
-    href={app.downloadUrl}
+    app={app}
     gradient="linear-gradient(90deg, #7E22CE, #9333EA, #C026D3)"
     glow="rgba(147,51,234,0.9)"
     className={className}

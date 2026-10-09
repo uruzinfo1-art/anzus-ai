@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { animate, motion, useInView } from 'motion/react';
+import type { AppInfo } from './appsData';
+import { useDownloadGate } from './DownloadGate';
 
 // Formato de pesos colombianos: 1230000 -> "$1.230.000".
 export const formatCOP = (value: number) => `$${Math.round(value).toLocaleString('es-CO')}`;
@@ -50,18 +52,20 @@ export const FloatingChip: React.FC<{ children: React.ReactNode; className?: str
 );
 
 // Botón grande de descarga con degradado propio de cada app.
+// Abre el registro (datos + aceptación de términos) antes de entregar el enlace.
 export const BigDownloadButton: React.FC<{
-  href?: string;
+  app: AppInfo;
   gradient: string;
   glow: string;
   textColor?: string;
   className?: string;
   children?: React.ReactNode;
-}> = ({ href, gradient, glow, textColor = '#FFFFFF', className = '', children = 'Descargar gratis' }) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
+}> = ({ app, gradient, glow, textColor = '#FFFFFF', className = '', children = 'Descargar gratis' }) => {
+  const { open } = useDownloadGate();
+  return (
+  <button
+    type="button"
+    onClick={() => open(app)}
     className={`group inline-flex items-center justify-center gap-3 h-14 px-8 rounded-2xl text-base font-bold border border-white/20 transition-all hover:-translate-y-0.5 ${className}`}
     style={{ backgroundImage: gradient, color: textColor, boxShadow: `0 0 40px -6px ${glow}` }}
   >
@@ -75,5 +79,6 @@ export const BigDownloadButton: React.FC<{
       <path d="M5 12h14" />
       <path d="m12 5 7 7-7 7" />
     </svg>
-  </a>
-);
+  </button>
+  );
+};

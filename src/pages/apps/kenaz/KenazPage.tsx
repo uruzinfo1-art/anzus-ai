@@ -258,7 +258,7 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
             <BigDownloadButton
-              href={app.downloadUrl}
+              app={app}
               gradient="linear-gradient(90deg, #059669, #34D399)"
               glow="rgba(52,211,153,0.75)"
               textColor="#04130E"

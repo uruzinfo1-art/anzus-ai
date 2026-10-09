@@ -75,6 +75,8 @@ export type AppInfo = {
   fileSize: string;
   // Apps que todavía no se pueden descargar: se muestran como "Próximamente".
   comingSoon?: boolean;
+  // Aviso de responsabilidad propio de la app (se muestra en su página, al descargar y en los Términos).
+  disclaimer: string;
   downloadNote?: string;
   requirements?: string;
   // Enlace público de descarga (Drive). Sin enlace, el botón muestra "Disponible muy pronto".
@@ -95,6 +97,8 @@ export const apps: AppInfo[] = [
   {
     slug: 'mester',
     name: 'MESTER',
+    disclaimer:
+      'MESTER es una herramienta de entrenamiento y hábitos. No es un servicio médico, de fisioterapia ni de nutrición, y no reemplaza a un profesional de la salud. Consulta a un médico antes de empezar a entrenar o de cambiar tu alimentación, y detente si sientes dolor o malestar.',
     tagline: 'Tu entrenador personal, convertido en juego.',
     description:
       'Entrena, gana XP, sube de nivel y llena tu propio espacio de entrenamiento. Un entrenador con personalidad te acompaña en cada rutina, en casa, en el gym o en el parque.',
@@ -181,6 +185,8 @@ export const apps: AppInfo[] = [
   {
     slug: 'amara',
     name: 'AMARA',
+    disclaimer:
+      'AMARA es una herramienta para organizar tus cuentas. No es asesoría financiera, contable, tributaria ni de inversión. Las decisiones sobre tu dinero son tuyas; verifica tus registros y consulta a un profesional cuando lo necesites.',
     tagline: 'Tus finanzas, en orden.',
     description:
       'Lleva las cuentas de tu casa y de tu negocio desde el celular: registra gastos e ingresos, ahorra en bolsillos y mira en qué se va tu plata. Próximamente, una versión paga con asistente por WhatsApp.',
@@ -268,6 +274,8 @@ export const apps: AppInfo[] = [
   {
     slug: 'kenaz',
     name: 'KENAZ',
+    disclaimer:
+      'KENAZ es una herramienta para organizar tareas, cobros y gastos. No es un software contable ni de facturación, y no reemplaza la asesoría de un contador. Haz copias de respaldo de tu información.',
     tagline: 'Organiza tus negocios desde un botón.',
     description:
       'Una aplicación de escritorio para emprendedores y personas que manejan varios negocios o proyectos a la vez. Un botón flotante, siempre visible en tu pantalla, te da acceso inmediato a todo lo pendiente.',
@@ -359,6 +367,8 @@ export const apps: AppInfo[] = [
   {
     slug: 'mark',
     name: 'MARK',
+    disclaimer:
+      'Los videos de MARK los genera una inteligencia artificial: revísalos antes de publicarlos. Eres responsable de tener los derechos sobre el material que subes y del uso que les des a los videos.',
     tagline: 'Videos para redes, editados por IA.',
     description:
       'Sube tus videos y fotos, cuéntale con tus palabras qué necesitas y MARK arma un video vertical con tu marca, listo para Instagram, TikTok o WhatsApp.',
