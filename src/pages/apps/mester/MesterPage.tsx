@@ -4,6 +4,7 @@ import {
   ChevronDown,
   Dumbbell,
   Flame,
+  Globe,
   ListChecks,
   Medal,
   Smartphone,
@@ -31,6 +32,8 @@ import entornoCasa from '@/assets/images/apps/mester/entorno-casa.webp';
 import entornoGym from '@/assets/images/apps/mester/entorno-gym.webp';
 import entornoParque from '@/assets/images/apps/mester/entorno-parque.webp';
 
+// Versión web de MESTER (proyecto de Vercel aparte), para iPhone y computador.
+const MESTER_WEB_URL = 'https://mester-web-ebon.vercel.app';
 const PURPLE = '#9333EA';
 const XP_GREEN = '#4AE176';
 // El padding evita que la cursiva recorte la última letra del degradado.
@@ -141,8 +144,17 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
             entrenamiento.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+          <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap items-center justify-center lg:justify-start gap-3">
             <MesterDownloadButton app={app} className="w-full sm:w-auto" />
+            <a
+              href={MESTER_WEB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 h-14 px-7 rounded-2xl bg-white/10 border border-[#4AE176]/60 text-white font-semibold whitespace-nowrap hover:bg-[#4AE176]/15 transition-colors w-full sm:w-auto"
+            >
+              <Globe className="w-5 h-5 text-[#4AE176]" aria-hidden="true" />
+              Usar en la web
+            </a>
             <a
               href="#entrenadores"
               onClick={(e) => {
@@ -159,6 +171,7 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
           <p className="mt-5 text-sm text-[#CFC2D7]/80">
             APK para Android · Versión {app.version} · {app.fileSize} · <span className="text-[#4AE176] font-semibold">Gratis</span>
           </p>
+          <p className="mt-1 text-xs text-[#CFC2D7]/60">¿Tienes iPhone o computador? Úsala en la web, sin instalar nada.</p>
           {app.downloadNote && <p className="mt-1 text-xs text-[#CFC2D7]/60">{app.downloadNote}</p>}
         </motion.div>
 
