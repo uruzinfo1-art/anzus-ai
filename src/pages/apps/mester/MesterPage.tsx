@@ -20,7 +20,7 @@ import { AppBottomSections, BackToAppsLink, themeVarsFor, useAppPageSetup } from
 import { BigDownloadButton, Counter, FloatingChip } from '../shared';
 import { FaAndroid, FaApple } from 'react-icons/fa';
 import { coaches, type Coach } from './coaches';
-import { IphoneGuide } from './IphoneGuide';
+import { navigateTo } from '@/lib/navigate';
 import heroNala from '@/assets/images/apps/mester/hero-nala.webp';
 import fondoGym from '@/assets/images/apps/mester/fondo-gym.webp';
 import pantallaMentor from '@/assets/images/apps/mester/pantalla-mentor.webp';
@@ -35,7 +35,7 @@ import entornoGym from '@/assets/images/apps/mester/entorno-gym.webp';
 import entornoParque from '@/assets/images/apps/mester/entorno-parque.webp';
 
 // Versión web de MESTER (proyecto de Vercel aparte), para iPhone y computador.
-const MESTER_WEB_URL = 'https://mester-web-ebon.vercel.app';
+export const MESTER_WEB_URL = 'https://mester-web-ebon.vercel.app';
 const PURPLE = '#9333EA';
 const XP_GREEN = '#4AE176';
 // El padding evita que la cursiva recorte la última letra del degradado.
@@ -172,11 +172,8 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
               Usar en la web
             </a>
             <a
-              href="#iphone"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#iphone')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              href="/apps/mester/iphone"
+              onClick={(e) => navigateTo(e, '/apps/mester/iphone')}
               className="inline-flex items-center justify-center gap-2 h-14 px-4 rounded-2xl border border-white/25 text-white font-semibold whitespace-nowrap hover:bg-white/10 transition-colors w-full sm:w-auto"
             >
               <FaApple className="w-5 h-5" aria-hidden="true" />
@@ -629,7 +626,6 @@ export const MesterPage: React.FC<{ app: AppInfo }> = ({ app }) => {
     <div style={themeVarsFor(app.theme)} className="bg-[#0A0A0A] text-[var(--app-text)] overflow-x-clip">
       <Hero app={app} />
       <StatsStrip />
-      <IphoneGuide webUrl={MESTER_WEB_URL} />
       <HowItWorks />
       <CoachRoster />
       <LevelUp />

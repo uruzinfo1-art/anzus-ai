@@ -16,7 +16,8 @@ import { PersonasPage } from '@/pages/PersonasPage';
 import { NegociosPage } from '@/pages/NegociosPage';
 import { EmpresasPage } from '@/pages/EmpresasPage';
 import { AppPage } from '@/pages/apps/AppPage';
-import { MesterPage } from '@/pages/apps/mester/MesterPage';
+import { MesterPage, MESTER_WEB_URL } from '@/pages/apps/mester/MesterPage';
+import { MesterIphonePage } from '@/pages/apps/mester/IphoneGuide';
 import { AmaraPage } from '@/pages/apps/amara/AmaraPage';
 import { KenazPage } from '@/pages/apps/kenaz/KenazPage';
 import { findApp } from '@/pages/apps/appsData';
@@ -73,7 +74,9 @@ export default function App() {
 
       {/* Main Page Content */}
       <main className="flex-1">
-        {currentApp?.slug === 'mester' ? (
+        {/^\/apps\/mester\/iphone\/?$/.test(currentPath) ? (
+          <MesterIphonePage webUrl={MESTER_WEB_URL} />
+        ) : currentApp?.slug === 'mester' ? (
           <MesterPage app={currentApp} />
         ) : currentApp?.slug === 'amara' ? (
           <AmaraPage app={currentApp} />
