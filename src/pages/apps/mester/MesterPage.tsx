@@ -43,13 +43,19 @@ const headingClass = 'font-bold italic uppercase tracking-tight leading-[0.95]';
 
 /* ---------- Pequeñas piezas ---------- */
 
-const MesterDownloadButton: React.FC<{ app: AppInfo; className?: string }> = ({ app, className = '' }) => (
+const MesterDownloadButton: React.FC<{ app: AppInfo; className?: string; children?: React.ReactNode }> = ({
+  app,
+  className = '',
+  children,
+}) => (
   <BigDownloadButton
     href={app.downloadUrl}
     gradient="linear-gradient(90deg, #7E22CE, #9333EA, #C026D3)"
     glow="rgba(147,51,234,0.9)"
     className={className}
-  />
+  >
+    {children}
+  </BigDownloadButton>
 );
 
 // Celular dibujado con código: pantalla de ejemplo de "Arma tu plato" (datos inventados).
@@ -146,7 +152,9 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap items-center justify-center lg:justify-start gap-3">
-            <MesterDownloadButton app={app} className="w-full sm:w-auto" />
+            <MesterDownloadButton app={app} className="w-full sm:w-auto">
+              Android
+            </MesterDownloadButton>
             <a
               href={MESTER_WEB_URL}
               target="_blank"
