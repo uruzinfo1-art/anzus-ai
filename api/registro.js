@@ -1,7 +1,7 @@
 // Endpoint de Vercel: POST /api/registro
 // Recibe el formulario de descarga, lo valida y lo guarda en Supabase.
 // Variables de entorno (se configuran en Vercel, nunca en el código):
-//   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
+//   SUPABASE_URL, SUPABASE_ANON_KEY
 import { procesarRegistro } from './_lib/registro-core.js';
 
 export default async function handler(req, res) {

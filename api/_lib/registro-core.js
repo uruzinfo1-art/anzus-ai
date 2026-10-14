@@ -92,13 +92,14 @@ export function validarRegistro(body) {
   };
 }
 
-// Inserta el registro con la llave de servicio (solo existe en el servidor, nunca en el navegador).
-export async function guardarRegistro(datos, { url, serviceKey, fetchImpl = fetch }) {
+// Inserta el registro con la llave pública (anon). En Supabase, la tabla solo permite INSERTAR con esa llave:
+// no se puede leer, cambiar ni borrar nada (ver supabase/registros_descarga.sql).
+export async function guardarRegistro(datos, { url, key, fetchImpl = fetch }) {
   const respuesta = await fetchImpl(`${url.replace(/\/$/, '')}/rest/v1/registros_descarga`, {
     method: 'POST',
     headers: {
-      apikey: serviceKey,
-      Authorization: `Bearer ${serviceKey}`,
+      apikey: key,
+      Authorization: `Bearer ${key}`,
       'Content-Type': 'application/json',
       Prefer: 'return=minimal',
     },
@@ -128,7 +129,7 @@ export function superaLimite(ip, ahora = Date.now()) {
  *   origin?: string,
  *   ip?: string,
  *   body: unknown,
- *   env: { SUPABASE_URL?: string, SUPABASE_SERVICE_ROLE_KEY?: string },
+ *   env: { SUPABASE_URL?: string, SUPABASE_ANON_KEY?: string },
  *   fetchImpl?: typeof fetch,
  * }} solicitud
  * @returns {Promise<{ status: number, json: Record<string, unknown> }>}
@@ -144,15 +145,15 @@ export async function procesarRegistro({ method, origin, ip, body, env, fetchImp
   if (!resultado.ok) return { status: 400, json: { ok: false, error: resultado.error } };
   if (resultado.ignorar) return { status: 200, json: { ok: true } };
 
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
-    console.error('registro: faltan SUPABASE_URL o SUPABASE_SERVICE_ROLE_KEY');
+  if (!env.SUPABASE_URL || !env.SUPABASE_ANON_KEY) {
+    console.error('registro: faltan SUPABASE_URL o SUPABASE_ANON_KEY');
     return { status: 503, json: { ok: false, error: 'El registro no está disponible en este momento.' } };
   }
 
   try {
     const guardado = await guardarRegistro(resultado.datos, {
       url: env.SUPABASE_URL,
-      serviceKey: env.SUPABASE_SERVICE_ROLE_KEY,
+      key: env.SUPABASE_ANON_KEY,
       fetchImpl,
     });
     if (!guardado) {

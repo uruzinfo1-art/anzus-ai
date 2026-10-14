@@ -22,14 +22,14 @@ const registroLocal = (env: Record<string, string>): Plugin => ({
         } catch {
           body = null;
         }
-        const sinLlaves = !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY;
+        const sinLlaves = !env.SUPABASE_URL || !env.SUPABASE_ANON_KEY;
         const {status, json} = sinLlaves
           ? await procesarRegistro({
               method: req.method,
               origin: req.headers.origin,
               ip: req.socket.remoteAddress,
               body,
-              env: {SUPABASE_URL: 'http://modo-prueba', SUPABASE_SERVICE_ROLE_KEY: 'modo-prueba'},
+              env: {SUPABASE_URL: 'http://modo-prueba', SUPABASE_ANON_KEY: 'modo-prueba'},
               fetchImpl: async () => new Response(null, {status: 201}),
             }).then((r) => (r.status === 200 ? {...r, json: {...r.json, prueba: true}} : r))
           : await procesarRegistro({

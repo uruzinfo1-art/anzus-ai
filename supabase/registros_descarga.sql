@@ -1,5 +1,6 @@
 -- Tabla de registros de quienes descargan las apps de ANSUZ.
 -- Cómo usarlo: en Supabase, abre "SQL Editor", pega todo este archivo y toca "Run".
+-- Se puede ejecutar en un proyecto que ya tenga otras tablas: solo crea esta tabla y su vista.
 
 create table if not exists public.registros_descarga (
   id uuid primary key default gen_random_uuid(),
@@ -22,10 +23,22 @@ create table if not exists public.registros_descarga (
 
 create index if not exists registros_descarga_correo_idx on public.registros_descarga (lower(correo));
 
--- Seguridad: se activa RLS y no se crea ninguna política.
--- Así nadie puede leer ni escribir la tabla desde el navegador; solo el servidor
--- (con la llave de servicio) puede insertar, y tú puedes verla desde el panel de Supabase.
+-- Seguridad. El sitio usa la llave pública (anon), así que con esa llave solo se permite
+-- AGREGAR registros válidos: no se puede leer, cambiar ni borrar nada. Tú ves la tabla
+-- desde el panel de Supabase.
 alter table public.registros_descarga enable row level security;
+
+revoke all on public.registros_descarga from anon, authenticated;
+grant insert (nombre, correo, celular, app, mayor_de_edad, acepta_terminos, acepta_politica,
+              acepta_novedades, version_documentos)
+  on public.registros_descarga to anon;
+
+drop policy if exists "registro publico solo insertar" on public.registros_descarga;
+create policy "registro publico solo insertar"
+  on public.registros_descarga
+  for insert
+  to anon
+  with check (mayor_de_edad and acepta_terminos and acepta_politica and not dado_de_baja and dado_de_baja_en is null);
 
 -- Vista de ayuda para enviar correos: un registro por persona (el más reciente),
 -- con su permiso de novedades. Úsala para exportar listas.
@@ -41,3 +54,6 @@ select distinct on (lower(correo))
   creado_en as ultimo_registro
 from public.registros_descarga
 order by lower(correo), creado_en desc;
+
+-- La vista tampoco se puede leer con las llaves públicas.
+revoke all on public.contactos_correo from anon, authenticated;

@@ -3,16 +3,22 @@
 Antes de descargar una app, la persona deja sus datos y acepta los Términos y la Política.
 El formulario envía todo a `/api/registro` (función de Vercel), que valida y guarda en Supabase.
 
+La tabla vive en el proyecto de Supabase **mester** (el plan gratis solo permite 2 proyectos).
+Para no exponer ese proyecto, el sitio usa la **llave pública (anon)** y la tabla solo permite
+*agregar* registros con esa llave: no se pueden leer, cambiar ni borrar. Nunca pongas la llave
+`service_role` en el sitio.
+
 ## Configuración (una sola vez)
 
-1. Crea un proyecto nuevo en <https://supabase.com> (por ejemplo `ansuz-registros`).
-2. En el proyecto, abre **SQL Editor**, pega el contenido de `registros_descarga.sql` y toca **Run**.
+1. En Supabase, abre el proyecto **mester** → **SQL Editor** → **New query**.
+2. Pega todo el contenido de `registros_descarga.sql` y toca **Run** (debe decir "Success").
 3. En **Project Settings → API** copia:
    - **Project URL**
-   - la llave **service_role** (es secreta: no la compartas ni la pegues en el código ni en chats).
-4. En Vercel, abre el proyecto del sitio → **Settings → Environment Variables** y agrega:
+   - la llave **anon / public**
+4. En Vercel, proyecto **anzus-ai** → **Settings → Environment Variables**, agrega
+   (para Production y Preview):
    - `SUPABASE_URL` = la Project URL
-   - `SUPABASE_SERVICE_ROLE_KEY` = la llave service_role
+   - `SUPABASE_ANON_KEY` = la llave anon
 5. Vuelve a desplegar el sitio para que tome las variables.
 
 Mientras esas variables no existan, el formulario muestra "El registro no está disponible en este momento"
