@@ -60,7 +60,9 @@ export const BigDownloadButton: React.FC<{
   textColor?: string;
   className?: string;
   children?: React.ReactNode;
-}> = ({ app, gradient, glow, textColor = '#FFFFFF', className = '', children = 'Descargar gratis' }) => {
+  // Ícono a la izquierda; por defecto, una flecha de descarga.
+  icon?: React.ReactNode;
+}> = ({ app, gradient, glow, textColor = '#FFFFFF', className = '', children = 'Descargar gratis', icon }) => {
   const { open } = useDownloadGate();
   return (
   <button
@@ -69,11 +71,13 @@ export const BigDownloadButton: React.FC<{
     className={`group inline-flex items-center justify-center gap-3 h-14 px-8 rounded-2xl text-base font-bold border border-white/20 transition-all hover:-translate-y-0.5 ${className}`}
     style={{ backgroundImage: gradient, color: textColor, boxShadow: `0 0 40px -6px ${glow}` }}
   >
-    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-      <path d="m7 10 5 5 5-5" />
-      <path d="M12 15V3" />
-    </svg>
+    {icon ?? (
+      <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <path d="m7 10 5 5 5-5" />
+        <path d="M12 15V3" />
+      </svg>
+    )}
     {children}
     <svg viewBox="0 0 24 24" className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M5 12h14" />

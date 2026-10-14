@@ -18,7 +18,9 @@ import { Section } from '@/components/layout/Section';
 import type { AppInfo } from '../appsData';
 import { AppBottomSections, BackToAppsLink, themeVarsFor, useAppPageSetup } from '../AppPage';
 import { BigDownloadButton, Counter, FloatingChip } from '../shared';
+import { FaAndroid, FaApple } from 'react-icons/fa';
 import { coaches, type Coach } from './coaches';
+import { navigateTo } from '@/lib/navigate';
 import heroNala from '@/assets/images/apps/mester/hero-nala.webp';
 import fondoGym from '@/assets/images/apps/mester/fondo-gym.webp';
 import pantallaMentor from '@/assets/images/apps/mester/pantalla-mentor.webp';
@@ -33,7 +35,7 @@ import entornoGym from '@/assets/images/apps/mester/entorno-gym.webp';
 import entornoParque from '@/assets/images/apps/mester/entorno-parque.webp';
 
 // Versión web de MESTER (proyecto de Vercel aparte), para iPhone y computador.
-const MESTER_WEB_URL = 'https://mester-web-ebon.vercel.app';
+export const MESTER_WEB_URL = 'https://mester-web-ebon.vercel.app';
 const PURPLE = '#9333EA';
 const XP_GREEN = '#4AE176';
 // El padding evita que la cursiva recorte la última letra del degradado.
@@ -42,13 +44,21 @@ const headingClass = 'font-bold italic uppercase tracking-tight leading-[0.95]';
 
 /* ---------- Pequeñas piezas ---------- */
 
-const MesterDownloadButton: React.FC<{ app: AppInfo; className?: string }> = ({ app, className = '' }) => (
+const MesterDownloadButton: React.FC<{
+  app: AppInfo;
+  className?: string;
+  children?: React.ReactNode;
+  icon?: React.ReactNode;
+}> = ({ app, className = '', children, icon }) => (
   <BigDownloadButton
     app={app}
     gradient="linear-gradient(90deg, #7E22CE, #9333EA, #C026D3)"
     glow="rgba(147,51,234,0.9)"
     className={className}
-  />
+    icon={icon}
+  >
+    {children}
+  </BigDownloadButton>
 );
 
 // Celular dibujado con código: pantalla de ejemplo de "Arma tu plato" (datos inventados).
@@ -145,34 +155,48 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap items-center justify-center lg:justify-start gap-3">
-            <MesterDownloadButton app={app} className="w-full sm:w-auto" />
+            <MesterDownloadButton
+              app={app}
+              className="w-full sm:w-auto"
+              icon={<FaAndroid className="w-6 h-6 text-[#3DDC84]" aria-hidden="true" />}
+            >
+              Android
+            </MesterDownloadButton>
             <a
               href={MESTER_WEB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 h-14 px-7 rounded-2xl bg-white/10 border border-[#4AE176]/60 text-white font-semibold whitespace-nowrap hover:bg-[#4AE176]/15 transition-colors w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 h-14 px-5 rounded-2xl bg-white/10 border border-[#4AE176]/60 text-white font-semibold whitespace-nowrap hover:bg-[#4AE176]/15 transition-colors w-full sm:w-auto"
             >
               <Globe className="w-5 h-5 text-[#4AE176]" aria-hidden="true" />
               Usar en la web
             </a>
             <a
-              href="#entrenadores"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#entrenadores')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="inline-flex items-center justify-center gap-2 h-14 px-7 rounded-2xl border border-[#9333EA]/70 text-white font-semibold hover:bg-[#9333EA]/15 transition-colors w-full sm:w-auto"
+              href="/apps/mester/iphone"
+              onClick={(e) => navigateTo(e, '/apps/mester/iphone')}
+              className="inline-flex items-center justify-center gap-2 h-14 px-4 rounded-2xl border border-white/25 text-white font-semibold whitespace-nowrap hover:bg-white/10 transition-colors w-full sm:w-auto"
             >
-              Conoce a los entrenadores
-              <ChevronDown className="w-5 h-5" aria-hidden="true" />
+              <FaApple className="w-5 h-5" aria-hidden="true" />
+              iPhone
             </a>
           </div>
 
           <p className="mt-5 text-sm text-[#CFC2D7]/80">
             APK para Android · Versión {app.version} · {app.fileSize} · <span className="text-[#4AE176] font-semibold">Gratis</span>
           </p>
-          <p className="mt-1 text-xs text-[#CFC2D7]/60">¿Tienes iPhone o computador? Úsala en la web, sin instalar nada.</p>
+          <p className="mt-1 text-xs text-[#CFC2D7]/60">¿Tienes iPhone, iPad o computador? Úsala en la web, sin instalar nada.</p>
           {app.downloadNote && <p className="mt-1 text-xs text-[#CFC2D7]/60">{app.downloadNote}</p>}
+          <a
+            href="#entrenadores"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('#entrenadores')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="mt-4 flex w-fit mx-auto lg:mx-0 items-center gap-1.5 text-sm font-semibold text-[#DDB8FF] hover:text-white transition-colors"
+          >
+            Conoce a los entrenadores
+            <ChevronDown className="w-4 h-4" aria-hidden="true" />
+          </a>
         </motion.div>
 
         {/* Personaje + celulares */}
