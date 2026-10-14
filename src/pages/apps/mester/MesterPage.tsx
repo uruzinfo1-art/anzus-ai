@@ -151,29 +151,40 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
               href={MESTER_WEB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 h-14 px-7 rounded-2xl bg-white/10 border border-[#4AE176]/60 text-white font-semibold whitespace-nowrap hover:bg-[#4AE176]/15 transition-colors w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 h-14 px-5 rounded-2xl bg-white/10 border border-[#4AE176]/60 text-white font-semibold whitespace-nowrap hover:bg-[#4AE176]/15 transition-colors w-full sm:w-auto"
             >
               <Globe className="w-5 h-5 text-[#4AE176]" aria-hidden="true" />
               Usar en la web
             </a>
             <a
-              href="#entrenadores"
+              href="#iphone"
               onClick={(e) => {
                 e.preventDefault();
-                document.querySelector('#entrenadores')?.scrollIntoView({ behavior: 'smooth' });
+                document.querySelector('#iphone')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="inline-flex items-center justify-center gap-2 h-14 px-7 rounded-2xl border border-[#9333EA]/70 text-white font-semibold hover:bg-[#9333EA]/15 transition-colors w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 h-14 px-4 rounded-2xl border border-white/25 text-white font-semibold whitespace-nowrap hover:bg-white/10 transition-colors w-full sm:w-auto"
             >
-              Conoce a los entrenadores
-              <ChevronDown className="w-5 h-5" aria-hidden="true" />
+              <Smartphone className="w-5 h-5" aria-hidden="true" />
+              iPhone
             </a>
           </div>
 
           <p className="mt-5 text-sm text-[#CFC2D7]/80">
             APK para Android · Versión {app.version} · {app.fileSize} · <span className="text-[#4AE176] font-semibold">Gratis</span>
           </p>
-          <p className="mt-1 text-xs text-[#CFC2D7]/60">¿Tienes iPhone o computador? Úsala en la web, sin instalar nada. <a href="#iphone" onClick={(e) => { e.preventDefault(); document.querySelector('#iphone')?.scrollIntoView({ behavior: 'smooth' }); }} className="font-semibold text-[#4AE176] underline underline-offset-2">Mira cómo dejarla en tu iPhone</a></p>
+          <p className="mt-1 text-xs text-[#CFC2D7]/60">¿Tienes iPhone, iPad o computador? Úsala en la web, sin instalar nada.</p>
           {app.downloadNote && <p className="mt-1 text-xs text-[#CFC2D7]/60">{app.downloadNote}</p>}
+          <a
+            href="#entrenadores"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('#entrenadores')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="mt-4 flex w-fit mx-auto lg:mx-0 items-center gap-1.5 text-sm font-semibold text-[#DDB8FF] hover:text-white transition-colors"
+          >
+            Conoce a los entrenadores
+            <ChevronDown className="w-4 h-4" aria-hidden="true" />
+          </a>
         </motion.div>
 
         {/* Personaje + celulares */}
