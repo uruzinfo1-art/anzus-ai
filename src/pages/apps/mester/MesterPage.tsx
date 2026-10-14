@@ -19,6 +19,7 @@ import type { AppInfo } from '../appsData';
 import { AppBottomSections, BackToAppsLink, themeVarsFor, useAppPageSetup } from '../AppPage';
 import { BigDownloadButton, Counter, FloatingChip } from '../shared';
 import { coaches, type Coach } from './coaches';
+import { IphoneGuide } from './IphoneGuide';
 import heroNala from '@/assets/images/apps/mester/hero-nala.webp';
 import fondoGym from '@/assets/images/apps/mester/fondo-gym.webp';
 import pantallaMentor from '@/assets/images/apps/mester/pantalla-mentor.webp';
@@ -171,7 +172,7 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
           <p className="mt-5 text-sm text-[#CFC2D7]/80">
             APK para Android · Versión {app.version} · {app.fileSize} · <span className="text-[#4AE176] font-semibold">Gratis</span>
           </p>
-          <p className="mt-1 text-xs text-[#CFC2D7]/60">¿Tienes iPhone o computador? Úsala en la web, sin instalar nada.</p>
+          <p className="mt-1 text-xs text-[#CFC2D7]/60">¿Tienes iPhone o computador? Úsala en la web, sin instalar nada. <a href="#iphone" onClick={(e) => { e.preventDefault(); document.querySelector('#iphone')?.scrollIntoView({ behavior: 'smooth' }); }} className="font-semibold text-[#4AE176] underline underline-offset-2">Mira cómo dejarla en tu iPhone</a></p>
           {app.downloadNote && <p className="mt-1 text-xs text-[#CFC2D7]/60">{app.downloadNote}</p>}
         </motion.div>
 
@@ -602,6 +603,7 @@ export const MesterPage: React.FC<{ app: AppInfo }> = ({ app }) => {
     <div style={themeVarsFor(app.theme)} className="bg-[#0A0A0A] text-[var(--app-text)] overflow-x-clip">
       <Hero app={app} />
       <StatsStrip />
+      <IphoneGuide webUrl={MESTER_WEB_URL} />
       <HowItWorks />
       <CoachRoster />
       <LevelUp />
