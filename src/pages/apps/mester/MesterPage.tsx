@@ -18,6 +18,7 @@ import { Section } from '@/components/layout/Section';
 import type { AppInfo } from '../appsData';
 import { AppBottomSections, BackToAppsLink, themeVarsFor, useAppPageSetup } from '../AppPage';
 import { BigDownloadButton, Counter, FloatingChip } from '../shared';
+import { FaAndroid, FaApple } from 'react-icons/fa';
 import { coaches, type Coach } from './coaches';
 import { IphoneGuide } from './IphoneGuide';
 import heroNala from '@/assets/images/apps/mester/hero-nala.webp';
@@ -43,16 +44,18 @@ const headingClass = 'font-bold italic uppercase tracking-tight leading-[0.95]';
 
 /* ---------- Pequeñas piezas ---------- */
 
-const MesterDownloadButton: React.FC<{ app: AppInfo; className?: string; children?: React.ReactNode }> = ({
-  app,
-  className = '',
-  children,
-}) => (
+const MesterDownloadButton: React.FC<{
+  app: AppInfo;
+  className?: string;
+  children?: React.ReactNode;
+  icon?: React.ReactNode;
+}> = ({ app, className = '', children, icon }) => (
   <BigDownloadButton
     href={app.downloadUrl}
     gradient="linear-gradient(90deg, #7E22CE, #9333EA, #C026D3)"
     glow="rgba(147,51,234,0.9)"
     className={className}
+    icon={icon}
   >
     {children}
   </BigDownloadButton>
@@ -152,7 +155,11 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap items-center justify-center lg:justify-start gap-3">
-            <MesterDownloadButton app={app} className="w-full sm:w-auto">
+            <MesterDownloadButton
+              app={app}
+              className="w-full sm:w-auto"
+              icon={<FaAndroid className="w-6 h-6 text-[#3DDC84]" aria-hidden="true" />}
+            >
               Android
             </MesterDownloadButton>
             <a
@@ -172,7 +179,7 @@ const Hero: React.FC<{ app: AppInfo }> = ({ app }) => (
               }}
               className="inline-flex items-center justify-center gap-2 h-14 px-4 rounded-2xl border border-white/25 text-white font-semibold whitespace-nowrap hover:bg-white/10 transition-colors w-full sm:w-auto"
             >
-              <Smartphone className="w-5 h-5" aria-hidden="true" />
+              <FaApple className="w-5 h-5" aria-hidden="true" />
               iPhone
             </a>
           </div>
