@@ -95,7 +95,9 @@ export function validarRegistro(body) {
 // Inserta el registro con la llave pública (anon). En Supabase, la tabla solo permite INSERTAR con esa llave:
 // no se puede leer, cambiar ni borrar nada (ver supabase/registros_descarga.sql).
 export async function guardarRegistro(datos, { url, key, fetchImpl = fetch }) {
-  const respuesta = await fetchImpl(`${url.replace(/\/$/, '')}/rest/v1/registros_descarga`, {
+  // Acepta la URL con o sin "/rest/v1/" al final (Supabase la muestra de las dos formas).
+  const base = url.trim().replace(/\/+$/, '').replace(/\/rest\/v1$/, '');
+  const respuesta = await fetchImpl(`${base}/rest/v1/registros_descarga`, {
     method: 'POST',
     headers: {
       apikey: key,
