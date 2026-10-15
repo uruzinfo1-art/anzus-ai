@@ -298,7 +298,7 @@ export const MesterIphonePage: React.FC<{ webUrl: string }> = ({ webUrl }) => {
 
                 {/* Ilustración ampliada */}
                 <div
-                  className={`mt-6 flex justify-center ${device === 'iphone' ? 'h-[400px] sm:h-[500px]' : 'h-[205px] sm:h-[290px]'}`}
+                  className={`mt-6 flex items-start justify-center pointer-events-none ${device === 'iphone' ? 'h-[400px] sm:h-[500px]' : 'h-[205px] sm:h-[290px]'}`}
                 >
                   <div className={`origin-top ${device === 'iphone' ? 'scale-[1.25] sm:scale-[1.55]' : 'scale-100 sm:scale-[1.35]'}`}>
                     <MockScreen device={device} phase={step.phase} />
